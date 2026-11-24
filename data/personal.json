@@ -1,9 +1,9 @@
 {
   "moniker": "mew's site",
-  "headline": "quien soy?",
+  "headline": "sobre mí",
   "subheadline": "ARTISTA // DISEÑADOR",
-  "statement": "soy mew, un diseñador gráfico con experiencia en...",
-  "avatar": "assets/ui/sidebar-avatar.webp",
+  "statement": "En lo que mejor me desenvuelvo es en ilustraciones tradicionales en blanco y negro, con más preferencia a ilustraciones en digital. Se utilizar los programas Illustrator, Photoshop, Ibis paint y Krita. Sé tomar fotografías, hacer esculturas, murales. Me gustaría expandir mis conocimientos hacia la produccion musical y tambien al diseño de paginas web. Aquí queda enlazado mi currículum.",
+  "avatar": "assets/ui/avatar.jpeg",
   "curriculum": {
     "enabled": true,
     "url": "assets/docs/curriculum.pdf",
