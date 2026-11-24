@@ -24,48 +24,12 @@
     "text": "Una pieza no tiene que verse complaciente ni limpia para estar terminada; a veces el grano, la tensión muscular y el entintado crudo son el punto exacto. Este espacio funciona como una monografía viva entre el fanzine underground y el archivo técnico de taller: ilustración tradicional con pastel y tiza sobre papel negro, claroscuro visceral y narrativa gráfica de personajes."
   },
   {
-    "id": "caballo-encadenado",
-    "type": "artwork",
-    "category": "tradicional",
-    "categoryLabel": "TRADICIONAL",
-    "romanSlot": "I",
-    "title": "Caballo encadenado",
-    "date": "2026",
-    "medium": "Grafito / Lápiz blanco y pastel sobre papel negro",
-    "dimensions": "50 x 70 cm",
-    "palette": [
-      "#0D0D0F",
-      "#FFFFFF",
-      "#6E6D6A",
-      "#2E2D2B"
-    ],
-    "tags": [
-      "grafito",
-      "anatomía",
-      "claroscuro",
-      "tiza",
-      "tensión"
-    ],
-    "cover": "assets/works/caballo-full.webp",
-    "gallery": [
-      {
-        "src": "assets/works/caballo-full.webp",
-        "caption": "Estudio principal de musculatura y tensión sobre papel negro."
-      },
-      {
-        "src": "assets/works/caballo-detalle-grillete.webp",
-        "caption": "Detalle de textura en la pezuña y el grillete."
-      }
-    ],
-    "summary": "Estudio de tensión corporal y volumen muscular construido enteramente desde la luz sobre soporte negro puro."
-  },
-  {
     "id": "caballo-estudio-anatomia",
     "type": "artwork",
     "category": "tradicional",
     "categoryLabel": "TRADICIONAL",
     "romanSlot": "I",
-    "title": "Detalle anatómico & grillete",
+    "title": "Mirada de caza",
     "date": "2026",
     "medium": "Grafito & tiza sobre cartulina oscura",
     "dimensions": "Detalle macro",
@@ -81,45 +45,14 @@
       "textura",
       "metal"
     ],
-    "cover": "assets/works/caballo-detalle-grillete.webp",
+    "cover": "assets/works/aguila.jpg",
     "gallery": [
       {
-        "src": "assets/works/caballo-detalle-grillete.webp",
+        "src": "assets/works/aguila.jpg",
         "caption": "Registro de grano y trazo de grafito en frío."
       }
     ],
     "summary": "Acercamiento a la textura rugosa del metal y la dispersión del polvo de grafito sobre la fibra del papel."
-  },
-  {
-    "id": "good-night",
-    "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
-    "romanSlot": "II",
-    "title": "GOOD NIGHT",
-    "date": "2026",
-    "medium": "Tinta china, rotulador y plumilla sobre papel",
-    "dimensions": "A3 (29.7 x 42 cm)",
-    "palette": [
-      "#000000",
-      "#FFFFFF",
-      "#8E1F24",
-      "#1F1F24"
-    ],
-    "tags": [
-      "tinta",
-      "personaje",
-      "lineart",
-      "expresionismo"
-    ],
-    "cover": "assets/works/good-night.webp",
-    "gallery": [
-      {
-        "src": "assets/works/good-night.webp",
-        "caption": "Entintado manual con atmósfera de alto contraste."
-      }
-    ],
-    "summary": "Composición diagonal con énfasis en la gestualidad facial, trazo cortante de plumilla y tipografía diegética."
   },
   {
     "id": "aiden-escena",
@@ -127,7 +60,7 @@
     "category": "digital",
     "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
     "romanSlot": "II",
-    "title": "AIDEN & acompañante",
+    "title": "AIDEN",
     "date": "2026",
     "medium": "Tinta, estilógrafo y rotulador sobre papel bristol",
     "dimensions": "A4 (21 x 29.7 cm)",
@@ -184,37 +117,6 @@
     "summary": "Exploración psicológica mediante aguadas cálidas y texturizado analógico en primer plano."
   },
   {
-    "id": "shadow-estudio",
-    "type": "artwork",
-    "category": "pintura",
-    "categoryLabel": "PINTURA",
-    "romanSlot": "III",
-    "title": "Retrato de Shadow",
-    "date": "2026",
-    "medium": "Pintura acrílica sobre lienzo texturizado",
-    "dimensions": "40 x 50 cm",
-    "palette": [
-      "#0F0D12",
-      "#8E1F24",
-      "#D4CFC7",
-      "#3B1822"
-    ],
-    "tags": [
-      "acrílico",
-      "lienzo",
-      "color",
-      "pincelada"
-    ],
-    "cover": "assets/works/shadow-estudio.webp",
-    "gallery": [
-      {
-        "src": "assets/works/shadow-estudio.webp",
-        "caption": "Obra en acrílico con empastes y contraste directo."
-      }
-    ],
-    "summary": "Estudio pictórico con pincelada densa de acrílico explorando iluminación dramática y síntesis formal."
-  },
-  {
     "id": "good-night-bat",
     "type": "artwork",
     "category": "digital",
@@ -252,7 +154,7 @@
     "category": "digital",
     "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
     "romanSlot": "II",
-    "title": "Gato Espectral // Halo",
+    "title": "Gato Espectral // Mew",
     "date": "2026",
     "medium": "Tinta, estilógrafo y entintado estilizado",
     "dimensions": "1220 x 1225 px",
@@ -311,37 +213,6 @@
     "summary": "Estudio de siluetas enfrentadas en atmósfera granulada con iluminación puntual en el punto de contacto."
   },
   {
-    "id": "aiden-i-eet-color",
-    "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
-    "romanSlot": "II",
-    "title": "AIDEN & Colega // Color",
-    "date": "2026",
-    "medium": "Ilustración digital & diseño de personajes",
-    "dimensions": "1220 x 742 px",
-    "palette": [
-      "#E4EBD0",
-      "#AEA69D",
-      "#584B54",
-      "#25162E"
-    ],
-    "tags": [
-      "personajes",
-      "aiden",
-      "narrativa",
-      "color"
-    ],
-    "cover": "assets/works/aiden-i-eet-color.webp",
-    "gallery": [
-      {
-        "src": "assets/works/aiden-i-eet-color.webp",
-        "caption": "Plano medio de interacción casual entre personajes con paleta desaturada y caracterización suburbana."
-      }
-    ],
-    "summary": "Plano medio de interacción casual entre personajes con paleta desaturada y caracterización suburbana."
-  },
-  {
     "id": "abrazo-intimo-sombra",
     "type": "artwork",
     "category": "digital",
@@ -372,38 +243,6 @@
       }
     ],
     "summary": "Composición de tensión corporal en escorzo con tramado denso y líneas anatómicas cargadas."
-  },
-  {
-    "id": "espadachines-lineart",
-    "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
-    "romanSlot": "II",
-    "title": "Duelo de Espadas // Lineart",
-    "date": "2026",
-    "medium": "Lineart digital limpio & plumilla gráfica",
-    "dimensions": "1220 x 1051 px",
-    "palette": [
-      "#FFFFFF",
-      "#F5F5F5",
-      "#D6D6D6",
-      "#999999"
-    ],
-    "tags": [
-      "lineart",
-      "espadas",
-      "combate",
-      "personajes",
-      "proceso"
-    ],
-    "cover": "assets/works/espadachines-lineart.webp",
-    "gallery": [
-      {
-        "src": "assets/works/espadachines-lineart.webp",
-        "caption": "Fase de entintado lineal para escena de combate con poses dinámicas y angulares."
-      }
-    ],
-    "summary": "Fase de entintado lineal para escena de combate con poses dinámicas y angulares."
   },
   {
     "id": "espadachines-color",
@@ -479,7 +318,7 @@
     "category": "tradicional",
     "categoryLabel": "TRADICIONAL",
     "romanSlot": "I",
-    "title": "Criaturas & Afecto",
+    "title": "Snorlax & Mew",
     "date": "2026",
     "medium": "Lápices de color y tinta sobre papel",
     "dimensions": "931 x 1096 px",
@@ -527,50 +366,14 @@
       "escultura",
       "prop"
     ],
-    "cover": "assets/works/planta-pirana-proceso.webp",
-    "gallery": [
-      {
-        "src": "assets/works/planta-pirana-proceso.webp",
-        "caption": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
-      }
-    ],
-    "summary": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
-  },
-  {
-    "id": "planta-pirana-escultura",
-    "type": "artwork",
-    "category": "fotografia",
-    "categoryLabel": "FOTOGRAFÍA",
-    "romanSlot": "IV",
-    "title": "Planta Piraña // Escultura Terminada",
-    "date": "2026",
-    "medium": "Fotografía de escultura / prop en exterior",
-    "dimensions": "1220 x 1599 px",
-    "palette": [
-      "#737963",
-      "#4D5743",
-      "#373A2E",
-      "#0D0F0D"
-    ],
-    "tags": [
-      "fotografía",
-      "escultura",
-      "mario",
-      "prop",
-      "exterior"
-    ],
     "cover": "assets/works/planta-pirana-escultura.webp",
     "gallery": [
       {
         "src": "assets/works/planta-pirana-escultura.webp",
-        "caption": "Fotografía exterior de pieza escultórica instalada en maceta con follaje modelado."
-      },
-      {
-        "src": "assets/works/planta-pirana-proceso.webp",
         "caption": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
       }
     ],
-    "summary": "Fotografía exterior de pieza escultórica instalada en maceta con follaje modelado."
+    "summary": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
   },
   {
     "id": "caballo-tiza-original",
@@ -578,7 +381,7 @@
     "category": "tradicional",
     "categoryLabel": "TRADICIONAL",
     "romanSlot": "I",
-    "title": "Caballo Encadenado // Soporte Completo",
+    "title": "Caballo Encadenado 'Piedra'  // Soporte Completo",
     "date": "2026",
     "medium": "Lápiz blanco y pastel sobre papel negro",
     "dimensions": "1175 x 874 px",
@@ -610,7 +413,7 @@
     "category": "digital",
     "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
     "romanSlot": "II",
-    "title": "Avatar en Traje // Grilla & Vector",
+    "title": "Render de Aiden",
     "date": "2026",
     "medium": "Modelado 3D / Render y composición retro",
     "dimensions": "1119 x 894 px",
@@ -671,8 +474,8 @@
   {
     "id": "shadow-hedgehog-estudio",
     "type": "artwork",
-    "category": "pintura",
-    "categoryLabel": "PINTURA",
+    "category": "digital",
+    "categoryLabel": "digital",
     "romanSlot": "III",
     "title": "Shadow // Estudio de Furia",
     "date": "2026",
@@ -799,8 +602,8 @@
   {
     "id": "oceano-fanzine-tiburon",
     "type": "artwork",
-    "category": "pintura",
-    "categoryLabel": "PINTURA",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
     "romanSlot": "III",
     "title": "Libreta Editorial // OCÉANO",
     "date": "2026",
@@ -829,42 +632,10 @@
     "summary": "Diseño de portada pintada a mano con aguas turquesas, nado de tiburón y tipografía diegética."
   },
   {
-    "id": "personaje-chaqueta-sepia",
-    "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
-    "romanSlot": "II",
-    "title": "Retrato de Figura // Chaqueta Oscura",
-    "date": "2026",
-    "medium": "Ilustración digital & entintado tonal en sepia",
-    "dimensions": "1220 x 1429 px",
-    "palette": [
-      "#BD9D75",
-      "#A7845E",
-      "#4E382A",
-      "#0E0A09"
-    ],
-    "tags": [
-      "digital",
-      "personaje",
-      "sepia",
-      "estilógrafo",
-      "diseño"
-    ],
-    "cover": "assets/works/personaje-chaqueta-sepia.webp",
-    "gallery": [
-      {
-        "src": "assets/works/personaje-chaqueta-sepia.webp",
-        "caption": "Diseño de personaje estilizado con melena oscura, postura segura y paleta de ocres."
-      }
-    ],
-    "summary": "Diseño de personaje estilizado con melena oscura, postura segura y paleta de ocres."
-  },
-  {
     "id": "manzana-pastel-oleo",
     "type": "artwork",
-    "category": "pintura",
-    "categoryLabel": "PINTURA",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
     "romanSlot": "III",
     "title": "Bodegón de Manzana",
     "date": "2026",
@@ -895,8 +666,8 @@
   {
     "id": "pez-dorado-pastel",
     "type": "artwork",
-    "category": "pintura",
-    "categoryLabel": "PINTURA",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
     "romanSlot": "III",
     "title": "Pez Dorado // Aguada & Color",
     "date": "2026",
@@ -930,7 +701,7 @@
     "category": "tradicional",
     "categoryLabel": "TRADICIONAL",
     "romanSlot": "I",
-    "title": "Vanitas // Corona & Calavera",
+    "title": "Calavera",
     "date": "2026",
     "medium": "Carboncillo y grafito sobre papel blanco",
     "dimensions": "1309 x 1600 px",
@@ -991,44 +762,12 @@
     "summary": "Retrato en perfil con sombreado de tramado fino y textura geométrica en la indumentaria."
   },
   {
-    "id": "some-people-may-die",
-    "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
-    "romanSlot": "II",
-    "title": "Some People May Die",
-    "date": "2026",
-    "medium": "Entintado manual y rotulador crudo sobre soporte texturizado",
-    "dimensions": "1600 x 1267 px",
-    "palette": [
-      "#445253",
-      "#353E3E",
-      "#1F1F22",
-      "#121214"
-    ],
-    "tags": [
-      "fanzine",
-      "entintado",
-      "texto",
-      "underground",
-      "expresionismo"
-    ],
-    "cover": "assets/works/some-people-may-die.webp",
-    "gallery": [
-      {
-        "src": "assets/works/some-people-may-die.webp",
-        "caption": "Ilustración fanzinera underground de trazo agresivo con tipografía manuscrita y mirada frontal."
-      }
-    ],
-    "summary": "Ilustración fanzinera underground de trazo agresivo con tipografía manuscrita y mirada frontal."
-  },
-  {
     "id": "vibora-escamas-color",
     "type": "artwork",
     "category": "tradicional",
     "categoryLabel": "TRADICIONAL",
     "romanSlot": "I",
-    "title": "Víbora Cornuda // Escamas",
+    "title": "Víbora ",
     "date": "2026",
     "medium": "Lápices de color y rotulador sobre papel",
     "dimensions": "1200 x 1600 px",
@@ -1049,48 +788,16 @@
     "gallery": [
       {
         "src": "assets/works/vibora-escamas-color.webp",
-        "caption": "Render anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
+        "caption": "Ilustracion anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
       }
     ],
-    "summary": "Render anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
-  },
-  {
-    "id": "aguila-tiza-papel-negro",
-    "type": "artwork",
-    "category": "tradicional",
-    "categoryLabel": "TRADICIONAL",
-    "romanSlot": "I",
-    "title": "Águila // Tensión en Blanco",
-    "date": "2026",
-    "medium": "Lápiz blanco y pastel sobre papel negro",
-    "dimensions": "1600 x 1456 px",
-    "palette": [
-      "#878380",
-      "#595753",
-      "#42403D",
-      "#322E2B"
-    ],
-    "tags": [
-      "tradicional",
-      "tiza",
-      "lápiz blanco",
-      "águila",
-      "soporte negro"
-    ],
-    "cover": "assets/works/aguila-tiza-papel-negro.webp",
-    "gallery": [
-      {
-        "src": "assets/works/aguila-tiza-papel-negro.webp",
-        "caption": "Cabeza de rapaz en pleno grito construida con trazos de tiza blanca desde la sombra pura."
-      }
-    ],
-    "summary": "Cabeza de rapaz en pleno grito construida con trazos de tiza blanca desde la sombra pura."
+    "summary": "Ilustracion anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
   },
   {
     "id": "kiwis-identidad-logo",
     "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
     "romanSlot": "II",
     "title": "Kiwi's // Identidad & Logo",
     "date": "2026",
@@ -1129,8 +836,8 @@
   {
     "id": "kiwis-mascota-color",
     "type": "artwork",
-    "category": "digital",
-    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
     "romanSlot": "II",
     "title": "Kiwi's // Mascota Perico",
     "date": "2026",
@@ -1157,38 +864,6 @@
       }
     ],
     "summary": "Estudio a color de la figura del periquito con plumaje verde, rojo y azul brillante."
-  },
-  {
-    "id": "kiwis-bocetos-proceso",
-    "type": "artwork",
-    "category": "tradicional",
-    "categoryLabel": "TRADICIONAL",
-    "romanSlot": "I",
-    "title": "Kiwi's // Bocetos & Exploración",
-    "date": "2026",
-    "medium": "Secuencia de bocetos a grafito y tinta",
-    "dimensions": "1508 x 769 px",
-    "palette": [
-      "#9F9A96",
-      "#928D8A",
-      "#858080",
-      "#716C6A"
-    ],
-    "tags": [
-      "bocetos",
-      "proceso",
-      "lápiz",
-      "diseño",
-      "secuencia"
-    ],
-    "cover": "assets/works/kiwis-bocetos-proceso.webp",
-    "gallery": [
-      {
-        "src": "assets/works/kiwis-bocetos-proceso.webp",
-        "caption": "Lámina técnica con tres etapas de exploración formal: boceto suelto, línea depurada y color."
-      }
-    ],
-    "summary": "Lámina técnica con tres etapas de exploración formal: boceto suelto, línea depurada y color."
   },
   {
     "id": "ciervo-sangrado-astas",
