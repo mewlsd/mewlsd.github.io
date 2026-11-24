@@ -62,7 +62,7 @@
                                     <div class="stampie no-outer-border sb-img-wrap">
                                         <div class="stampie-inner">
                                             <div class="stampie-content">
-                                                <img src="assets/ui/sidebar-avatar.webp" />
+                                                <img src="assets/ui/avatar.jpeg" />
                                             </div>
                                         </div>
                                     </div>
@@ -107,7 +107,8 @@
                                                         ARCHIVO & BITÁCORA EDITORIAL
                                                     </div>
                                                     <span id="sb-author-subheadline"
-                                                        style="font-size:0.75rem; color:var(--graphite-gray);">ILUSTRACIÓN // GRANO & TENSIÓN</span>
+                                                        style="font-size:0.75rem; color:var(--graphite-gray);">ILUSTRACIÓN
+                                                        // GRANO & TENSIÓN</span>
                                                     <div class="sb-statement-text" id="sb-author-statement"
                                                         style="margin-top:8px; font-size:0.78rem; line-height:1.55; color:#2c2b28; font-family:var(--font-mono); border-top:1px dashed rgba(0,0,0,0.18); padding-top:6px; font-weight:500;">
                                                         Práctica visual enfocada en la tensión anatómica, la fricción
@@ -117,7 +118,7 @@
                                                     <!-- Opción para Currículum / CV (Abre en ventana nueva) -->
                                                     <div id="sb-cv-box"
                                                         style="margin-top:10px; border-top:1px dashed rgba(0,0,0,0.18); padding-top:8px;">
-                                                        <a id="sb-cv-link" href="assets/docs/curriculum.pdf"
+                                                        <a id="sb-cv-link" href="assets/docs/curriculum.jpeg"
                                                             target="_blank" rel="noopener noreferrer"
                                                             class="stampie sbg"
                                                             style="display:block; text-decoration:none; text-align:center;">
@@ -210,11 +211,19 @@
                                                 </a>
                                             </li>
                                             <li role="presentation" has-url id="nav-cv-item">
-                                                <a class="stampie sbg" href="assets/docs/curriculum.pdf" target="_blank"
-                                                    rel="noopener noreferrer" id="nav-cv-btn"
+                                                <a class="stampie sbg" href="assets/docs/curriculum.jpeg"
+                                                    target="_blank" rel="noopener noreferrer" id="nav-cv-btn"
                                                     title="Ver Currículum / CV (Nueva ventana)">
                                                     <span class="stampie-inner"><span class="stampie-content"><i
                                                                 class="ph ph-file-pdf"></i></span></span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation" has-url id="nav-editor-item">
+                                                <a class="stampie sbg" href="editor.html" target="_blank"
+                                                    rel="noopener noreferrer" id="nav-editor-btn"
+                                                    title="Editor en Vivo de Works.json (Live Edit)">
+                                                    <span class="stampie-inner"><span class="stampie-content"><i
+                                                                class="ph ph-sliders"></i></span></span>
                                                 </a>
                                             </li>
                                             <li role="presentation" has-url id="nav-builder-item">
@@ -315,7 +324,7 @@
                 </div>
                 <div id="modal-cv-box"
                     style="margin-top:14px; padding-top:10px; border-top:1px dashed rgba(255,255,255,0.18);">
-                    <a id="modal-cv-link" href="assets/docs/curriculum.pdf" target="_blank" rel="noopener noreferrer"
+                    <a id="modal-cv-link" href="assets/docs/curriculum.jpeg" target="_blank" rel="noopener noreferrer"
                         class="stampie sbg" style="display:block; text-decoration:none; text-align:center;">
                         <span class="stampie-inner" style="display:block;"><span class="stampie-content"
                                 style="padding:6px 12px; font-family:var(--font-mono); font-size:0.75rem; font-weight:700; color:#fff; display:flex; justify-content:center; align-items:center; gap:8px;">
@@ -338,10 +347,10 @@
           "headline": "ARCHIVO & BITÁCORA EDITORIAL",
           "subheadline": "ILUSTRACIÓN // GRANO & TENSIÓN",
           "statement": "Práctica visual enfocada en la tensión anatómica, la fricción del trazo tradicional sobre soporte oscuro y la síntesis pictórica no comercial.",
-          "avatar": "assets/ui/sidebar-avatar.webp",
+          "avatar": "assets/ui/avatar.jpeg",
           "curriculum": {
             "enabled": true,
-            "url": "assets/docs/curriculum.pdf",
+            "url": "assets/docs/curriculum.jpeg",
             "label": "CURRÍCULUM // CV ↗"
           },
           "contact": {
@@ -578,7 +587,7 @@
                         if (fallbackEl) {
                             try {
                                 personalData = JSON.parse(fallbackEl.textContent);
-                            } catch (e) {}
+                            } catch (e) { }
                         }
                     }
 
