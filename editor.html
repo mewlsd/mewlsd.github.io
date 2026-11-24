@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDITOR EN VIVO // ARCHIVO & WORKS.JSON</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=New+Rocker&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/theme-base.css">
+    <link rel="stylesheet" href="css/portfolio-ui.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        /* === ESTILOS DEL EDITOR INTEGRADO EN EL SIDEBAR === */
+        .editor-header-badge {
+            background: #000;
+            border-bottom: 2px solid var(--accent-cyan);
+            padding: 10px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .editor-status-pill {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            background: #18181a;
+            color: #aaa;
+            border: 1px solid #333;
+            font-weight: 600;
+        }
+
+        .editor-status-pill.modified {
+            background: var(--accent-crimson);
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* Toolbar de persistencia */
+        .editor-actions-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 10px;
+            background: #111113;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-editor {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 8px;
+            border: 1px solid #444;
+            background: #18181a;
+            color: #ece7df;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: all 0.15s ease;
+            text-decoration: none;
+        }
+
+        .btn-editor:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            border-color: #000;
+        }
+
+        .btn-editor.btn-download {
+            background: var(--accent-cyan);
+            color: #0d0d0f;
+            border-color: #000;
+        }
+
+        .btn-editor.btn-download:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-editor.btn-crimson:hover {
+            background: var(--accent-crimson);
+            color: #fff;
+            border-color: #000;
+        }
+
+        /* Pestañas */
+        .editor-tabs {
+            display: flex;
+            background: #000;
+            border-bottom: 1px solid #333;
+        }
+
+        .editor-tab-btn {
+            flex: 1;
+            padding: 8px 10px;
+            background: transparent;
+            border: none;
+            color: #888;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .editor-tab-btn.active {
+            color: #fff;
+            background: #18181a;
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        /* Contenido de pestañas */
+        .editor-tab-content {
+            padding: 12px;
+            max-height: calc(100vh - 270px);
+            overflow-y: auto;
+        }
+
+        /* Selector de obras */
+        .editor-selector-wrap {
+            margin-bottom: 12px;
+        }
+
+        .editor-label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--graphite-gray);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .editor-select,
+        .editor-input,
+        .editor-textarea {
+            width: 100%;
+            background: #0d0d0f;
+            border: 1px solid #3a3a3d;
+            color: #ece7df;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 6px 8px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        .editor-select:focus,
+        .editor-input:focus,
+        .editor-textarea:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 1px var(--accent-cyan);
+        }
+
+        .editor-group {
+            margin-bottom: 10px;
+        }
+
+        .editor-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        /* Paleta en el editor */
+        .palette-editor-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .palette-editor-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .palette-editor-item input[type="color"] {
+            width: 100%;
+            height: 28px;
+            border: 1px solid #333;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .palette-editor-item input[type="text"] {
+            font-size: 0.62rem;
+            text-align: center;
+            padding: 2px 0;
+            font-weight: 600;
+        }
+
+        /* Miniatura previa */
+        .cover-preview-box {
+            margin-top: 6px;
+            background: #000;
+            border: 1px dashed #444;
+            padding: 6px;
+            text-align: center;
+        }
+
+        .cover-preview-img {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Botones de gestión de posts */
+        .post-mgmt-bar {
+            display: flex;
+            gap: 6px;
+            margin-top: 14px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        /* Raw JSON area */
+        .raw-json-textarea {
+            width: 100%;
+            height: calc(100vh - 310px);
+            background: #09090b;
+            color: #a6e22e;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.72rem;
+            line-height: 1.45;
+            padding: 10px;
+            border: 1px solid #27272a;
+            resize: none;
+            white-space: pre;
+            outline: none;
+        }
+
+        .raw-json-textarea:focus {
+            border-color: var(--accent-cyan);
+        }
+
+        .raw-validation-badge {
+            margin-top: 6px;
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            padding: 4px 8px;
+        }
+
+        .raw-validation-badge.valid {
+            background: rgba(124, 232, 235, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+        }
+
+        .raw-validation-badge.invalid {
+            background: rgba(142, 31, 36, 0.25);
+            color: #ff6b6b;
+            border: 1px solid var(--accent-crimson);
+        }
+
+        /* Resaltado interactivo en el grid */
+        .artwork-card.editor-selected-card {
+            outline: 2px dashed var(--accent-cyan) !important;
+            box-shadow: 0 0 20px rgba(124, 232, 235, 0.45), inset 0 0 12px rgba(124, 232, 235, 0.2) !important;
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+        }
+
+        .artwork-card.editor-selected-card .post-header {
+            background: var(--accent-cyan) !important;
+            color: #000 !important;
+        }
+
+        .artwork-card.editor-selected-card .navitxt {
+            color: #000 !important;
+            font-weight: 700;
+        }
+
+        /* Toast flotante */
+        .editor-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--accent-cyan);
+            color: #000;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+            z-index: 99999;
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .editor-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BARRA SUPERIOR (LACE & STRIPES) -->
+    <div class="ceiling">
+        <div class="ceiling-ptn stripes-show tb-underline-show"></div>
+        <div class="lace-bar lace-show lace-align-left"></div>
+        <a href="index.html" aria-hidden="true" title="Volver al Portafolio"></a>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL ASIMÉTRICO DE 2 COLUMNAS (GRID CENTRAL + SIDEBAR LIVE EDITOR) -->
+    <main class="load-in">
+        <div class="main-hug-1">
+            <div class="main-hug-2">
+
+                <!-- 1. ESCENARIO CENTRAL: RETÍCULA MODULAR EN VIVO -->
+                <section class="all-posts" id="posts-container" aria-label="Vista Previa de Obras en Tiempo Real">
+                    <!-- Renderizado dinámico desde data/works.json con vista previa viva -->
+                </section>
+
+                <!-- 2. COLUMNA DERECHA: SIDEBAR CON EL LIVE JSON EDITOR -->
+                <aside class="sb-right sb-at-right" aria-label="Editor en Vivo de Works.json">
+                    <div class="sb-inner-1">
+                        <div class="sb-inner-2">
+
+                            <!-- Encabezado del Editor -->
+                            <div class="editor-header-badge">
+                                <span class="editor-title">
+                                    <i class="ph ph-sliders"></i> LIVE JSON EDITOR
+                                </span>
+                                <span class="editor-status-pill" id="editor-status-badge">● SIN CAMBIOS</span>
+                            </div>
+
+                            <!-- Barra de Acciones de Persistencia -->
+                            <div class="editor-actions-bar">
+                                <button type="button" class="btn-editor btn-download" id="btn-download-json"
+                                    title="Descargar el archivo works.json actualizado">
+                                    <i class="ph ph-download-simple"></i> DESCARGAR
+                                </button>
+                                <button type="button" class="btn-editor" id="btn-copy-json"
+                                    title="Copiar todo el JSON al portapapeles">
+                                    <i class="ph ph-copy"></i> COPIAR JSON
+                                </button>
+                            </div>
+
+                            <!-- Selector de Pestañas: FICHA VISUAL / RAW JSON -->
+                            <div class="editor-tabs">
+                                <button type="button" class="editor-tab-btn active" id="tab-btn-form">
+                                    <i class="ph ph-note-pencil"></i> FICHA VISUAL
+                                </button>
+                                <button type="button" class="editor-tab-btn" id="tab-btn-raw">
+                                    <i class="ph ph-code"></i> RAW JSON
+                                </button>
+                            </div>
+
+                            <!-- PESTAÑA 1: FORMULARIO VISUAL DE EDICIÓN -->
+                            <div class="editor-tab-content" id="tab-content-form">
+
+                                <!-- Selector de Pieza Actual -->
+                                <div class="editor-selector-wrap">
+                                    <label class="editor-label" for="sel-current-work">
+                                        <i class="ph ph-cursor-click"></i> SELECCIONAR OBRA (O CLIC EN EL GRID):
+                                    </label>
+                                    <select id="sel-current-work" class="editor-select"></select>
+                                </div>
+
+                                <!-- Ficha Editable de la Obra Seleccionada -->
+                                <div id="form-fields-container">
+                                    <div class="editor-group">
+                                        <label class="editor-label" for="f-title">Título de la Obra:</label>
+                                        <input type="text" id="f-title" class="editor-input">
+                                    </div>
+
+                                    <div class="editor-row-2">
+                                        <div class="editor-group">
+                                            <label class="editor-label" for="f-category">Categoría:</label>
+                                            <select id="f-category" class="editor-select"></select>
+                                        </div>
+                                        <div class="editor-group">
+                                            <label class="editor-label" for="f-id">ID / Slug:</label>
+                                            <input type="text" id="f-id" class="editor-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-row-2">
+                                        <div class="editor-group">
+                                            <label class="editor-label" for="f-date">Fecha / Año:</label>
+                                            <input type="text" id="f-date" class="editor-input">
+                                        </div>
+                                        <div class="editor-group">
+                                            <label class="editor-label" for="f-dimensions">Dimensiones:</label>
+                                            <input type="text" id="f-dimensions" class="editor-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-group">
+                                        <label class="editor-label" for="f-medium">Técnica / Soporte:</label>
+                                        <input type="text" id="f-medium" class="editor-input">
+                                    </div>
+
+                                    <div class="editor-group">
+                                        <label class="editor-label" for="f-cover">Ruta de Portada (Assets):</label>
+                                        <input type="text" id="f-cover" class="editor-input">
+                                        <div class="cover-preview-box">
+                                            <img id="cover-preview-img" src="" alt="Vista previa" class="cover-preview-img">
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-group">
+                                        <label class="editor-label">Paleta de Color (4 tonos HEX):</label>
+                                        <div class="palette-editor-grid">
+                                            <div class="palette-editor-item">
+                                                <input type="color" id="f-col-1">
+                                                <input type="text" id="f-hex-1" class="editor-input">
+                                            </div>
+                                            <div class="palette-editor-item">
+                                                <input type="color" id="f-col-2">
+                                                <input type="text" id="f-hex-2" class="editor-input">
+                                            </div>
+                                            <div class="palette-editor-item">
+                                                <input type="color" id="f-col-3">
+                                                <input type="text" id="f-hex-3" class="editor-input">
+                                            </div>
+                                            <div class="palette-editor-item">
+                                                <input type="color" id="f-col-4">
+                                                <input type="text" id="f-hex-4" class="editor-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-group">
+                                        <label class="editor-label" for="f-tags">Etiquetas (separadas por coma):</label>
+                                        <input type="text" id="f-tags" class="editor-input">
+                                    </div>
+
+                                    <div class="editor-group">
+                                        <label class="editor-label" for="f-summary">Resumen / Ficha Técnica:</label>
+                                        <textarea id="f-summary" class="editor-textarea" rows="3"></textarea>
+                                    </div>
+
+                                    <!-- Barra de gestión: Crear, Duplicar, Eliminar -->
+                                    <div class="post-mgmt-bar">
+                                        <button type="button" class="btn-editor" id="btn-add-new-post"
+                                            title="Crear una nueva obra vacía en esta categoría">
+                                            <i class="ph ph-plus-circle"></i> NUEVA
+                                        </button>
+                                        <button type="button" class="btn-editor" id="btn-dup-post"
+                                            title="Duplicar la obra actual">
+                                            <i class="ph ph-copy-simple"></i> DUPLICAR
+                                        </button>
+                                        <button type="button" class="btn-editor btn-crimson" id="btn-del-post"
+                                            title="Eliminar la obra actual">
+                                            <i class="ph ph-trash"></i> BORRAR
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PESTAÑA 2: RAW JSON CODE VIEW -->
+                            <div class="editor-tab-content" id="tab-content-raw" style="display:none;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                                    <span class="editor-label">EDITOR DE CÓDIGO JSON COMPLETO:</span>
+                                    <button type="button" class="btn-editor" id="btn-format-raw" style="padding:2px 6px; font-size:0.65rem;">
+                                        <i class="ph ph-magic-wand"></i> FORMATEAR
+                                    </button>
+                                </div>
+                                <textarea id="raw-json-input" class="raw-json-textarea" spellcheck="false"></textarea>
+                                <div class="raw-validation-badge valid" id="raw-validation-badge">
+                                    ✓ SINTAXIS JSON VÁLIDA
+                                </div>
+                            </div>
+
+                            <!-- Barra vertical de acciones del tema original -->
+                            <div class="sb-info-right navlinks">
+                                <nav>
+                                    <ul role="menu">
+                                        <li role="presentation" has-url>
+                                            <a class="stampie sbg" href="index.html" title="Volver al Sitio Principal">
+                                                <span class="stampie-inner"><span class="stampie-content"><i
+                                                            class="ph ph-house"></i></span></span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" has-url>
+                                            <a class="stampie sbg" href="javascript:void(0)" id="nav-quick-add"
+                                                title="Añadir Nueva Obra">
+                                                <span class="stampie-inner"><span class="stampie-content"><i
+                                                            class="ph ph-plus"></i></span></span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" has-url>
+                                            <a class="stampie sbg" href="javascript:void(0)" id="nav-quick-copy"
+                                                title="Copiar JSON Completo">
+                                                <span class="stampie-inner"><span class="stampie-content"><i
+                                                            class="ph ph-copy"></i></span></span>
+                                            </a>
+                                        </li>
+                                        <li role="presentation" has-url>
+                                            <a class="stampie sbg" href="builder.html" target="_blank"
+                                                title="Abrir Generador de Entradas Builder">
+                                                <span class="stampie-inner"><span class="stampie-content"><i
+                                                            class="ph ph-arrow-square-out"></i></span></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- NOTIFICACIÓN TOAST -->
+    <div class="editor-toast" id="editor-toast">¡JSON COPIADO AL PORTAPAPELES!</div>
+
+    <!-- SCRIPTS DE LA APLICACIÓN -->
+    <script src="assets/ui/vendor/overlayscrollbars_2.7.3.js"></script>
+    <script>
+        /**
+         * LIVE JSON EDITOR & PORTFOLIO ENGINE
+         * Carga data/works.json y data/categories.json, renderiza el feed central idéntico a index.html
+         * y conecta edición en tiempo real bidireccional entre la barra lateral y las tarjetas del grid.
+         */
+
+        window.WorksData = [];
+        window.CategoriesData = [];
+        window.currentSelectedId = null;
+        window.hasUnsavedChanges = false;
+        window.isUpdatingFromRaw = false;
+
+        const categoryMap = {
+            "tradicional": { roman: "I", label: "TRADICIONAL" },
+            "digital": { roman: "II", label: "ILUSTRACIÓN DIGITAL/A MANO" },
+            "pintura": { roman: "III", label: "PINTURA" },
+            "fotografia": { roman: "IV", label: "FOTOGRAFÍA" }
+        };
+
+        // --- 1. CARGA INICIAL DE DATOS ---
+        async function initEditor() {
+            try {
+                const cacheBuster = `_t=${Date.now()}`;
+                const [worksRes, catRes] = await Promise.all([
+                    fetch(`data/works.json?${cacheBuster}`, { cache: 'no-store' }),
+                    fetch(`data/categories.json?${cacheBuster}`, { cache: 'no-store' })
+                ]);
+
+                window.WorksData = await worksRes.json();
+                window.CategoriesData = await catRes.json();
+
+                // Recuperar borrador no guardado si existe
+                const localDraft = localStorage.getItem('works_editor_draft');
+                if (localDraft) {
+                    try {
+                        const parsed = JSON.parse(localDraft);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            window.WorksData = parsed;
+                            markModified(true);
+                        }
+                    } catch (e) { }
+                }
+
+                populateCategoryDropdown();
+                populateWorksDropdown();
+                renderFeed(window.WorksData, window.CategoriesData);
+                setupColorSync();
+                setupEventListeners();
+
+                // Seleccionar la primera obra por defecto
+                const firstArtwork = window.WorksData.find(w => w.type !== 'config' && w.type !== 'thought');
+                if (firstArtwork) {
+                    selectWork(firstArtwork.id);
+                }
+
+                updateRawJsonView();
+            } catch (err) {
+                console.error("Error inicializando editor:", err);
+            }
+        }
+
+        // --- 2. SELECTORES Y POPULACIÓN DE DATOS ---
+        function populateCategoryDropdown() {
+            const sel = document.getElementById('f-category');
+            if (!sel || !window.CategoriesData) return;
+
+            sel.innerHTML = window.CategoriesData.map(c => `
+                <option value="${c.id}">[ ${c.roman} ] ${c.name.toUpperCase()}</option>
+            `).join('');
+        }
+
+        function populateWorksDropdown() {
+            const sel = document.getElementById('sel-current-work');
+            if (!sel) return;
+
+            const artworks = window.WorksData.filter(w => w.type !== 'config');
+            sel.innerHTML = artworks.map((w, idx) => {
+                const isThought = w.type === 'thought';
+                const prefix = isThought ? '[BITÁCORA]' : `[${w.category ? w.category.substring(0, 4).toUpperCase() : 'OBRA'}]`;
+                return `<option value="${w.id}">${prefix} ${w.title || w.id}</option>`;
+            }).join('');
+
+            if (window.currentSelectedId) {
+                sel.value = window.currentSelectedId;
+            }
+        }
+
+        // --- 3. SELECCIÓN DE OBRA Y CARGA EN FORMULARIO ---
+        function selectWork(id) {
+            const item = window.WorksData.find(w => w.id === id);
+            if (!item) return;
+
+            window.currentSelectedId = id;
+
+            // Actualizar selector dropdown
+            const sel = document.getElementById('sel-current-work');
+            if (sel) sel.value = id;
+
+            // Rellenar campos del formulario
+            document.getElementById('f-id').value = item.id || '';
+            document.getElementById('f-title').value = item.title || '';
+            document.getElementById('f-category').value = item.category || 'tradicional';
+            document.getElementById('f-date').value = item.date || '2026';
+            document.getElementById('f-dimensions').value = item.dimensions || '';
+            document.getElementById('f-medium').value = item.medium || '';
+            document.getElementById('f-cover').value = item.cover || '';
+            document.getElementById('f-tags').value = Array.isArray(item.tags) ? item.tags.join(', ') : (item.tags || '');
+            document.getElementById('f-summary').value = item.summary || item.text || '';
+
+            // Vista previa de portada
+            const previewImg = document.getElementById('cover-preview-img');
+            if (previewImg) {
+                previewImg.src = item.cover || '';
+                previewImg.style.display = item.cover ? 'block' : 'none';
+            }
+
+            // Paleta de colores
+            const pal = item.palette || ['#0D0D0F', '#8E1F24', '#7CE8EB', '#EFECE4'];
+            for (let i = 0; i < 4; i++) {
+                const c = pal[i] || '#000000';
+                const colInput = document.getElementById(`f-col-${i + 1}`);
+                const hexInput = document.getElementById(`f-hex-${i + 1}`);
+                if (colInput) colInput.value = c;
+                if (hexInput) hexInput.value = c.toUpperCase();
+            }
+
+            // Resaltar en el grid central y hacer scroll suave hacia él
+            highlightCardInGrid(id);
+        }
+
+        function highlightCardInGrid(id) {
+            document.querySelectorAll('.artwork-card').forEach(c => c.classList.remove('editor-selected-card'));
+            const card = document.getElementById(`post-${id}`);
+            if (card) {
+                card.classList.add('editor-selected-card');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        // --- 4. ACTUALIZACIÓN EN VIVO (FORMULARIO -> GRID & WORKS_DATA) ---
+        function onFormFieldChange() {
+            if (!window.currentSelectedId) return;
+
+            const idx = window.WorksData.findIndex(w => w.id === window.currentSelectedId);
+            if (idx === -1) return;
+
+            const current = window.WorksData[idx];
+
+            const newId = document.getElementById('f-id').value.trim() || current.id;
+            const newTitle = document.getElementById('f-title').value.trim();
+            const newCat = document.getElementById('f-category').value;
+            const newDate = document.getElementById('f-date').value.trim();
+            const newDim = document.getElementById('f-dimensions').value.trim();
+            const newMed = document.getElementById('f-medium').value.trim();
+            const newCover = document.getElementById('f-cover').value.trim();
+            const newSummary = document.getElementById('f-summary').value.trim();
+            const tagsRaw = document.getElementById('f-tags').value;
+            const newTags = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+
+            const newPalette = [
+                document.getElementById('f-hex-1').value.trim() || '#0D0D0F',
+                document.getElementById('f-hex-2').value.trim() || '#8E1F24',
+                document.getElementById('f-hex-3').value.trim() || '#7CE8EB',
+                document.getElementById('f-hex-4').value.trim() || '#EFECE4'
+            ];
+
+            const catInfo = categoryMap[newCat] || { roman: "I", label: newCat.toUpperCase() };
+
+            // Actualizar objeto en memoria
+            current.id = newId;
+            current.title = newTitle;
+            current.category = newCat;
+            current.categoryLabel = catInfo.label;
+            current.romanSlot = catInfo.roman;
+            current.date = newDate;
+            current.dimensions = newDim;
+            current.medium = newMed;
+            current.cover = newCover;
+            current.tags = newTags;
+            current.palette = newPalette;
+            current.summary = newSummary;
+
+            // Actualizar miniatura previa
+            const previewImg = document.getElementById('cover-preview-img');
+            if (previewImg) {
+                previewImg.src = newCover;
+                previewImg.style.display = newCover ? 'block' : 'none';
+            }
+
+            // Si cambió el ID, actualizar el tracker
+            if (newId !== window.currentSelectedId) {
+                window.currentSelectedId = newId;
+                populateWorksDropdown();
+            }
+
+            markModified(true);
+
+            // Re-renderizar feed central en tiempo real
+            renderFeed(window.WorksData, window.CategoriesData);
+            highlightCardInGrid(window.currentSelectedId);
+            updateRawJsonView();
+        }
+
+        // Sincronizar selectores de color (picker + input de texto)
+        function setupColorSync() {
+            for (let i = 1; i <= 4; i++) {
+                const picker = document.getElementById(`f-col-${i}`);
+                const text = document.getElementById(`f-hex-${i}`);
+
+                picker.addEventListener('input', () => {
+                    text.value = picker.value.toUpperCase();
+                    onFormFieldChange();
+                });
+
+                text.addEventListener('input', () => {
+                    let val = text.value.trim();
+                    if (!val.startsWith('#')) val = '#' + val;
+                    if (/^#[0-9A-F]{6}$/i.test(val)) {
+                        picker.value = val;
+                        onFormFieldChange();
+                    }
+                });
+            }
+        }
+
+        // --- 5. GESTIÓN: CREAR, DUPLICAR, BORRAR ---
+        function addNewPost() {
+            const currentCat = document.getElementById('f-category').value || 'tradicional';
+            const catInfo = categoryMap[currentCat] || { roman: "I", label: "TRADICIONAL" };
+            const timestamp = Date.now().toString().slice(-4);
+            const newId = `nueva-obra-${timestamp}`;
+
+            const newPost = {
+                id: newId,
+                type: "artwork",
+                category: currentCat,
+                categoryLabel: catInfo.label,
+                romanSlot: catInfo.roman,
+                title: "Nueva Obra de Estudio",
+                date: "2026",
+                medium: "Técnica mixta sobre soporte",
+                dimensions: "40 x 50 cm",
+                palette: ["#0D0D0F", "#8E1F24", "#7CE8EB", "#EFECE4"],
+                tags: ["estudio", "nuevo"],
+                cover: "assets/works/caballo-full.webp",
+                gallery: [{ src: "assets/works/caballo-full.webp", caption: "Vista principal" }],
+                summary: "Ficha descriptiva de la nueva pieza de portafolio."
+            };
+
+            window.WorksData.push(newPost);
+            populateWorksDropdown();
+            renderFeed(window.WorksData, window.CategoriesData);
+            selectWork(newId);
+            markModified(true);
+            updateRawJsonView();
+            showToast("✓ ¡NUEVA OBRA CREADA EN VIVO!");
+        }
+
+        function duplicatePost() {
+            if (!window.currentSelectedId) return;
+            const original = window.WorksData.find(w => w.id === window.currentSelectedId);
+            if (!original) return;
+
+            const copy = JSON.parse(JSON.stringify(original));
+            copy.id = `${original.id}-copia`;
+            copy.title = `${original.title} (Copia)`;
+
+            window.WorksData.push(copy);
+            populateWorksDropdown();
+            renderFeed(window.WorksData, window.CategoriesData);
+            selectWork(copy.id);
+            markModified(true);
+            updateRawJsonView();
+            showToast("✓ ¡OBRA DUPLICADA!");
+        }
+
+        function deletePost() {
+            if (!window.currentSelectedId) return;
+            const item = window.WorksData.find(w => w.id === window.currentSelectedId);
+            if (!item) return;
+
+            if (confirm(`¿Eliminar definitivamente "${item.title || item.id}" del archivo?`)) {
+                window.WorksData = window.WorksData.filter(w => w.id !== window.currentSelectedId);
+                populateWorksDropdown();
+                renderFeed(window.WorksData, window.CategoriesData);
+
+                const next = window.WorksData.find(w => w.type !== 'config' && w.type !== 'thought');
+                if (next) selectWork(next.id);
+
+                markModified(true);
+                updateRawJsonView();
+                showToast("✓ OBRA ELIMINADA DEL ARCHIVO");
+            }
+        }
+
+        // --- 6. PESTAÑA RAW JSON ---
+        function updateRawJsonView() {
+            if (window.isUpdatingFromRaw) return;
+            const textarea = document.getElementById('raw-json-input');
+            if (textarea) {
+                textarea.value = JSON.stringify(window.WorksData, null, 2);
+            }
+        }
+
+        function onRawJsonInput() {
+            const textarea = document.getElementById('raw-json-input');
+            const badge = document.getElementById('raw-validation-badge');
+            if (!textarea || !badge) return;
+
+            window.isUpdatingFromRaw = true;
+            try {
+                const parsed = JSON.parse(textarea.value);
+                if (Array.isArray(parsed)) {
+                    window.WorksData = parsed;
+                    badge.textContent = "✓ SINTAXIS JSON VÁLIDA";
+                    badge.className = "raw-validation-badge valid";
+                    markModified(true);
+                    populateWorksDropdown();
+                    renderFeed(window.WorksData, window.CategoriesData);
+                    if (window.currentSelectedId) {
+                        highlightCardInGrid(window.currentSelectedId);
+                    }
+                } else {
+                    throw new Error("El JSON debe ser un Array [...] de objetos");
+                }
+            } catch (err) {
+                badge.textContent = `⚠ ERROR DE SINTAXIS: ${err.message}`;
+                badge.className = "raw-validation-badge invalid";
+            } finally {
+                window.isUpdatingFromRaw = false;
+            }
+        }
+
+        // --- 7. PERSISTENCIA: DESCARGAR Y COPIAR ---
+        function markModified(modified) {
+            window.hasUnsavedChanges = modified;
+            const badge = document.getElementById('editor-status-badge');
+            if (badge) {
+                if (modified) {
+                    badge.textContent = "● CAMBIOS EN VIVO";
+                    badge.classList.add('modified');
+                    localStorage.setItem('works_editor_draft', JSON.stringify(window.WorksData));
+                } else {
+                    badge.textContent = "● SIN CAMBIOS";
+                    badge.classList.remove('modified');
+                    localStorage.removeItem('works_editor_draft');
+                }
+            }
+        }
+
+        function downloadWorksJson() {
+            const dataStr = JSON.stringify(window.WorksData, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'works.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            markModified(false);
+            showToast("✓ DESCARGADO: Reemplaza en data/works.json");
+        }
+
+        function copyWorksJson() {
+            const dataStr = JSON.stringify(window.WorksData, null, 2);
+            navigator.clipboard.writeText(dataStr).then(() => {
+                showToast("✓ ¡TODO EL JSON COPIADO AL PORTAPAPELES!");
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('editor-toast');
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2400);
+        }
+
+        // --- 8. RENDER DEL FEED CENTRAL (IDÉNTICO A INDEX.HTML) ---
+        function renderFeed(items, categories) {
+            const container = document.getElementById('posts-container');
+            if (!container) return;
+
+            const cats = categories || window.CategoriesData || [];
+            const thoughts = items.filter(item => item.type === 'thought');
+            const artworks = items.filter(item => item.type !== 'thought' && item.type !== 'config');
+
+            let html = '';
+
+            if (thoughts.length > 0) {
+                html += thoughts.map(renderThoughtCard).join('');
+            }
+
+            cats.forEach(cat => {
+                const catWorks = artworks.filter(w => w.category === cat.id);
+                if (catWorks.length > 0) {
+                    html += `
+                    <section class="category-section" id="sec-${cat.id}" data-category-id="${cat.id}">
+                        <header class="category-header">
+                            <div class="category-header-top">
+                                <div class="category-badge stampie">
+                                    <span class="stampie-inner">
+                                        <span class="stampie-content">
+                                            <span class="cat-roman">[ ${cat.roman} // ${cat.name.toUpperCase()} ]</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="category-divider">
+                                    <span class="editorial-marker-prefix">@ ---</span>
+                                    <span class="category-subtitle">VISTA EN VIVO</span>
+                                    <span class="editorial-line-fill"></span>
+                                </div>
+                            </div>
+                        </header>
+
+                        <div class="category-grid">
+                            ${catWorks.map(renderGridArtworkCard).join('')}
+                        </div>
+                    </section>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+
+            // Al hacer clic en cualquier tarjeta en el grid, seleccionarla en el editor lateral
+            container.querySelectorAll('[data-inspect-id]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = btn.getAttribute('data-inspect-id');
+                    selectWork(id);
+                });
+            });
+        }
+
+        function renderGridArtworkCard(item) {
+            const isPlaceholder = !!item.isPlaceholder;
+            const isSelected = item.id === window.currentSelectedId;
+            const palette = item.palette || [];
+            const p1 = palette[0] || 'var(--ink-dark)';
+            const p2 = palette[1] || 'var(--accent-crimson)';
+            const p3 = palette[2] || 'var(--accent-cyan)';
+            const p4 = palette[3] || 'var(--paper-bone)';
+
+            return `
+            <article class="posts artwork-card grid-card ${isSelected ? 'editor-selected-card' : ''}" 
+                     id="post-${item.id}" data-category="${item.category}" data-id="${item.id}" 
+                     style="--card-p1:${p1}; --card-p2:${p2}; --card-p3:${p3}; --card-p4:${p4};">
+                <div class="post-inner">
+                    <div class="post-header">
+                        <div class="pin-text stampie">
+                            <span class="stampie-inner">
+                                <span class="stampie-content">
+                                    <span class="navitxt">[ ${item.romanSlot || 'I'} // REG.${item.date || '2026'} ]</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="post-inner-hug">
+                        <div class="post-body">
+                            <div class="artwork-media-wrap" data-inspect-id="${item.id}" style="cursor:pointer;" title="Clic para editar esta obra en la barra lateral">
+                                <img src="${item.cover}" alt="${item.title}" loading="lazy" class="artwork-img">
+                            </div>
+                            
+                            <div class="artwork-meta-header">
+                                <h3 class="post-title">${item.title || 'Sin Título'}</h3>
+                                ${item.medium ? `<p class="artwork-tech-spec">${item.medium}</p>` : ''}
+                                ${item.dimensions ? `<p class="artwork-dimensions" style="color:var(--card-p2);">${item.dimensions}</p>` : ''}
+                                ${item.summary ? `<p class="artwork-summary">${item.summary}</p>` : ''}
+                            </div>
+
+                            <div class="editorial-marker">
+                                <span class="marker-bullet" style="color:var(--card-p3);">@ ---</span>
+                                <span class="marker-label">FICHA EDITABLE</span>
+                                <span class="marker-line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post-footer">
+                        <div class="post-info">
+                            <span class="stampie">
+                                <span class="date-part stampie-inner">
+                                    <span class="stampie-content">${item.date || '2026'}</span>
+                                </span>
+                            </span>
+                            ${palette.length > 0 ? `
+                            <div class="card-palette-pips" title="Paleta extraída: ${palette.join(', ')}">
+                                ${palette.map(c => `<span class="palette-pip" style="background:${c};" title="${c}"></span>`).join('')}
+                            </div>
+                            ` : ''}
+                        </div>
+
+                        <div class="post-controls">
+                            <a class="stampie" href="javascript:void(0)" data-inspect-id="${item.id}" title="Editar esta obra">
+                                <span class="stampie-inner">
+                                    <span class="stampie-content">
+                                        <i class="ph ph-pencil-simple"></i> EDITAR
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            `;
+        }
+
+        function renderThoughtCard(item) {
+            return `
+            <article class="posts thought-bubble-card manifesto-card" id="post-${item.id}">
+                <div class="post-inner">
+                    <div class="thought-header-badge" style="background:#000; border-bottom:1px solid #333;">
+                        <span style="color:var(--accent-cyan); font-weight:600;">// ${item.title || 'MANIFIESTO EDITORIAL'} </span>
+                    </div>
+                    <div class="thought-content-box" style="padding:14px 16px;">
+                        <p style="margin:0; font-family:var(--font-mono); font-size:0.82rem; line-height:1.6; color:#ece7df;">${item.text}</p>
+                    </div>
+                </div>
+            </article>
+            `;
+        }
+
+        // --- 9. EVENT LISTENERS GENERALES ---
+        function setupEventListeners() {
+            // Cambio en dropdown de selección
+            document.getElementById('sel-current-work').addEventListener('change', (e) => {
+                selectWork(e.target.value);
+            });
+
+            // Inputs del formulario
+            const formInputs = [
+                'f-title', 'f-category', 'f-id', 'f-date',
+                'f-dimensions', 'f-medium', 'f-cover', 'f-tags', 'f-summary'
+            ];
+            formInputs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', onFormFieldChange);
+                    el.addEventListener('change', onFormFieldChange);
+                }
+            });
+
+            // Botones de gestión
+            document.getElementById('btn-add-new-post').addEventListener('click', addNewPost);
+            document.getElementById('btn-dup-post').addEventListener('click', duplicatePost);
+            document.getElementById('btn-del-post').addEventListener('click', deletePost);
+
+            // Botones de persistencia
+            document.getElementById('btn-download-json').addEventListener('click', downloadWorksJson);
+            document.getElementById('btn-copy-json').addEventListener('click', copyWorksJson);
+
+            // Nav rápido
+            const navAdd = document.getElementById('nav-quick-add');
+            if (navAdd) navAdd.addEventListener('click', addNewPost);
+            const navCopy = document.getElementById('nav-quick-copy');
+            if (navCopy) navCopy.addEventListener('click', copyWorksJson);
+
+            // Raw JSON textarea
+            const rawTextarea = document.getElementById('raw-json-input');
+            if (rawTextarea) {
+                rawTextarea.addEventListener('input', onRawJsonInput);
+            }
+
+            const btnFormat = document.getElementById('btn-format-raw');
+            if (btnFormat && rawTextarea) {
+                btnFormat.addEventListener('click', () => {
+                    try {
+                        const parsed = JSON.parse(rawTextarea.value);
+                        rawTextarea.value = JSON.stringify(parsed, null, 2);
+                        showToast("✓ JSON FORMATEADO");
+                    } catch (e) {
+                        alert("Error de sintaxis: no se puede formatear un JSON con errores.");
+                    }
+                });
+            }
+
+            // Alternar pestañas (Form / Raw JSON)
+            const tabBtnForm = document.getElementById('tab-btn-form');
+            const tabBtnRaw = document.getElementById('tab-btn-raw');
+            const tabContentForm = document.getElementById('tab-content-form');
+            const tabContentRaw = document.getElementById('tab-content-raw');
+
+            tabBtnForm.addEventListener('click', () => {
+                tabBtnForm.classList.add('active');
+                tabBtnRaw.classList.remove('active');
+                tabContentForm.style.display = 'block';
+                tabContentRaw.style.display = 'none';
+            });
+
+            tabBtnRaw.addEventListener('click', () => {
+                tabBtnRaw.classList.add('active');
+                tabBtnForm.classList.remove('active');
+                tabContentForm.style.display = 'none';
+                tabContentRaw.style.display = 'block';
+                updateRawJsonView();
+            });
+
+            // Advertencia si intenta cerrar la ventana con cambios sin descargar
+            window.addEventListener('beforeunload', (e) => {
+                if (window.hasUnsavedChanges) {
+                    e.preventDefault();
+                    e.returnValue = 'Tienes cambios en el JSON sin descargar. ¿Deseas salir?';
+                }
+            });
+        }
+
+        // Iniciar al cargar el DOM
+        document.addEventListener('DOMContentLoaded', initEditor);
+    </script>
+</body>
+
+</html>
