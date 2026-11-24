@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Entradas // works.json</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=New+Rocker&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/tokens.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--Background, #252525);
+            background-image: var(--Background-Pattern, url("assets/ui/dot-grid.png"));
+            background-repeat: repeat;
+            color: #ece7df;
+            font-family: var(--font-mono, monospace);
+            padding: 24px 16px;
+            min-height: 100vh;
+        }
+
+        .builder-wrap {
+            max-width: 1380px;
+            margin: 0 auto;
+        }
+
+        /* Top bar */
+        .builder-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0d0d0f;
+            border: 2px solid #000;
+            padding: 12px 18px;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6);
+            margin-bottom: 24px;
+        }
+
+        .builder-title {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent-cyan, #7CE8EB);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-retro {
+            background: #18181a;
+            color: #ece7df;
+            border: 1px solid #444;
+            padding: 6px 12px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-retro:hover {
+            background: var(--accent-cyan, #7CE8EB);
+            color: #0d0d0f;
+            border-color: #000;
+        }
+
+        .btn-retro.btn-crimson:hover {
+            background: var(--accent-crimson, #8E1F24);
+            color: #fff;
+            border-color: #000;
+        }
+
+        .btn-retro.btn-accent {
+            background: var(--accent-cyan, #7CE8EB);
+            color: #0d0d0f;
+            border-color: #000;
+            font-weight: 700;
+        }
+
+        .btn-retro.btn-accent:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Layout Grid */
+        .builder-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .builder-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Panel Boxes */
+        .panel-box {
+            background: #121214;
+            border: 2px solid #000;
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.6);
+        }
+
+        .panel-header {
+            background: #0d0d0f;
+            padding: 10px 16px;
+            border-bottom: 1px solid #333;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--accent-cyan, #7CE8EB);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-body {
+            padding: 20px 18px;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--graphite-gray, #888);
+            margin-bottom: 6px;
+        }
+
+        label span.req {
+            color: var(--accent-crimson, #8E1F24);
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            background: #08080a;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 8px 10px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.82rem;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--accent-cyan, #7CE8EB);
+            box-shadow: 0 0 0 1px var(--accent-cyan, #7CE8EB);
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 70px;
+            line-height: 1.5;
+        }
+
+        /* Type Switcher */
+        .type-switcher {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            background: #08080a;
+            padding: 6px;
+            border: 1px solid #333;
+        }
+
+        .type-option {
+            flex: 1;
+            text-align: center;
+            padding: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .type-option.active {
+            background: var(--accent-cyan, #7CE8EB);
+            color: #0d0d0f;
+            border-color: #000;
+        }
+
+        /* Palette Pickers */
+        .palette-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .color-slot {
+            background: #08080a;
+            border: 1px solid #333;
+            padding: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-slot input[type="color"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 36px;
+            border: 1px solid #222;
+            cursor: pointer;
+            background: none;
+        }
+
+        .color-slot input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        .color-slot input[type="color"]::-webkit-color-swatch {
+            border: none;
+        }
+
+        .color-slot input[type="text"] {
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 4px;
+            text-transform: uppercase;
+        }
+
+        .palette-presets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .btn-preset {
+            background: #18181a;
+            border: 1px solid #333;
+            color: #aaa;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.68rem;
+            padding: 3px 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .btn-preset:hover {
+            border-color: var(--accent-cyan, #7CE8EB);
+            color: #fff;
+        }
+
+        /* Gallery Repeater */
+        .gallery-item {
+            background: #08080a;
+            border: 1px solid #28282c;
+            padding: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .gallery-item input {
+            flex: 1;
+        }
+
+        .gallery-item .btn-remove {
+            background: #2a1012;
+            color: #ff8888;
+            border: 1px solid var(--accent-crimson, #8E1F24);
+            padding: 6px 10px;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+
+        /* Asset Quick Chips */
+        .asset-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 6px;
+        }
+
+        .asset-chip {
+            background: #18181a;
+            border: 1px dashed #444;
+            color: #bbb;
+            font-size: 0.68rem;
+            padding: 2px 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .asset-chip:hover {
+            border-color: var(--accent-cyan, #7CE8EB);
+            color: var(--accent-cyan, #7CE8EB);
+        }
+
+        /* JSON Output Panel */
+        .output-box {
+            position: sticky;
+            top: 20px;
+        }
+
+        .json-pre-wrap {
+            position: relative;
+            background: #08080a;
+            border: 1px solid #28282c;
+            padding: 14px;
+            overflow-x: auto;
+            max-height: 520px;
+        }
+
+        pre {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.78rem;
+            line-height: 1.55;
+            color: #d8d6ce;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .output-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .toast-copied {
+            display: none;
+            background: var(--accent-cyan, #7CE8EB);
+            color: #0d0d0f;
+            text-align: center;
+            font-weight: 700;
+            padding: 6px;
+            font-size: 0.75rem;
+            margin-top: 6px;
+        }
+
+        .toast-copied.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .instructions-box {
+            margin-top: 16px;
+            background: #0d0d0f;
+            border: 1px dashed #333;
+            padding: 12px;
+            font-size: 0.72rem;
+            line-height: 1.6;
+            color: #999;
+        }
+
+        .instructions-box ol {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        .instructions-box li {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="builder-wrap">
+        <!-- TOPBAR -->
+        <header class="builder-topbar">
+            <div class="builder-title">
+                <i class="ph ph-cube"></i>
+                <span>[+] GENERADOR DE ENTRADAS // DATA/WORKS.JSON</span>
+            </div>
+            <div>
+                <a href="index.html" class="btn-retro">
+                    <i class="ph ph-arrow-left"></i> VOLVER AL PORTAFOLIO
+                </a>
+            </div>
+        </header>
+
+        <!-- MAIN GRID -->
+        <div class="builder-grid">
+
+            <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+            <div class="panel-box">
+                <div class="panel-header">
+                    <span>1. DATOS DE LA ENTRADA</span>
+                    <button type="button" class="btn-retro btn-crimson" id="btn-reset-form" title="Reiniciar formulario">
+                        <i class="ph ph-arrows-counter-clockwise"></i> LIMPIAR
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <!-- Selector de tipo -->
+                    <div class="type-switcher">
+                        <div class="type-option active" data-type="artwork" id="type-opt-artwork">
+                            <i class="ph ph-image"></i> OBRA DE ARTE (artwork)
+                        </div>
+                        <div class="type-option" data-type="thought" id="type-opt-thought">
+                            <i class="ph ph-article"></i> PENSAMIENTO / MANIFIESTO (thought)
+                        </div>
+                    </div>
+
+                    <!-- CAMPOS COMUNES -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Título <span class="req">*</span></label>
+                            <input type="text" id="f-title" placeholder="Ej: Retrato de sombras" autocomplete="off" value="Nueva Obra de Estudio">
+                        </div>
+                        <div class="form-group">
+                            <label>ID / Slug Único <span class="req">*</span></label>
+                            <input type="text" id="f-id" placeholder="auto-generado-kebab-case" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Categoría <span class="req">*</span></label>
+                            <select id="f-category">
+                                <!-- Poblado dinámicamente desde data/categories.json -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Año // Registro <span class="req">*</span></label>
+                            <input type="text" id="f-date" value="2026">
+                        </div>
+                    </div>
+
+                    <!-- CAMPOS EXCLUSIVOS DE OBRA -->
+                    <div id="artwork-fields">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Técnica & Medio <span class="req">*</span></label>
+                                <input type="text" id="f-medium" placeholder="Ej: Grafito y pastel sobre papel negro" value="Grafito y tiza sobre cartulina oscura">
+                            </div>
+                            <div class="form-group">
+                                <label>Dimensiones // Formato</label>
+                                <input type="text" id="f-dimensions" placeholder="Ej: 50 x 70 cm" value="40 x 50 cm">
+                            </div>
+                        </div>
+
+                        <!-- Paleta de 4 colores -->
+                        <div class="form-group">
+                            <label>Paleta Cromática (4 Colores HEX) <span class="req">*</span></label>
+                            <div class="palette-row">
+                                <div class="color-slot">
+                                    <input type="color" id="f-col-1" value="#0D0D0F">
+                                    <input type="text" id="f-hex-1" value="#0D0D0F">
+                                </div>
+                                <div class="color-slot">
+                                    <input type="color" id="f-col-2" value="#FFFFFF">
+                                    <input type="text" id="f-hex-2" value="#FFFFFF">
+                                </div>
+                                <div class="color-slot">
+                                    <input type="color" id="f-col-3" value="#6E6D6A">
+                                    <input type="text" id="f-hex-3" value="#6E6D6A">
+                                </div>
+                                <div class="color-slot">
+                                    <input type="color" id="f-col-4" value="#2E2D2B">
+                                    <input type="text" id="f-hex-4" value="#2E2D2B">
+                                </div>
+                            </div>
+                            <!-- Presets rápidos -->
+                            <div class="palette-presets">
+                                <span style="font-size:0.68rem; color:#666; align-self:center;">Presets:</span>
+                                <button type="button" class="btn-preset" onclick="loadPreset(['#0D0D0F','#FFFFFF','#6E6D6A','#2E2D2B'])">Carbón/Monocromo</button>
+                                <button type="button" class="btn-preset" onclick="loadPreset(['#000000','#FFFFFF','#8E1F24','#1F1F24'])">Tinta/Carmesí</button>
+                                <button type="button" class="btn-preset" onclick="loadPreset(['#3D2314','#7B4B28','#C49A6C','#EAD8C3'])">Sepia/Tierras</button>
+                                <button type="button" class="btn-preset" onclick="loadPreset(['#0D0D0F','#8E1F24','#7CE8EB','#EFECE4'])">Cian/Sobreexpuesto</button>
+                                <button type="button" class="btn-preset" onclick="loadPreset(['#111113','#F2EFE9','#5A5955','#8C8982'])">Plumilla/Aiden</button>
+                            </div>
+                        </div>
+
+                        <!-- Etiquetas -->
+                        <div class="form-group">
+                            <label>Etiquetas (Separadas por comas)</label>
+                            <input type="text" id="f-tags" placeholder="grafito, claroscuro, tension, anatomia" value="grafito, claroscuro, anatomía">
+                        </div>
+
+                        <!-- Portada -->
+                        <div class="form-group">
+                            <label>Ruta de Imagen de Portada (cover) <span class="req">*</span></label>
+                            <input type="text" id="f-cover" value="assets/works/caballo-full.webp">
+                            <div class="asset-chips" id="quick-assets-list">
+                                <!-- Chips rápidos -->
+                                <span class="asset-chip" onclick="setCover('assets/works/caballo-full.webp')">caballo-full.webp</span>
+                                <span class="asset-chip" onclick="setCover('assets/works/caballo-detalle-grillete.webp')">caballo-detalle.webp</span>
+                                <span class="asset-chip" onclick="setCover('assets/works/good-night.webp')">good-night.webp</span>
+                                <span class="asset-chip" onclick="setCover('assets/works/aiden-escena.webp')">aiden-escena.webp</span>
+                                <span class="asset-chip" onclick="setCover('assets/works/retrato-sepia.webp')">retrato-sepia.webp</span>
+                                <span class="asset-chip" onclick="setCover('assets/works/shadow-estudio.webp')">shadow-estudio.webp</span>
+                            </div>
+                        </div>
+
+                        <!-- Galería -->
+                        <div class="form-group">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                                <label style="margin:0;">Galería de Proceso / Detalles</label>
+                                <button type="button" class="btn-retro" id="btn-add-gallery" style="font-size:0.68rem; padding:2px 8px;">
+                                    <i class="ph ph-plus"></i> AGREGAR IMAGEN
+                                </button>
+                            </div>
+                            <div id="gallery-container">
+                                <!-- Filas de galería dinámicas -->
+                            </div>
+                        </div>
+
+                        <!-- Resumen -->
+                        <div class="form-group">
+                            <label>Resumen Conceptual // Ficha Técnica</label>
+                            <textarea id="f-summary" placeholder="Nota del autor sobre la pieza...">Estudio de tensión corporal y claroscuro construido desde el grano seco sobre papel negro.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- CAMPOS EXCLUSIVOS DE THOUGHT -->
+                    <div id="thought-fields" style="display:none;">
+                        <div class="form-group">
+                            <label>Estilo de Pensamiento</label>
+                            <select id="f-thought-style">
+                                <option value="standard">Bitácora de Taller Estándar</option>
+                                <option value="manifesto">Manifiesto Editorial (Top Box)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Texto / Contenido del Pensamiento <span class="req">*</span></label>
+                            <textarea id="f-text" style="min-height:120px;" placeholder="Escribe aquí tu pensamiento, reflexión o manifiesto..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Subtítulo o Marcador Opcional (@ ---)</label>
+                            <input type="text" id="f-thought-subtitle" placeholder="Ej: FILOSOFÍA DE TALLER // PROCESO">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SALIDA JSON -->
+            <div class="panel-box output-box">
+                <div class="panel-header">
+                    <span>2. SALIDA JSON GENERADA</span>
+                    <span id="output-indicator" style="color:var(--accent-cyan); font-size:0.7rem;">● EN VIVO</span>
+                </div>
+                <div class="panel-body">
+                    <div class="json-pre-wrap">
+                        <pre><code id="json-code"></code></pre>
+                    </div>
+
+                    <div class="output-actions">
+                        <button type="button" class="btn-retro btn-accent" id="btn-copy-comma">
+                            <i class="ph ph-copy"></i> [ COPIAR CON COMA INICIAL (, {...}) ]
+                        </button>
+                        <button type="button" class="btn-retro" id="btn-copy-raw">
+                            <i class="ph ph-clipboard-text"></i> COPIAR SOLO OBJETO {...}
+                        </button>
+                        <button type="button" class="btn-retro" id="btn-download">
+                            <i class="ph ph-download-simple"></i> DESCARGAR ARCHIVO .JSON
+                        </button>
+                    </div>
+
+                    <div class="toast-copied" id="toast-copied">
+                        ✓ ¡COPIADO AL PORTAPAPELES!
+                    </div>
+
+                    <div class="instructions-box">
+                        <strong style="color:#ece7df;">CÓMO INTEGRARLO EN DATA/WORKS.JSON:</strong>
+                        <ol>
+                            <li>Haz clic en <strong>"COPIAR CON COMA INICIAL"</strong>.</li>
+                            <li>Abre <code>data/works.json</code> en tu editor.</li>
+                            <li>Ve hasta el final del archivo y pega el código justo antes del último corchete <code>]</code>.</li>
+                            <li>Guarda el archivo y recarga tu página principal. ¡Listo!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentType = 'artwork';
+        let categoriesData = [];
+
+        // Generar Kebab Case Slug
+        function slugify(text) {
+            return text.toString().toLowerCase().trim()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Quitar tildes
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]+/g, '')
+                .replace(/\-\-+/g, '-');
+        }
+
+        // Cargar Categorías desde data/categories.json
+        async function loadCategories() {
+            try {
+                const res = await fetch('data/categories.json');
+                categoriesData = await res.json();
+                const sel = document.getElementById('f-category');
+                sel.innerHTML = categoriesData.map(cat => `
+                    <option value="${cat.id}" data-roman="${cat.roman}" data-name="${cat.name}">
+                        [ ${cat.roman} ] ${cat.id.toUpperCase()} — ${cat.name}
+                    </option>
+                `).join('');
+                updateJsonOutput();
+            } catch (err) {
+                console.error("Error cargando categorías:", err);
+            }
+        }
+
+        // Sincronizar selectores de color
+        function setupColorSync(num) {
+            const picker = document.getElementById(`f-col-${num}`);
+            const text = document.getElementById(`f-hex-${num}`);
+
+            picker.addEventListener('input', () => {
+                text.value = picker.value.toUpperCase();
+                updateJsonOutput();
+            });
+
+            text.addEventListener('input', () => {
+                let val = text.value.trim();
+                if (!val.startsWith('#')) val = '#' + val;
+                if (/^#[0-9A-F]{6}$/i.test(val)) {
+                    picker.value = val;
+                }
+                updateJsonOutput();
+            });
+        }
+
+        for (let i = 1; i <= 4; i++) setupColorSync(i);
+
+        function loadPreset(colors) {
+            for (let i = 0; i < 4; i++) {
+                const c = colors[i] || '#000000';
+                document.getElementById(`f-col-${i + 1}`).value = c;
+                document.getElementById(`f-hex-${i + 1}`).value = c;
+            }
+            updateJsonOutput();
+        }
+
+        function setCover(path) {
+            document.getElementById('f-cover').value = path;
+            const firstGallInput = document.querySelector('#gallery-container .gallery-src');
+            if (firstGallInput && !firstGallInput.value) {
+                firstGallInput.value = path;
+            }
+            updateJsonOutput();
+        }
+
+        // Galería dinámica
+        function addGalleryRow(src = '', caption = '') {
+            const container = document.getElementById('gallery-container');
+            const row = document.createElement('div');
+            row.className = 'gallery-item';
+            row.innerHTML = `
+                <input type="text" class="gallery-src" placeholder="Ruta: assets/works/foto.webp" value="${src}">
+                <input type="text" class="gallery-caption" placeholder="Pie de foto / descripción..." value="${caption}">
+                <button type="button" class="btn-remove" title="Eliminar fila">✕</button>
+            `;
+
+            row.querySelector('.btn-remove').addEventListener('click', () => {
+                row.remove();
+                updateJsonOutput();
+            });
+
+            row.querySelectorAll('input').forEach(inp => {
+                inp.addEventListener('input', updateJsonOutput);
+            });
+
+            container.appendChild(row);
+            updateJsonOutput();
+        }
+
+        // Alternar tipo (artwork / thought)
+        document.getElementById('type-opt-artwork').addEventListener('click', () => {
+            currentType = 'artwork';
+            document.getElementById('type-opt-artwork').classList.add('active');
+            document.getElementById('type-opt-thought').classList.remove('active');
+            document.getElementById('artwork-fields').style.display = 'block';
+            document.getElementById('thought-fields').style.display = 'none';
+            updateJsonOutput();
+        });
+
+        document.getElementById('type-opt-thought').addEventListener('click', () => {
+            currentType = 'thought';
+            document.getElementById('type-opt-thought').classList.add('active');
+            document.getElementById('type-opt-artwork').classList.remove('active');
+            document.getElementById('artwork-fields').style.display = 'none';
+            document.getElementById('thought-fields').style.display = 'block';
+            updateJsonOutput();
+        });
+
+        // Auto-slug al escribir título
+        let manualIdEdited = false;
+        document.getElementById('f-title').addEventListener('input', (e) => {
+            if (!manualIdEdited) {
+                document.getElementById('f-id').value = slugify(e.target.value);
+            }
+            updateJsonOutput();
+        });
+
+        document.getElementById('f-id').addEventListener('input', () => {
+            manualIdEdited = true;
+            updateJsonOutput();
+        });
+
+        // Construir objeto JSON
+        function buildObject() {
+            const title = document.getElementById('f-title').value.trim();
+            const id = document.getElementById('f-id').value.trim() || slugify(title);
+            const catSelect = document.getElementById('f-category');
+            const catId = catSelect.value || 'tradicional';
+            const selectedOpt = catSelect.options[catSelect.selectedIndex];
+            const romanSlot = selectedOpt ? selectedOpt.getAttribute('data-roman') : 'I';
+            const categoryLabel = selectedOpt ? selectedOpt.getAttribute('data-name').toUpperCase() : catId.toUpperCase();
+            const date = document.getElementById('f-date').value.trim() || '2026';
+
+            if (currentType === 'thought') {
+                const style = document.getElementById('f-thought-style').value;
+                const text = document.getElementById('f-text').value.trim();
+                const subtitle = document.getElementById('f-thought-subtitle').value.trim();
+
+                const obj = {
+                    id: id,
+                    type: "thought",
+                    style: style,
+                    category: catId,
+                    romanSlot: romanSlot,
+                    title: title,
+                    date: date,
+                    text: text
+                };
+
+                if (subtitle) obj.subtitle = subtitle;
+                return obj;
+            }
+
+            // Artwork
+            const medium = document.getElementById('f-medium').value.trim();
+            const dimensions = document.getElementById('f-dimensions').value.trim();
+            const palette = [
+                document.getElementById('f-hex-1').value.trim(),
+                document.getElementById('f-hex-2').value.trim(),
+                document.getElementById('f-hex-3').value.trim(),
+                document.getElementById('f-hex-4').value.trim()
+            ];
+            const tagsRaw = document.getElementById('f-tags').value;
+            const tags = tagsRaw.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+            const cover = document.getElementById('f-cover').value.trim();
+            const summary = document.getElementById('f-summary').value.trim();
+
+            const galleryItems = [];
+            document.querySelectorAll('#gallery-container .gallery-item').forEach(item => {
+                const src = item.querySelector('.gallery-src').value.trim();
+                const caption = item.querySelector('.gallery-caption').value.trim();
+                if (src) galleryItems.push({ src, caption: caption || title });
+            });
+
+            const obj = {
+                id: id,
+                type: "artwork",
+                category: catId,
+                categoryLabel: categoryLabel,
+                romanSlot: romanSlot,
+                title: title,
+                date: date,
+                medium: medium,
+                dimensions: dimensions,
+                palette: palette,
+                tags: tags,
+                cover: cover,
+                gallery: galleryItems.length > 0 ? galleryItems : [{ src: cover, caption: title }],
+                summary: summary
+            };
+
+            return obj;
+        }
+
+        function updateJsonOutput() {
+            const obj = buildObject();
+            const jsonStr = JSON.stringify(obj, null, 2);
+            document.getElementById('json-code').textContent = jsonStr;
+        }
+
+        // Event listeners para todos los inputs
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('input', updateJsonOutput);
+            el.addEventListener('change', updateJsonOutput);
+        });
+
+        // Botones de copiado
+        function showToast(msg) {
+            const toast = document.getElementById('toast-copied');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+        }
+
+        document.getElementById('btn-copy-comma').addEventListener('click', () => {
+            const obj = buildObject();
+            const text = ',\n  ' + JSON.stringify(obj, null, 2).replace(/\n/g, '\n  ');
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✓ ¡COPIADO CON COMA! PÉGALO AL FINAL DE WORKS.JSON');
+            });
+        });
+
+        document.getElementById('btn-copy-raw').addEventListener('click', () => {
+            const obj = buildObject();
+            const text = JSON.stringify(obj, null, 2);
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✓ ¡OBJETO JSON COPIADO AL PORTAPAPELES!');
+            });
+        });
+
+        document.getElementById('btn-download').addEventListener('click', () => {
+            const obj = buildObject();
+            const text = JSON.stringify(obj, null, 2);
+            const blob = new Blob([text], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${obj.id || 'entrada'}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        document.getElementById('btn-add-gallery').addEventListener('click', () => {
+            const cover = document.getElementById('f-cover').value.trim();
+            addGalleryRow(cover, 'Detalle de la obra');
+        });
+
+        document.getElementById('btn-reset-form').addEventListener('click', () => {
+            if (confirm('¿Reiniciar el formulario a los valores por defecto?')) {
+                document.getElementById('f-title').value = 'Nueva Obra de Estudio';
+                document.getElementById('f-id').value = 'nueva-obra-de-estudio';
+                document.getElementById('f-medium').value = 'Grafito y tiza sobre cartulina oscura';
+                document.getElementById('f-dimensions').value = '40 x 50 cm';
+                document.getElementById('f-cover').value = 'assets/works/caballo-full.webp';
+                document.getElementById('f-tags').value = 'grafito, claroscuro, anatomía';
+                document.getElementById('f-summary').value = 'Estudio de tensión corporal y claroscuro.';
+                document.getElementById('gallery-container').innerHTML = '';
+                addGalleryRow('assets/works/caballo-full.webp', 'Vista principal');
+                loadPreset(['#0D0D0F', '#FFFFFF', '#6E6D6A', '#2E2D2B']);
+                manualIdEdited = false;
+                updateJsonOutput();
+            }
+        });
+
+        // Inicialización
+        window.addEventListener('DOMContentLoaded', async () => {
+            document.getElementById('f-id').value = slugify(document.getElementById('f-title').value);
+            addGalleryRow('assets/works/caballo-full.webp', 'Estudio principal');
+            await loadCategories();
+            updateJsonOutput();
+        });
+    </script>
+</body>
+
+</html>
