@@ -244,54 +244,54 @@
                         </div>
                         <div class="meta-field">
                             <span class="label">PALETA CROMÁTICA EXTRAÍDA</span>
-                                <div class="color-swatches" id="darkroom-palette">
-                                    <!-- Swatches renderizados dinámicamente desde works.json -->
-                                </div>
-                            </div>
-
-                            <div class="darkroom-summary" id="darkroom-summary">
-                                Resumen conceptual de la pieza.
+                            <div class="color-swatches" id="darkroom-palette">
+                                <!-- Swatches renderizados dinámicamente desde works.json -->
                             </div>
                         </div>
 
-                        <div class="darkroom-keyboard-hint">
-                            [ESC] CERRAR | [← / →] RECORRER ARCHIVO
+                        <div class="darkroom-summary" id="darkroom-summary">
+                            Resumen conceptual de la pieza.
                         </div>
+                    </div>
+
+                    <div class="darkroom-keyboard-hint">
+                        [ESC] CERRAR | [← / →] RECORRER ARCHIVO
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- MODAL CONTACTO & COMISIONES RETRO -->
-        <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true">
-            <div class="contact-window">
-                <div class="contact-window-header">
-                    <span>[!] FICHA // CONTACTO & COMISIONES</span>
-                    <button class="darkroom-close-btn" id="contact-close-btn">[ X ]</button>
+    <!-- MODAL CONTACTO & COMISIONES RETRO -->
+    <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true">
+        <div class="contact-window">
+            <div class="contact-window-header">
+                <span>[!] FICHA // CONTACTO & COMISIONES</span>
+                <button class="darkroom-close-btn" id="contact-close-btn">[ X ]</button>
+            </div>
+            <div class="contact-window-body">
+                <div class="comms-status-badge">
+                    ● COMISIONES: ABIERTAS (EDITORIAL / ILUSTRACIÓN / ARTE CONCEPTUAL)
                 </div>
-                <div class="contact-window-body">
-                    <div class="comms-status-badge">
-                        ● COMISIONES: ABIERTAS (EDITORIAL / ILUSTRACIÓN / ARTE CONCEPTUAL)
-                    </div>
-                    <p style="font-size:0.88rem; line-height:1.6; margin:0 0 14px 0;">
-                        Disponible par portadas musicales, colaboraciones
-                        underground o encargos privados.
-                    </p>
-                    <div class="copy-email-box">
-                        <div class="email-display" id="email-text">gogomc1208@gmail.com</div>
-                        <button class="btn-copy-email" id="copy-email-btn">COPIAR</button>
-                    </div>
-                    <div style="font-size:0.75rem; color:var(--graphite-gray); line-height:1.6; margin-top:16px;">
-                        <div>DISCIPLINAS: ILUSTRACIÓN TRADICIONAL & DIGITAL </div>
-                        <div>UBICACIÓN: COSTA RICA </div>
-                    </div>
+                <p style="font-size:0.88rem; line-height:1.6; margin:0 0 14px 0;">
+                    Disponible par portadas musicales, colaboraciones
+                    underground o encargos privados.
+                </p>
+                <div class="copy-email-box">
+                    <div class="email-display" id="email-text">gogomc1208@gmail.com</div>
+                    <button class="btn-copy-email" id="copy-email-btn">COPIAR</button>
+                </div>
+                <div style="font-size:0.75rem; color:var(--graphite-gray); line-height:1.6; margin-top:16px;">
+                    <div>DISCIPLINAS: ILUSTRACIÓN TRADICIONAL & DIGITAL </div>
+                    <div>UBICACIÓN: COSTA RICA </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- SCRIPTS VENDOR & APLICACIÓN -->
-        <script src="assets/ui/vendor/overlayscrollbars_2.7.3.js"></script>
-        <script>/**
+    <!-- SCRIPTS VENDOR & APLICACIÓN -->
+    <script src="assets/ui/vendor/overlayscrollbars_2.7.3.js"></script>
+    <script>/**
 * RENDER ENGINE - Portafolio & Archivo Editorial Modular
 * Agrupa y renderiza obras en retícula modular organizada estrictamente por 4 categorías:
 * I: Grafito
@@ -300,94 +300,94 @@
 * IV: Acuarela
 */
 
-            window.WorksData = [];
-            window.CategoriesData = [];
+        window.WorksData = [];
+        window.CategoriesData = [];
 
-            /**
-             * Aplica paleta global configurable directamente desde data/works.json
-             */
-            function applyThemePalette(items) {
-                if (!items || !items.length) return;
+        /**
+         * Aplica paleta global configurable directamente desde data/works.json
+         */
+        function applyThemePalette(items) {
+            if (!items || !items.length) return;
 
-                const configItem = items.find(it => it.type === 'config' || it.id === 'theme-config' || it.id === 'site-config');
-                const manifestoItem = items.find(it => it.type === 'thought' && (it.style === 'manifesto' || it.id === 'manifiesto-editorial'));
+            const configItem = items.find(it => it.type === 'config' || it.id === 'theme-config' || it.id === 'site-config');
+            const manifestoItem = items.find(it => it.type === 'thought' && (it.style === 'manifesto' || it.id === 'manifiesto-editorial'));
 
-                const paletteSource = (configItem && configItem.palette) ? configItem.palette : (manifestoItem && manifestoItem.palette ? manifestoItem.palette : null);
+            const paletteSource = (configItem && configItem.palette) ? configItem.palette : (manifestoItem && manifestoItem.palette ? manifestoItem.palette : null);
 
-                if (!paletteSource) return;
+            if (!paletteSource) return;
 
-                const root = document.documentElement;
+            const root = document.documentElement;
 
-                if (Array.isArray(paletteSource)) {
-                    if (paletteSource[0]) root.style.setProperty('--ink-dark', paletteSource[0]);
-                    if (paletteSource[1]) root.style.setProperty('--accent-crimson', paletteSource[1]);
-                    if (paletteSource[2]) root.style.setProperty('--accent-cyan', paletteSource[2]);
-                    if (paletteSource[3]) root.style.setProperty('--paper-bone', paletteSource[3]);
-                    if (paletteSource[4]) root.style.setProperty('--graphite-gray', paletteSource[4]);
-                } else if (typeof paletteSource === 'object') {
-                    if (paletteSource.accentCyan || paletteSource.cyan) root.style.setProperty('--accent-cyan', paletteSource.accentCyan || paletteSource.cyan);
-                    if (paletteSource.accentCrimson || paletteSource.crimson) root.style.setProperty('--accent-crimson', paletteSource.accentCrimson || paletteSource.crimson);
-                    if (paletteSource.inkDark || paletteSource.dark) root.style.setProperty('--ink-dark', paletteSource.inkDark || paletteSource.dark);
-                    if (paletteSource.paperBone || paletteSource.paper) root.style.setProperty('--paper-bone', paletteSource.paperBone || paletteSource.paper);
-                    if (paletteSource.graphiteGray || paletteSource.gray) root.style.setProperty('--graphite-gray', paletteSource.graphiteGray || paletteSource.gray);
-                    if (paletteSource.background || paletteSource.bg) root.style.setProperty('--Background', paletteSource.background || paletteSource.bg);
-                }
+            if (Array.isArray(paletteSource)) {
+                if (paletteSource[0]) root.style.setProperty('--ink-dark', paletteSource[0]);
+                if (paletteSource[1]) root.style.setProperty('--accent-crimson', paletteSource[1]);
+                if (paletteSource[2]) root.style.setProperty('--accent-cyan', paletteSource[2]);
+                if (paletteSource[3]) root.style.setProperty('--paper-bone', paletteSource[3]);
+                if (paletteSource[4]) root.style.setProperty('--graphite-gray', paletteSource[4]);
+            } else if (typeof paletteSource === 'object') {
+                if (paletteSource.accentCyan || paletteSource.cyan) root.style.setProperty('--accent-cyan', paletteSource.accentCyan || paletteSource.cyan);
+                if (paletteSource.accentCrimson || paletteSource.crimson) root.style.setProperty('--accent-crimson', paletteSource.accentCrimson || paletteSource.crimson);
+                if (paletteSource.inkDark || paletteSource.dark) root.style.setProperty('--ink-dark', paletteSource.inkDark || paletteSource.dark);
+                if (paletteSource.paperBone || paletteSource.paper) root.style.setProperty('--paper-bone', paletteSource.paperBone || paletteSource.paper);
+                if (paletteSource.graphiteGray || paletteSource.gray) root.style.setProperty('--graphite-gray', paletteSource.graphiteGray || paletteSource.gray);
+                if (paletteSource.background || paletteSource.bg) root.style.setProperty('--Background', paletteSource.background || paletteSource.bg);
             }
+        }
 
-            async function initRender() {
-                try {
-                    const [worksRes, catRes] = await Promise.all([
-                        fetch('data/works.json'),
-                        fetch('data/categories.json')
-                    ]);
-                    window.WorksData = await worksRes.json();
-                    window.CategoriesData = await catRes.json();
+        async function initRender() {
+            try {
+                const [worksRes, catRes] = await Promise.all([
+                    fetch('data/works.json'),
+                    fetch('data/categories.json')
+                ]);
+                window.WorksData = await worksRes.json();
+                window.CategoriesData = await catRes.json();
 
-                    // Aplicar paleta global configurable
-                    applyThemePalette(window.WorksData);
+                // Aplicar paleta global configurable
+                applyThemePalette(window.WorksData);
 
-                    renderFeed(window.WorksData, window.CategoriesData);
-                } catch (err) {
-                    console.error("Error al cargar datos:", err);
-                }
+                renderFeed(window.WorksData, window.CategoriesData);
+            } catch (err) {
+                console.error("Error al cargar datos:", err);
             }
+        }
 
-            /**
-             * Renderiza el feed central agrupado por categorías en retícula de 2 columnas
-             */
-            function renderFeed(items, categories) {
-                const container = document.getElementById('posts-container');
-                if (!container) return;
+        /**
+         * Renderiza el feed central agrupado por categorías en retícula de 2 columnas
+         */
+        function renderFeed(items, categories) {
+            const container = document.getElementById('posts-container');
+            if (!container) return;
 
-                const cats = categories || window.CategoriesData || [];
+            const cats = categories || window.CategoriesData || [];
 
-                if (!items || items.length === 0) {
-                    container.innerHTML = `
+            if (!items || items.length === 0) {
+                container.innerHTML = `
             <div class="empty-search-box">
                 <div class="error-title">ERROR 404: ARCHIVO VACÍO</div>
                 <div class="error-desc">No se encontraron piezas registradas con ese término de búsqueda.</div>
                 <button onclick="window.resetFilters()">[ REINICIAR BÚSQUEDA ]</button>
             </div>
         `;
-                    return;
-                }
-                const thoughts = items.filter(item => item.type === 'thought');
-                const artworks = items.filter(item => item.type !== 'thought' && item.type !== 'config');
+                return;
+            }
+            const thoughts = items.filter(item => item.type === 'thought');
+            const artworks = items.filter(item => item.type !== 'thought' && item.type !== 'config');
 
-                let html = '';
+            let html = '';
 
 
-                if (thoughts.length > 0) {
-                    html += thoughts.map(renderThoughtCard).join('');
-                }
+            if (thoughts.length > 0) {
+                html += thoughts.map(renderThoughtCard).join('');
+            }
 
-                // Agrupar obras por las 4 categorías estrictas
-                cats.forEach(cat => {
-                    const catWorks = artworks.filter(w => w.category === cat.id);
+            // Agrupar obras por las 4 categorías estrictas
+            cats.forEach(cat => {
+                const catWorks = artworks.filter(w => w.category === cat.id);
 
-                    // Si la categoría tiene obras o estamos en vista completa
-                    if (catWorks.length > 0) {
-                        html += `
+                // Si la categoría tiene obras o estamos en vista completa
+                if (catWorks.length > 0) {
+                    html += `
             <section class="category-section" id="sec-${cat.id}" data-category-id="${cat.id}">
                 <!-- Cabecera Editorial de Categoría -->
                 <header class="category-header">
@@ -416,33 +416,33 @@
                 </div>
             </section>
             `;
-                    }
+                }
+            });
+
+            container.innerHTML = html;
+
+            // Conectar eventos de clic para abrir Lightbox en obras
+            container.querySelectorAll('[data-inspect-id]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = btn.getAttribute('data-inspect-id');
+                    if (window.openLightbox) window.openLightbox(id);
                 });
+            });
+        }
 
-                container.innerHTML = html;
+        /**
+         * Renderiza una tarjeta de obra adaptada a la retícula modular
+         */
+        function renderGridArtworkCard(item) {
+            const isPlaceholder = !!item.isPlaceholder;
+            const palette = item.palette || [];
+            const p1 = palette[0] || 'var(--ink-dark)';
+            const p2 = palette[1] || 'var(--accent-crimson)';
+            const p3 = palette[2] || 'var(--accent-cyan)';
+            const p4 = palette[3] || 'var(--paper-bone)';
 
-                // Conectar eventos de clic para abrir Lightbox en obras
-                container.querySelectorAll('[data-inspect-id]').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const id = btn.getAttribute('data-inspect-id');
-                        if (window.openLightbox) window.openLightbox(id);
-                    });
-                });
-            }
-
-            /**
-             * Renderiza una tarjeta de obra adaptada a la retícula modular
-             */
-            function renderGridArtworkCard(item) {
-                const isPlaceholder = !!item.isPlaceholder;
-                const palette = item.palette || [];
-                const p1 = palette[0] || 'var(--ink-dark)';
-                const p2 = palette[1] || 'var(--accent-crimson)';
-                const p3 = palette[2] || 'var(--accent-cyan)';
-                const p4 = palette[3] || 'var(--paper-bone)';
-
-                return `
+            return `
     <article class="posts artwork-card grid-card ${isPlaceholder ? 'in-production-card' : ''}" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}" style="--card-p1:${p1}; --card-p2:${p2}; --card-p3:${p3}; --card-p4:${p4};">
         <div class="post-inner">
             <div class="post-header">
@@ -507,16 +507,16 @@
         </div>
     </article>
     `;
-            }
+        }
 
-            function renderThoughtCard(item) {
-                const isManifesto = item.style === 'manifesto' || item.id === 'manifiesto-editorial';
-                const tagsHtml = (item.tags || []).map(t => `
+        function renderThoughtCard(item) {
+            const isManifesto = item.style === 'manifesto' || item.id === 'manifiesto-editorial';
+            const tagsHtml = (item.tags || []).map(t => `
                 <span style="color:var(--accent-cyan); font-family:var(--font-mono); font-size:0.75rem; font-weight:600; letter-spacing:0.06em; margin-right:12px;">#${t.toUpperCase()}</span>
             `).join('');
 
-                if (isManifesto) {
-                    return `
+            if (isManifesto) {
+                return `
         <article class="posts thought-bubble-card manifesto-card" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}">
             <div class="post-inner">
                 <div class="thought-header-badge" style="background:#000; border-bottom:1px solid #333;">
@@ -538,9 +538,9 @@
             </div>
         </article>
         `;
-                }
+            }
 
-                return `
+            return `
     <article class="posts thought-bubble-card" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}">
         <div class="post-inner">
             <div class="thought-header-badge">
@@ -554,473 +554,473 @@
         </div>
     </article>
     `;
-            }
-        </script>
-        <script>/**
+        }
+    </script>
+    <script>/**
 * LIGHTBOX / RETRO INSPECTOR (DARKROOM)
 * Visor a pantalla completa de alta resolución, zoom interactivo, carrusel de proceso y ficha técnica monoespaciada.
 */
 
-            window.currentArtworkIndex = 0;
+        window.currentArtworkIndex = 0;
+        window.currentGalleryIndex = 0;
+
+        function setupLightbox() {
+            const modal = document.getElementById('darkroom-lightbox');
+            if (!modal) return;
+
+            // Botón de cierre
+            const closeBtn = modal.querySelector('.darkroom-close-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeLightbox);
+            }
+
+            // Clic fuera para cerrar
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeLightbox();
+            });
+
+            // Teclado
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevArtwork();
+                if (e.key === 'ArrowRight') nextArtwork();
+            });
+
+            // Zoom al clic en imagen
+            const mainImg = document.getElementById('darkroom-main-img');
+            if (mainImg) {
+                mainImg.addEventListener('click', () => {
+                    mainImg.classList.toggle('zoomed');
+                });
+            }
+
+            // Botones de navegación
+            const prevBtn = document.getElementById('darkroom-prev-btn');
+            const nextBtn = document.getElementById('darkroom-next-btn');
+            if (prevBtn) prevBtn.addEventListener('click', prevArtwork);
+            if (nextBtn) nextBtn.addEventListener('click', nextArtwork);
+        }
+
+        window.openLightbox = function (id) {
+            const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+            const index = artworks.findIndex(w => w.id === id);
+            if (index === -1) return;
+
+            window.currentArtworkIndex = index;
             window.currentGalleryIndex = 0;
+            renderLightboxContent();
 
-            function setupLightbox() {
-                const modal = document.getElementById('darkroom-lightbox');
-                if (!modal) return;
-
-                // Botón de cierre
-                const closeBtn = modal.querySelector('.darkroom-close-btn');
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', closeLightbox);
-                }
-
-                // Clic fuera para cerrar
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) closeLightbox();
-                });
-
-                // Teclado
-                document.addEventListener('keydown', (e) => {
-                    if (!modal.classList.contains('active')) return;
-                    if (e.key === 'Escape') closeLightbox();
-                    if (e.key === 'ArrowLeft') prevArtwork();
-                    if (e.key === 'ArrowRight') nextArtwork();
-                });
-
-                // Zoom al clic en imagen
-                const mainImg = document.getElementById('darkroom-main-img');
-                if (mainImg) {
-                    mainImg.addEventListener('click', () => {
-                        mainImg.classList.toggle('zoomed');
-                    });
-                }
-
-                // Botones de navegación
-                const prevBtn = document.getElementById('darkroom-prev-btn');
-                const nextBtn = document.getElementById('darkroom-next-btn');
-                if (prevBtn) prevBtn.addEventListener('click', prevArtwork);
-                if (nextBtn) nextBtn.addEventListener('click', nextArtwork);
+            const modal = document.getElementById('darkroom-lightbox');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
-            window.openLightbox = function (id) {
-                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
-                const index = artworks.findIndex(w => w.id === id);
-                if (index === -1) return;
+            // Actualizar URL hash
+            window.history.replaceState(null, '', `#proyecto=${id}`);
+        };
 
-                window.currentArtworkIndex = index;
-                window.currentGalleryIndex = 0;
-                renderLightboxContent();
+        function closeLightbox() {
+            const modal = document.getElementById('darkroom-lightbox');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            const mainImg = document.getElementById('darkroom-main-img');
+            if (mainImg) mainImg.classList.remove('zoomed');
 
-                const modal = document.getElementById('darkroom-lightbox');
-                if (modal) {
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
+            // Limpiar hash si era de proyecto
+            if (window.location.hash.startsWith('#proyecto=')) {
+                window.history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        }
 
-                // Actualizar URL hash
-                window.history.replaceState(null, '', `#proyecto=${id}`);
-            };
+        function prevArtwork() {
+            const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+            window.currentArtworkIndex = (window.currentArtworkIndex - 1 + artworks.length) % artworks.length;
+            window.currentGalleryIndex = 0;
+            renderLightboxContent();
+        }
 
-            function closeLightbox() {
-                const modal = document.getElementById('darkroom-lightbox');
-                if (modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-                const mainImg = document.getElementById('darkroom-main-img');
-                if (mainImg) mainImg.classList.remove('zoomed');
+        function nextArtwork() {
+            const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+            window.currentArtworkIndex = (window.currentArtworkIndex + 1) % artworks.length;
+            window.currentGalleryIndex = 0;
+            renderLightboxContent();
+        }
 
-                // Limpiar hash si era de proyecto
-                if (window.location.hash.startsWith('#proyecto=')) {
-                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
-                }
+        function renderLightboxContent() {
+            const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+            const item = artworks[window.currentArtworkIndex];
+            if (!item) return;
+
+            const modal = document.getElementById('darkroom-lightbox');
+            const mainImg = document.getElementById('darkroom-main-img');
+            const titleEl = document.getElementById('darkroom-title');
+            const sysIdEl = document.getElementById('darkroom-sys-id');
+            const yearEl = document.getElementById('darkroom-year');
+            const mediumEl = document.getElementById('darkroom-medium');
+            const formatEl = document.getElementById('darkroom-format');
+            const summaryEl = document.getElementById('darkroom-summary');
+            const thumbsEl = document.getElementById('darkroom-thumbs');
+
+            const gallery = item.gallery && item.gallery.length > 0 ? item.gallery : [{ src: item.cover, caption: item.title }];
+            const currentImg = gallery[window.currentGalleryIndex] || gallery[0];
+
+            if (mainImg) {
+                mainImg.classList.remove('zoomed');
+                mainImg.src = currentImg.src;
+                mainImg.alt = currentImg.caption || item.title;
             }
 
-            function prevArtwork() {
-                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
-                window.currentArtworkIndex = (window.currentArtworkIndex - 1 + artworks.length) % artworks.length;
-                window.currentGalleryIndex = 0;
-                renderLightboxContent();
+            if (sysIdEl) sysIdEl.textContent = `ARCHIVO // ${item.id.toUpperCase()}`;
+            if (titleEl) titleEl.textContent = item.title;
+            if (yearEl) yearEl.textContent = item.date;
+            if (mediumEl) mediumEl.textContent = item.medium;
+            if (formatEl) formatEl.textContent = (item.aspect || 'Variable').toUpperCase();
+            if (summaryEl) summaryEl.textContent = currentImg.caption ? `[ ${currentImg.caption} ] ${item.summary || ''}` : (item.summary || 'Sin nota de autor.');
+
+            // Renderizar paleta cromática dinámica desde works.json
+            const palette = item.palette && item.palette.length > 0
+                ? item.palette
+                : ['#0D0D0F', '#8E1F24', '#7CE8EB'];
+
+            // Sincronizar acentos y brillos dinámicos del visor con la paleta de la obra
+            if (modal) {
+                modal.style.setProperty('--darkroom-p1', palette[0] || '#0D0D0F');
+                modal.style.setProperty('--darkroom-accent', palette[1] || '#8E1F24');
+                modal.style.setProperty('--darkroom-glow', palette[2] || '#7CE8EB');
             }
 
-            function nextArtwork() {
-                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
-                window.currentArtworkIndex = (window.currentArtworkIndex + 1) % artworks.length;
-                window.currentGalleryIndex = 0;
-                renderLightboxContent();
-            }
-
-            function renderLightboxContent() {
-                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
-                const item = artworks[window.currentArtworkIndex];
-                if (!item) return;
-
-                const modal = document.getElementById('darkroom-lightbox');
-                const mainImg = document.getElementById('darkroom-main-img');
-                const titleEl = document.getElementById('darkroom-title');
-                const sysIdEl = document.getElementById('darkroom-sys-id');
-                const yearEl = document.getElementById('darkroom-year');
-                const mediumEl = document.getElementById('darkroom-medium');
-                const formatEl = document.getElementById('darkroom-format');
-                const summaryEl = document.getElementById('darkroom-summary');
-                const thumbsEl = document.getElementById('darkroom-thumbs');
-
-                const gallery = item.gallery && item.gallery.length > 0 ? item.gallery : [{ src: item.cover, caption: item.title }];
-                const currentImg = gallery[window.currentGalleryIndex] || gallery[0];
-
-                if (mainImg) {
-                    mainImg.classList.remove('zoomed');
-                    mainImg.src = currentImg.src;
-                    mainImg.alt = currentImg.caption || item.title;
-                }
-
-                if (sysIdEl) sysIdEl.textContent = `ARCHIVO // ${item.id.toUpperCase()}`;
-                if (titleEl) titleEl.textContent = item.title;
-                if (yearEl) yearEl.textContent = item.date;
-                if (mediumEl) mediumEl.textContent = item.medium;
-                if (formatEl) formatEl.textContent = (item.aspect || 'Variable').toUpperCase();
-                if (summaryEl) summaryEl.textContent = currentImg.caption ? `[ ${currentImg.caption} ] ${item.summary || ''}` : (item.summary || 'Sin nota de autor.');
-
-                // Renderizar paleta cromática dinámica desde works.json
-                const palette = item.palette && item.palette.length > 0
-                    ? item.palette
-                    : ['#0D0D0F', '#8E1F24', '#7CE8EB'];
-
-                // Sincronizar acentos y brillos dinámicos del visor con la paleta de la obra
-                if (modal) {
-                    modal.style.setProperty('--darkroom-p1', palette[0] || '#0D0D0F');
-                    modal.style.setProperty('--darkroom-accent', palette[1] || '#8E1F24');
-                    modal.style.setProperty('--darkroom-glow', palette[2] || '#7CE8EB');
-                }
-
-                const paletteEl = document.getElementById('darkroom-palette') || document.querySelector('.color-swatches');
-                if (paletteEl) {
-                    paletteEl.innerHTML = palette.map(color => `
+            const paletteEl = document.getElementById('darkroom-palette') || document.querySelector('.color-swatches');
+            if (paletteEl) {
+                paletteEl.innerHTML = palette.map(color => `
                     <span class="swatch" style="background:${color};" title="${color} (Clic para copiar HEX)" data-color="${color}" onclick="window.copySwatchColor('${color}', this)">
                         <span class="swatch-copied-hint">¡COPIADO!</span>
                     </span>
                 `).join('') + `<span class="palette-hex-list">${palette.join(' · ')}</span>`;
-                }
-
-                // Miniaturas de proceso si hay más de 1 imagen
-                if (thumbsEl) {
-                    if (gallery.length > 1) {
-                        thumbsEl.innerHTML = gallery.map((g, idx) => `
-                <img src="${g.src}" class="darkroom-thumb ${idx === window.currentGalleryIndex ? 'active' : ''}" onclick="window.selectGalleryImage(${idx})">
-            `).join('');
-                        thumbsEl.style.display = 'flex';
-                    } else {
-                        thumbsEl.innerHTML = '';
-                        thumbsEl.style.display = 'none';
-                    }
-                }
             }
 
-            window.selectGalleryImage = function (idx) {
-                window.currentGalleryIndex = idx;
-                renderLightboxContent();
-            };
+            // Miniaturas de proceso si hay más de 1 imagen
+            if (thumbsEl) {
+                if (gallery.length > 1) {
+                    thumbsEl.innerHTML = gallery.map((g, idx) => `
+                <img src="${g.src}" class="darkroom-thumb ${idx === window.currentGalleryIndex ? 'active' : ''}" onclick="window.selectGalleryImage(${idx})">
+            `).join('');
+                    thumbsEl.style.display = 'flex';
+                } else {
+                    thumbsEl.innerHTML = '';
+                    thumbsEl.style.display = 'none';
+                }
+            }
+        }
 
-            window.copySwatchColor = function (color, el) {
-                navigator.clipboard.writeText(color).then(() => {
-                    if (el) {
-                        el.classList.add('copied');
-                        setTimeout(() => { el.classList.remove('copied'); }, 1400);
-                    }
-                });
-            };
-        </script>
-        <script>/**
+        window.selectGalleryImage = function (idx) {
+            window.currentGalleryIndex = idx;
+            renderLightboxContent();
+        };
+
+        window.copySwatchColor = function (color, el) {
+            navigator.clipboard.writeText(color).then(() => {
+                if (el) {
+                    el.classList.add('copied');
+                    setTimeout(() => { el.classList.remove('copied'); }, 1400);
+                }
+            });
+        };
+    </script>
+    <script>/**
 * ATMOSPHERE & EFFECTS - Sparkles del Cursor con Toggle FX: ON/OFF
 */
 
-            let fxEnabled = localStorage.getItem('fx_sparkles') !== 'off';
+        let fxEnabled = localStorage.getItem('fx_sparkles') !== 'off';
 
-            function setupCursorSparkles() {
-                const toggleBtn = document.getElementById('fx-toggle-btn');
-                if (toggleBtn) {
+        function setupCursorSparkles() {
+            const toggleBtn = document.getElementById('fx-toggle-btn');
+            if (toggleBtn) {
+                updateFxButton(toggleBtn);
+                toggleBtn.addEventListener('click', () => {
+                    fxEnabled = !fxEnabled;
+                    localStorage.setItem('fx_sparkles', fxEnabled ? 'on' : 'off');
                     updateFxButton(toggleBtn);
-                    toggleBtn.addEventListener('click', () => {
-                        fxEnabled = !fxEnabled;
-                        localStorage.setItem('fx_sparkles', fxEnabled ? 'on' : 'off');
-                        updateFxButton(toggleBtn);
-                    });
-                }
-
-                let lastSparkleTime = 0;
-                const sparkleColors = ['#252525', '#8E1F24', '#7CE8EB', '#EFECE4'];
-
-                document.addEventListener('mousemove', (e) => {
-                    if (!fxEnabled) return;
-                    const now = Date.now();
-                    if (now - lastSparkleTime < 45) return; // Throttle para rendimiento impecable
-                    lastSparkleTime = now;
-
-                    createSparkle(e.clientX, e.clientY, sparkleColors[Math.floor(Math.random() * sparkleColors.length)]);
                 });
             }
 
-            function updateFxButton(btn) {
-                if (!btn) return;
-                btn.textContent = `FX: ${fxEnabled ? 'ON' : 'OFF'}`;
-                btn.classList.toggle('active', fxEnabled);
-            }
+            let lastSparkleTime = 0;
+            const sparkleColors = ['#252525', '#8E1F24', '#7CE8EB', '#EFECE4'];
 
-            function createSparkle(x, y, color) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'cursor-sparkle-dot';
-                sparkle.style.left = `${x}px`;
-                sparkle.style.top = `${y}px`;
-                sparkle.style.backgroundColor = color;
-                document.body.appendChild(sparkle);
+            document.addEventListener('mousemove', (e) => {
+                if (!fxEnabled) return;
+                const now = Date.now();
+                if (now - lastSparkleTime < 45) return; // Throttle para rendimiento impecable
+                lastSparkleTime = now;
 
-                setTimeout(() => {
-                    sparkle.remove();
-                }, 600);
-            }
-        </script>
-        <script>/**
+                createSparkle(e.clientX, e.clientY, sparkleColors[Math.floor(Math.random() * sparkleColors.length)]);
+            });
+        }
+
+        function updateFxButton(btn) {
+            if (!btn) return;
+            btn.textContent = `FX: ${fxEnabled ? 'ON' : 'OFF'}`;
+            btn.classList.toggle('active', fxEnabled);
+        }
+
+        function createSparkle(x, y, color) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'cursor-sparkle-dot';
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            sparkle.style.backgroundColor = color;
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 600);
+        }
+    </script>
+    <script>/**
 * APP MAIN - Orquestación de Estado, Navegación I-IV, Buscador y Modos
 */
 
+        window.currentCategory = 'all';
+        window.currentSearchTerm = '';
+        window.isGridMode = false;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 1. Iniciar render de datos y UI
+            await initRender();
+
+            // 2. Iniciar módulos
+            setupLightbox();
+            setupCursorSparkles();
+
+            // 3. Conectar navegación por categorías I-IV
+            setupCategoryNavigation();
+
+            // 4. Conectar buscador en vivo
+            setupLiveSearch();
+
+            // 5. Conectar botones de acción del sidebar derecho
+            setupActionButtons();
+
+            // 6. Conectar modal de contacto
+            setupContactModal();
+
+            // 7. Manejar rutas por URL
+            handleUrlRouting();
+        });
+
+        /**
+         * Conecta los botones romanos I - IV para desplazamiento fluido a cada categoría
+         */
+        function setupCategoryNavigation() {
+            const romanButtons = document.querySelectorAll('.custom-links a[data-cat]');
+            romanButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const cat = btn.getAttribute('data-cat');
+
+                    // Si hay búsqueda activa, resetearla para mostrar todas las secciones
+                    if (window.currentSearchTerm) {
+                        window.currentSearchTerm = '';
+                        const searchInput = document.getElementById('search-input');
+                        if (searchInput) searchInput.value = '';
+                        renderFeed(window.WorksData, window.CategoriesData);
+                    }
+
+                    // Marcar botón activo
+                    romanButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Scroll suave hacia la sección correspondiente
+                    const targetSec = document.getElementById(`sec-${cat}`);
+                    if (targetSec) {
+                        const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                        window.history.replaceState(null, '', `#sec-${cat}`);
+                    }
+                });
+            });
+        }
+
+        function setupLiveSearch() {
+            const searchInput = document.getElementById('search-input');
+            if (!searchInput) return;
+
+            let debounceTimer = null;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    window.currentSearchTerm = e.target.value.trim().toLowerCase();
+                    applyFilters();
+                }, 180);
+            });
+        }
+
+        function applyFilters() {
+            let filtered = (window.WorksData || []).filter(it => it.type !== 'config');
+
+            // Filtro por búsqueda
+            if (window.currentSearchTerm) {
+                filtered = filtered.filter(item => {
+                    const title = (item.title || '').toLowerCase();
+                    const medium = (item.medium || '').toLowerCase();
+                    const summary = (item.summary || '').toLowerCase();
+                    const tags = (item.tags || []).join(' ').toLowerCase();
+                    const text = (item.text || '').toLowerCase();
+                    const date = (item.date || '').toLowerCase();
+                    const category = (item.category || '').toLowerCase();
+
+                    return title.includes(window.currentSearchTerm) ||
+                        medium.includes(window.currentSearchTerm) ||
+                        summary.includes(window.currentSearchTerm) ||
+                        tags.includes(window.currentSearchTerm) ||
+                        text.includes(window.currentSearchTerm) ||
+                        category.includes(window.currentSearchTerm) ||
+                        date.includes(window.currentSearchTerm);
+                });
+            }
+
+            renderFeed(filtered, window.CategoriesData);
+        }
+
+        window.filterByTag = function (tag) {
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.value = tag;
+                window.currentSearchTerm = tag.toLowerCase();
+                applyFilters();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        };
+
+        window.resetFilters = function () {
             window.currentCategory = 'all';
             window.currentSearchTerm = '';
-            window.isGridMode = false;
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
 
-            document.addEventListener('DOMContentLoaded', async () => {
-                // 1. Iniciar render de datos y UI
-                await initRender();
-
-                // 2. Iniciar módulos
-                setupLightbox();
-                setupCursorSparkles();
-
-                // 3. Conectar navegación por categorías I-IV
-                setupCategoryNavigation();
-
-                // 4. Conectar buscador en vivo
-                setupLiveSearch();
-
-                // 5. Conectar botones de acción del sidebar derecho
-                setupActionButtons();
-
-                // 6. Conectar modal de contacto
-                setupContactModal();
-
-                // 7. Manejar rutas por URL
-                handleUrlRouting();
+            document.querySelectorAll('.custom-links a[data-cat]').forEach(btn => {
+                btn.classList.remove('active');
             });
 
-            /**
-             * Conecta los botones romanos I - IV para desplazamiento fluido a cada categoría
-             */
-            function setupCategoryNavigation() {
-                const romanButtons = document.querySelectorAll('.custom-links a[data-cat]');
-                romanButtons.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const cat = btn.getAttribute('data-cat');
+            renderFeed(window.WorksData, window.CategoriesData);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.history.replaceState(null, '', window.location.pathname);
+        };
 
-                        // Si hay búsqueda activa, resetearla para mostrar todas las secciones
-                        if (window.currentSearchTerm) {
-                            window.currentSearchTerm = '';
-                            const searchInput = document.getElementById('search-input');
-                            if (searchInput) searchInput.value = '';
-                            renderFeed(window.WorksData, window.CategoriesData);
-                        }
-
-                        // Marcar botón activo
-                        romanButtons.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-
-                        // Scroll suave hacia la sección correspondiente
-                        const targetSec = document.getElementById(`sec-${cat}`);
-                        if (targetSec) {
-                            const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
-                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-                            window.history.replaceState(null, '', `#sec-${cat}`);
-                        }
-                    });
+        function setupActionButtons() {
+            // Botón Inicio (resetea filtros y sube arriba)
+            const homeBtn = document.getElementById('nav-home-btn');
+            if (homeBtn) {
+                homeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.resetFilters();
                 });
             }
 
-            function setupLiveSearch() {
-                const searchInput = document.getElementById('search-input');
-                if (!searchInput) return;
-
-                let debounceTimer = null;
-                searchInput.addEventListener('input', (e) => {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(() => {
-                        window.currentSearchTerm = e.target.value.trim().toLowerCase();
-                        applyFilters();
-                    }, 180);
+            // Botón Contacto / Comisiones
+            const contactBtn = document.getElementById('nav-contact-btn');
+            if (contactBtn) {
+                contactBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openContactModal();
                 });
             }
 
-            function applyFilters() {
-                let filtered = (window.WorksData || []).filter(it => it.type !== 'config');
-
-                // Filtro por búsqueda
-                if (window.currentSearchTerm) {
-                    filtered = filtered.filter(item => {
-                        const title = (item.title || '').toLowerCase();
-                        const medium = (item.medium || '').toLowerCase();
-                        const summary = (item.summary || '').toLowerCase();
-                        const tags = (item.tags || []).join(' ').toLowerCase();
-                        const text = (item.text || '').toLowerCase();
-                        const date = (item.date || '').toLowerCase();
-                        const category = (item.category || '').toLowerCase();
-
-                        return title.includes(window.currentSearchTerm) ||
-                            medium.includes(window.currentSearchTerm) ||
-                            summary.includes(window.currentSearchTerm) ||
-                            tags.includes(window.currentSearchTerm) ||
-                            text.includes(window.currentSearchTerm) ||
-                            category.includes(window.currentSearchTerm) ||
-                            date.includes(window.currentSearchTerm);
-                    });
-                }
-
-                renderFeed(filtered, window.CategoriesData);
-            }
-
-            window.filterByTag = function (tag) {
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) {
-                    searchInput.value = tag;
-                    window.currentSearchTerm = tag.toLowerCase();
-                    applyFilters();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            };
-
-            window.resetFilters = function () {
-                window.currentCategory = 'all';
-                window.currentSearchTerm = '';
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) searchInput.value = '';
-
-                document.querySelectorAll('.custom-links a[data-cat]').forEach(btn => {
-                    btn.classList.remove('active');
+            // Botón Alternar Vista Compacta
+            const gridToggleBtn = document.getElementById('nav-grid-btn');
+            if (gridToggleBtn) {
+                gridToggleBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.isGridMode = !window.isGridMode;
+                    const container = document.getElementById('posts-container');
+                    if (container) {
+                        container.classList.toggle('compact-grid-mode', window.isGridMode);
+                    }
+                    gridToggleBtn.classList.toggle('active', window.isGridMode);
                 });
-
-                renderFeed(window.WorksData, window.CategoriesData);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                window.history.replaceState(null, '', window.location.pathname);
-            };
-
-            function setupActionButtons() {
-                // Botón Inicio (resetea filtros y sube arriba)
-                const homeBtn = document.getElementById('nav-home-btn');
-                if (homeBtn) {
-                    homeBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        window.resetFilters();
-                    });
-                }
-
-                // Botón Contacto / Comisiones
-                const contactBtn = document.getElementById('nav-contact-btn');
-                if (contactBtn) {
-                    contactBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        openContactModal();
-                    });
-                }
-
-                // Botón Alternar Vista Compacta
-                const gridToggleBtn = document.getElementById('nav-grid-btn');
-                if (gridToggleBtn) {
-                    gridToggleBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        window.isGridMode = !window.isGridMode;
-                        const container = document.getElementById('posts-container');
-                        if (container) {
-                            container.classList.toggle('compact-grid-mode', window.isGridMode);
-                        }
-                        gridToggleBtn.classList.toggle('active', window.isGridMode);
-                    });
-                }
             }
+        }
 
-            function setupContactModal() {
-                const modal = document.getElementById('contact-modal');
-                if (!modal) return;
+        function setupContactModal() {
+            const modal = document.getElementById('contact-modal');
+            if (!modal) return;
 
-                const closeBtn = document.getElementById('contact-close-btn');
-                if (closeBtn) closeBtn.addEventListener('click', closeContactModal);
+            const closeBtn = document.getElementById('contact-close-btn');
+            if (closeBtn) closeBtn.addEventListener('click', closeContactModal);
 
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) closeContactModal();
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeContactModal();
+            });
+
+            const copyBtn = document.getElementById('copy-email-btn');
+            const emailField = document.getElementById('email-text');
+            if (copyBtn && emailField) {
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(emailField.textContent.trim()).then(() => {
+                        const prev = copyBtn.textContent;
+                        copyBtn.textContent = '¡COPIADO!';
+                        copyBtn.style.background = 'var(--accent-cyan)';
+                        setTimeout(() => {
+                            copyBtn.textContent = prev;
+                            copyBtn.style.background = '';
+                        }, 2000);
+                    });
                 });
+            }
+        }
 
-                const copyBtn = document.getElementById('copy-email-btn');
-                const emailField = document.getElementById('email-text');
-                if (copyBtn && emailField) {
-                    copyBtn.addEventListener('click', () => {
-                        navigator.clipboard.writeText(emailField.textContent.trim()).then(() => {
-                            const prev = copyBtn.textContent;
-                            copyBtn.textContent = '¡COPIADO!';
-                            copyBtn.style.background = 'var(--accent-cyan)';
-                            setTimeout(() => {
-                                copyBtn.textContent = prev;
-                                copyBtn.style.background = '';
-                            }, 2000);
-                        });
-                    });
-                }
+        function openContactModal() {
+            const modal = document.getElementById('contact-modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeContactModal() {
+            const modal = document.getElementById('contact-modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleUrlRouting() {
+            // 1. Verificar si hay #proyecto=...
+            const hash = window.location.hash;
+            if (hash.startsWith('#proyecto=')) {
+                const id = hash.replace('#proyecto=', '');
+                setTimeout(() => {
+                    if (window.openLightbox) window.openLightbox(id);
+                }, 300);
+            } else if (hash.startsWith('#sec-')) {
+                const secId = hash.replace('#', '');
+                setTimeout(() => {
+                    const el = document.getElementById(secId);
+                    if (el) {
+                        const targetY = el.getBoundingClientRect().top + window.pageYOffset - 96;
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                    }
+                }, 300);
             }
 
-            function openContactModal() {
-                const modal = document.getElementById('contact-modal');
-                if (modal) {
-                    modal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
+            // 2. Verificar si hay ?cat=...
+            const params = new URLSearchParams(window.location.search);
+            const cat = params.get('cat');
+            if (cat) {
+                setTimeout(() => {
+                    const targetSec = document.getElementById(`sec-${cat}`);
+                    if (targetSec) {
+                        const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
+                        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                    }
+                }, 300);
             }
-
-            function closeContactModal() {
-                const modal = document.getElementById('contact-modal');
-                if (modal) {
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-
-            function handleUrlRouting() {
-                // 1. Verificar si hay #proyecto=...
-                const hash = window.location.hash;
-                if (hash.startsWith('#proyecto=')) {
-                    const id = hash.replace('#proyecto=', '');
-                    setTimeout(() => {
-                        if (window.openLightbox) window.openLightbox(id);
-                    }, 300);
-                } else if (hash.startsWith('#sec-')) {
-                    const secId = hash.replace('#', '');
-                    setTimeout(() => {
-                        const el = document.getElementById(secId);
-                        if (el) {
-                            const targetY = el.getBoundingClientRect().top + window.pageYOffset - 96;
-                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-                        }
-                    }, 300);
-                }
-
-                // 2. Verificar si hay ?cat=...
-                const params = new URLSearchParams(window.location.search);
-                const cat = params.get('cat');
-                if (cat) {
-                    setTimeout(() => {
-                        const targetSec = document.getElementById(`sec-${cat}`);
-                        if (targetSec) {
-                            const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
-                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
-                        }
-                    }, 300);
-                }
-            }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
