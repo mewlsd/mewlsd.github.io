@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es" data-overlayscrollbars-initialize>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>mew.lsd's site :3</title>
+
+    <!-- Meta Tags de Autor y Estética -->
+    <meta name="description"
+        content="Portafolio-bitácora editorial de ilustración tradicional, digital y diseño independiente.">
+    <meta name="theme-color" content="#0D0D0F">
+
+    <!-- Fuentes Tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=New+Rocker&family=Space+Grotesk:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Wavefont:wght,ROND,YELA@100,0..100,0&display=swap"
+        rel="stylesheet" crossorigin>
+
+    <!-- Iconos y Dependencias de Interfaz del Tema -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="assets/ui/vendor/overlayscrollbars_2.7.3.css" rel="stylesheet">
+    <link href="assets/ui/vendor/wzi.css" rel="stylesheet">
+    <link href="assets/ui/vendor/wzf.css" rel="stylesheet">
+    <link href="assets/ui/vendor/im-the-fool.min.css" rel="stylesheet">
+
+    <!-- Sistema CSS Desacoplado -->
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/theme-base.css">
+    <link rel="stylesheet" href="css/portfolio-ui.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- BARRA SUPERIOR (LACE & STRIPES) -->
+    <div class="ceiling">
+        <div class="ceiling-ptn stripes-show tb-underline-show"></div>
+        <div class="lace-bar lace-show lace-align-left"></div>
+        <a href="/" aria-hidden="true"></a>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL ASIMÉTRICO DE 2 COLUMNAS (OBRAS RETICULARES + SIDEBAR MARCA PERSONAL) -->
+    <main class="load-in">
+        <div class="main-hug-1">
+            <div class="main-hug-2">
+
+                <!-- 1. ESCENARIO CENTRAL: RETÍCULA MODULAR POR CATEGORÍAS -->
+                <section class="all-posts" id="posts-container" aria-label="Archivo de Obras y Retícula Modular">
+                    <!-- Renderizado dinámico desde data/categories.json y data/works.json con js/render.js -->
+                </section>
+
+                <!-- 2. COLUMNA DERECHA: SIDEBAR DE MARCA PERSONAL & CONTROL -->
+                <aside class="sb-right sb-at-right" aria-label="Barra Lateral de Marca Personal">
+                    <div class="sb-inner-1">
+                        <div class="sb-inner-2">
+
+                            <!-- Imagen de cabecera con textura grunge splatter y cinta washi de rosas -->
+                            <div class="sb-img-wrap-outer-1">
+                                <div class="sb-img-wrap-outer-2">
+                                    <div class="stampie no-outer-border sb-img-wrap">
+                                        <div class="stampie-inner">
+                                            <div class="stampie-content">
+                                                <img src="assets/ui/sidebar-avatar.webp" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sb-shadow-wrap">
+                                        <div class="stampie no-inner-border sb-shadow">
+                                            <div class="stampie-inner">
+                                                <div class="stampie-content"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sprays de aerosol originales de Tumblr -->
+                                    <div class="sb-paints sbp-show"></div>
+
+                                    <!-- Cinta washi adhesiva con textura de rosas y borde rasgado -->
+                                    <div class="sb-tape-wrap tape-show">
+                                        <div class="sb-tape mask-yes"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel de control, declaración de autor, buscador y filtros -->
+                            <div class="sb-info-area">
+                                <div class="sb-info-left">
+                                    <!-- Título / Moniker -->
+                                    <div class="sb-title-wrap stampie sbg sbt-show">
+                                        <div class="stampie-inner">
+                                            <div class="stampie-content">
+                                                <h2 class="sb-title">WEB ZERO</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Declaración de Autor / Marca Personal -->
+                                    <div class="sb-desc-wrap stampie sbg sbd-show">
+                                        <div class="stampie-inner">
+                                            <div class="stampie-content">
+                                                <article class="sb-desc">
+                                                    ARCHIVO & BITÁCORA EDITORIAL<br>
+                                                    <span
+                                                        style="font-size:0.75rem; color:var(--graphite-gray);">ILUSTRACIÓN
+                                                        // GRANO & TENSIÓN</span>
+                                                    <div class="sb-statement-text"
+                                                        style="margin-top:8px; font-size:0.78rem; line-height:1.55; color:#2c2b28; font-family:var(--font-mono); border-top:1px dashed rgba(0,0,0,0.18); padding-top:6px; font-weight:500;">
+                                                        Práctica visual enfocada en la tensión anatómica, la fricción
+                                                        del trazo tradicional sobre soporte oscuro y la síntesis
+                                                        pictórica no comercial.
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Buscador en Vivo -->
+                                    <div class="searchbar-wrap stampie sbg sb-searchbar-show">
+                                        <div class="stampie-inner">
+                                            <div class="stampie-content">
+                                                <div class="searchbar">
+                                                    <i class="ph ph-magnifying-glass"></i>
+                                                    <input type="text" id="search-input" placeholder="BUSCAR ARCHIVO..."
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Filtros y Accesos Directos a las 4 Categorías I - IV -->
+                                    <div class="custom-links cl-format-2col">
+                                        <nav>
+                                            <ul role="menu">
+                                                <li role="presentation" has-url><a class="stampie sbg active"
+                                                        href="#sec-grafito" data-cat="grafito"
+                                                        data-tooltip="I // GRAFITO"><span class="stampie-inner"><span
+                                                                class="stampie-content"><span class="cl-text">I ·
+                                                                    GRAFITO</span></span></span></a></li>
+                                                <li role="presentation" has-url><a class="stampie sbg"
+                                                        href="#sec-ilustracion-mano" data-cat="ilustracion-mano"
+                                                        data-tooltip="II // ILUSTRACIÓN A MANO"><span
+                                                            class="stampie-inner"><span class="stampie-content"><span
+                                                                    class="cl-text">II · ILUS.
+                                                                    MANO</span></span></span></a></li>
+                                                <li role="presentation" has-url><a class="stampie sbg"
+                                                        href="#sec-pintura-acrilica" data-cat="pintura-acrilica"
+                                                        data-tooltip="III // PINTURA ACRÍLICA"><span
+                                                            class="stampie-inner"><span class="stampie-content"><span
+                                                                    class="cl-text">III ·
+                                                                    ACRÍLICO</span></span></span></a></li>
+                                                <li role="presentation" has-url><a class="stampie sbg"
+                                                        href="#sec-acuarela" data-cat="acuarela"
+                                                        data-tooltip="IV // ACUARELA"><span class="stampie-inner"><span
+                                                                class="stampie-content"><span class="cl-text">IV ·
+                                                                    ACUARELA</span></span></span></a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                    <!-- Interruptor FX de Cursor -->
+                                    <div style="margin-top:10px; text-align:center;">
+                                        <button id="fx-toggle-btn" class="fx-toggle-btn"
+                                            title="Activar/Desactivar destellos del cursor">FX: ON</button>
+                                    </div>
+                                </div>
+
+                                <!-- Barra vertical de acciones -->
+                                <div class="sb-info-right navlinks">
+                                    <nav>
+                                        <ul role="menu">
+                                            <li role="presentation" has-url>
+                                                <a class="stampie sbg" href="javascript:void(0)" id="nav-home-btn"
+                                                    title="Reiniciar vista / Ver todo">
+                                                    <span class="stampie-inner"><span class="stampie-content"><i
+                                                                class="ph ph-house"></i></span></span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation" has-url>
+                                                <a class="stampie sbg" href="javascript:void(0)" id="nav-contact-btn"
+                                                    title="Contacto & Comisiones">
+                                                    <span class="stampie-inner"><span class="stampie-content"><i
+                                                                class="ph ph-envelope"></i></span></span>
+                                                </a>
+                                            </li>
+                                            <li role="presentation" has-url>
+                                                <a class="stampie sbg" href="javascript:void(0)" id="nav-grid-btn"
+                                                    title="Alternar Vista Compacta">
+                                                    <span class="stampie-inner"><span class="stampie-content"><i
+                                                                class="ph ph-squares-four"></i></span></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- IMAGEN RETRO EN ESQUINA INFERIOR -->
+    <div class="corner-img-wrap corner-img-show">
+        <img src="assets/ui/corner-image.png" alt="Corner Decoration">
+    </div>
+
+    <!-- MODAL DARKROOM / RETRO INSPECTOR (LIGHTBOX) -->
+    <div class="darkroom-modal" id="darkroom-lightbox" role="dialog" aria-modal="true">
+        <div class="darkroom-frame">
+            <div class="darkroom-topbar">
+                <span class="sys-id" id="darkroom-sys-id">ARCHIVO // DETALLE</span>
+                <span class="hint" style="color:var(--graphite-gray);">[ CLIC EN IMAGEN PARA ZOOM ]</span>
+                <button class="darkroom-close-btn">[ ESC / CERRAR ]</button>
+            </div>
+
+            <div class="darkroom-body">
+                <div class="darkroom-stage">
+                    <button class="darkroom-nav-btn prev" id="darkroom-prev-btn" title="Anterior">‹</button>
+                    <img id="darkroom-main-img" src="" alt="Artwork High Resolution">
+                    <button class="darkroom-nav-btn next" id="darkroom-next-btn" title="Siguiente">›</button>
+                    <div class="darkroom-thumbs" id="darkroom-thumbs"></div>
+                </div>
+
+                <div class="darkroom-sidebar">
+                    <div>
+                        <h2 id="darkroom-title">TÍTULO DE OBRA</h2>
+                        <div class="meta-field">
+                            <span class="label">AÑO // REGISTRO</span>
+                            <span class="value" id="darkroom-year">2026</span>
+                        </div>
+                        <div class="meta-field">
+                            <span class="label">TÉCNICA & MEDIO</span>
+                            <span class="value" id="darkroom-medium">Lápiz sobre negro</span>
+                        </div>
+                        <div class="meta-field">
+                            <span class="label">ENCUADRE // FORMATO</span>
+                            <span class="value" id="darkroom-format">LANDSCAPE</span>
+                        </div>
+                        <div class="meta-field">
+                            <span class="label">PALETA CROMÁTICA EXTRAÍDA</span>
+                                <div class="color-swatches" id="darkroom-palette">
+                                    <!-- Swatches renderizados dinámicamente desde works.json -->
+                                </div>
+                            </div>
+
+                            <div class="darkroom-summary" id="darkroom-summary">
+                                Resumen conceptual de la pieza.
+                            </div>
+                        </div>
+
+                        <div class="darkroom-keyboard-hint">
+                            [ESC] CERRAR | [← / →] RECORRER ARCHIVO
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CONTACTO & COMISIONES RETRO -->
+        <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true">
+            <div class="contact-window">
+                <div class="contact-window-header">
+                    <span>[!] FICHA // CONTACTO & COMISIONES</span>
+                    <button class="darkroom-close-btn" id="contact-close-btn">[ X ]</button>
+                </div>
+                <div class="contact-window-body">
+                    <div class="comms-status-badge">
+                        ● COMISIONES: ABIERTAS (EDITORIAL / ILUSTRACIÓN / ARTE CONCEPTUAL)
+                    </div>
+                    <p style="font-size:0.88rem; line-height:1.6; margin:0 0 14px 0;">
+                        Disponible par portadas musicales, colaboraciones
+                        underground o encargos privados.
+                    </p>
+                    <div class="copy-email-box">
+                        <div class="email-display" id="email-text">gogomc1208@gmail.com</div>
+                        <button class="btn-copy-email" id="copy-email-btn">COPIAR</button>
+                    </div>
+                    <div style="font-size:0.75rem; color:var(--graphite-gray); line-height:1.6; margin-top:16px;">
+                        <div>DISCIPLINAS: ILUSTRACIÓN TRADICIONAL & DIGITAL </div>
+                        <div>UBICACIÓN: COSTA RICA </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCRIPTS VENDOR & APLICACIÓN -->
+        <script src="assets/ui/vendor/overlayscrollbars_2.7.3.js"></script>
+        <script>/**
+* RENDER ENGINE - Portafolio & Archivo Editorial Modular
+* Agrupa y renderiza obras en retícula modular organizada estrictamente por 4 categorías:
+* I: Grafito
+* II: Ilustración a mano
+* III: Pintura acrílica
+* IV: Acuarela
+*/
+
+            window.WorksData = [];
+            window.CategoriesData = [];
+
+            /**
+             * Aplica paleta global configurable directamente desde data/works.json
+             */
+            function applyThemePalette(items) {
+                if (!items || !items.length) return;
+
+                const configItem = items.find(it => it.type === 'config' || it.id === 'theme-config' || it.id === 'site-config');
+                const manifestoItem = items.find(it => it.type === 'thought' && (it.style === 'manifesto' || it.id === 'manifiesto-editorial'));
+
+                const paletteSource = (configItem && configItem.palette) ? configItem.palette : (manifestoItem && manifestoItem.palette ? manifestoItem.palette : null);
+
+                if (!paletteSource) return;
+
+                const root = document.documentElement;
+
+                if (Array.isArray(paletteSource)) {
+                    if (paletteSource[0]) root.style.setProperty('--ink-dark', paletteSource[0]);
+                    if (paletteSource[1]) root.style.setProperty('--accent-crimson', paletteSource[1]);
+                    if (paletteSource[2]) root.style.setProperty('--accent-cyan', paletteSource[2]);
+                    if (paletteSource[3]) root.style.setProperty('--paper-bone', paletteSource[3]);
+                    if (paletteSource[4]) root.style.setProperty('--graphite-gray', paletteSource[4]);
+                } else if (typeof paletteSource === 'object') {
+                    if (paletteSource.accentCyan || paletteSource.cyan) root.style.setProperty('--accent-cyan', paletteSource.accentCyan || paletteSource.cyan);
+                    if (paletteSource.accentCrimson || paletteSource.crimson) root.style.setProperty('--accent-crimson', paletteSource.accentCrimson || paletteSource.crimson);
+                    if (paletteSource.inkDark || paletteSource.dark) root.style.setProperty('--ink-dark', paletteSource.inkDark || paletteSource.dark);
+                    if (paletteSource.paperBone || paletteSource.paper) root.style.setProperty('--paper-bone', paletteSource.paperBone || paletteSource.paper);
+                    if (paletteSource.graphiteGray || paletteSource.gray) root.style.setProperty('--graphite-gray', paletteSource.graphiteGray || paletteSource.gray);
+                    if (paletteSource.background || paletteSource.bg) root.style.setProperty('--Background', paletteSource.background || paletteSource.bg);
+                }
+            }
+
+            async function initRender() {
+                try {
+                    const [worksRes, catRes] = await Promise.all([
+                        fetch('data/works.json'),
+                        fetch('data/categories.json')
+                    ]);
+                    window.WorksData = await worksRes.json();
+                    window.CategoriesData = await catRes.json();
+
+                    // Aplicar paleta global configurable
+                    applyThemePalette(window.WorksData);
+
+                    renderFeed(window.WorksData, window.CategoriesData);
+                } catch (err) {
+                    console.error("Error al cargar datos:", err);
+                }
+            }
+
+            /**
+             * Renderiza el feed central agrupado por categorías en retícula de 2 columnas
+             */
+            function renderFeed(items, categories) {
+                const container = document.getElementById('posts-container');
+                if (!container) return;
+
+                const cats = categories || window.CategoriesData || [];
+
+                if (!items || items.length === 0) {
+                    container.innerHTML = `
+            <div class="empty-search-box">
+                <div class="error-title">ERROR 404: ARCHIVO VACÍO</div>
+                <div class="error-desc">No se encontraron piezas registradas con ese término de búsqueda.</div>
+                <button onclick="window.resetFilters()">[ REINICIAR BÚSQUEDA ]</button>
+            </div>
+        `;
+                    return;
+                }
+                const thoughts = items.filter(item => item.type === 'thought');
+                const artworks = items.filter(item => item.type !== 'thought' && item.type !== 'config');
+
+                let html = '';
+
+
+                if (thoughts.length > 0) {
+                    html += thoughts.map(renderThoughtCard).join('');
+                }
+
+                // Agrupar obras por las 4 categorías estrictas
+                cats.forEach(cat => {
+                    const catWorks = artworks.filter(w => w.category === cat.id);
+
+                    // Si la categoría tiene obras o estamos en vista completa
+                    if (catWorks.length > 0) {
+                        html += `
+            <section class="category-section" id="sec-${cat.id}" data-category-id="${cat.id}">
+                <!-- Cabecera Editorial de Categoría -->
+                <header class="category-header">
+                    <div class="category-header-top">
+                        <div class="category-badge stampie">
+                            <span class="stampie-inner">
+                                <span class="stampie-content">
+                                    <span class="cat-roman">[ ${cat.roman} // ${cat.name.toUpperCase()} ]</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="category-divider">
+                            ${cat.subtitle ? `
+                                <span class="editorial-marker-prefix">@ ---</span>
+                                <span class="category-subtitle">${cat.subtitle.toUpperCase()}</span>
+                            ` : ''}
+                            <span class="editorial-line-fill"></span>
+                        </div>
+                    </div>
+                    ${cat.description ? `<p class="category-desc">${cat.description}</p>` : ''}
+                </header>
+
+                <!-- Rejilla Modular de 2 Columnas para las Obras de esta Categoría -->
+                <div class="category-grid">
+                    ${catWorks.map(renderGridArtworkCard).join('')}
+                </div>
+            </section>
+            `;
+                    }
+                });
+
+                container.innerHTML = html;
+
+                // Conectar eventos de clic para abrir Lightbox en obras
+                container.querySelectorAll('[data-inspect-id]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const id = btn.getAttribute('data-inspect-id');
+                        if (window.openLightbox) window.openLightbox(id);
+                    });
+                });
+            }
+
+            /**
+             * Renderiza una tarjeta de obra adaptada a la retícula modular
+             */
+            function renderGridArtworkCard(item) {
+                const isPlaceholder = !!item.isPlaceholder;
+                const palette = item.palette || [];
+                const p1 = palette[0] || 'var(--ink-dark)';
+                const p2 = palette[1] || 'var(--accent-crimson)';
+                const p3 = palette[2] || 'var(--accent-cyan)';
+                const p4 = palette[3] || 'var(--paper-bone)';
+
+                return `
+    <article class="posts artwork-card grid-card ${isPlaceholder ? 'in-production-card' : ''}" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}" style="--card-p1:${p1}; --card-p2:${p2}; --card-p3:${p3}; --card-p4:${p4};">
+        <div class="post-inner">
+            <div class="post-header">
+                <div class="pin-text stampie">
+                    <span class="stampie-inner">
+                        <span class="stampie-content">
+                            <span class="navitxt">${isPlaceholder ? '[ EN TALLER ]' : `[ ${item.romanSlot} // REG.${item.date} ]`}</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="post-inner-hug">
+                <div class="post-body">
+                    <div class="artwork-media-wrap" data-inspect-id="${item.id}" style="cursor:pointer;" title="Clic para inspeccionar en Darkroom">
+                        <img src="${item.cover}" alt="${item.title}" loading="lazy" class="artwork-img">
+                        ${isPlaceholder ? '<div class="production-badge-overlay">[ SERIE EN PRODUCCIÓN ]</div>' : ''}
+                    </div>
+                    
+                    <div class="artwork-meta-header">
+                        <h3 class="post-title">${item.title}</h3>
+                        ${item.subtitle ? `<p class="artwork-subtitle" style="font-family:var(--font-mono); font-size:0.75rem; color:var(--card-p2); margin:0 0 4px 0; font-weight:600;">${item.subtitle}</p>` : ''}
+                        ${item.medium ? `<p class="artwork-tech-spec">${item.medium}</p>` : ''}
+                        ${item.dimensions ? `<p class="artwork-dimensions" style="color:var(--card-p2);">${item.dimensions}</p>` : ''}
+                        ${item.summary ? `<p class="artwork-summary">${item.summary}</p>` : ''}
+                    </div>
+
+                    ${item.marker !== false && (item.marker || item.summary) ? `
+                    <div class="editorial-marker">
+                        <span class="marker-bullet" style="color:var(--card-p3);">@ ---</span>
+                        <span class="marker-label">${item.marker || 'FICHA DE REGISTRO TÉCNICO'}</span>
+                        <span class="marker-line"></span>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+
+            <div class="post-footer">
+                <div class="post-info">
+                    <span class="stampie">
+                        <span class="date-part stampie-inner">
+                            <span class="stampie-content">${item.date}</span>
+                        </span>
+                    </span>
+                    ${palette.length > 0 ? `
+                    <div class="card-palette-pips" title="Paleta extraída: ${palette.join(', ')}">
+                        ${palette.map(c => `<span class="palette-pip" style="background:${c};" title="${c}"></span>`).join('')}
+                    </div>
+                    ` : ''}
+                </div>
+
+                <div class="post-controls">
+                    <a class="stampie" href="javascript:void(0)" data-inspect-id="${item.id}" title="Inspeccionar en Darkroom">
+                        <span class="stampie-inner">
+                            <span class="stampie-content">
+                                <i class="ph ph-magnifying-glass-plus"></i> ZOOM
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+    `;
+            }
+
+            function renderThoughtCard(item) {
+                const isManifesto = item.style === 'manifesto' || item.id === 'manifiesto-editorial';
+                const tagsHtml = (item.tags || []).map(t => `
+                <span style="color:var(--accent-cyan); font-family:var(--font-mono); font-size:0.75rem; font-weight:600; letter-spacing:0.06em; margin-right:12px;">#${t.toUpperCase()}</span>
+            `).join('');
+
+                if (isManifesto) {
+                    return `
+        <article class="posts thought-bubble-card manifesto-card" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}">
+            <div class="post-inner">
+                <div class="thought-header-badge" style="background:#000; border-bottom:1px solid #333;">
+                    <span style="color:var(--accent-cyan); font-weight:600;">// ${item.badge || 'MANIFIESTO EDITORIAL'} </span>
+                    <span style="color:var(--accent-crimson); font-weight:bold;">[ ${item.romanSlot || 'I'} ]</span>
+                </div>
+
+                <div class="thought-content-box" style="padding:18px 16px;">
+                    <h2 style="font-family:var(--font-display); font-size:1.45rem; letter-spacing:0.08em; color:#ffffff; margin:0 0 10px 0;">${item.title}</h2>
+                    <div class="editorial-marker" style="display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:0.7rem; color:var(--graphite-gray); margin:8px 0 14px 0;">
+                        <span style="color:var(--accent-cyan); font-weight:bold;">@ ---</span>
+                        ${item.subtitle ? `<span style="color:var(--graphite-gray); text-transform:uppercase; letter-spacing:0.06em;">${item.subtitle}</span>` : ''}
+                        <span style="flex:1; height:1px; border-bottom:1px dashed rgba(255,255,255,0.25);"></span>
+                    </div>
+                    <p style="margin:0; font-family:var(--font-mono); font-size:0.86rem; line-height:1.68; color:#ece7df;">${item.text}</p>
+                </div>
+
+                ${tagsHtml ? `<div class="post-tags" style="padding:8px 16px 14px 16px; display:flex; flex-wrap:wrap; gap:6px; border-top:1px dashed #222;">${tagsHtml}</div>` : ''}
+            </div>
+        </article>
+        `;
+                }
+
+                return `
+    <article class="posts thought-bubble-card" id="post-${item.id}" data-category="${item.category}" data-id="${item.id}">
+        <div class="post-inner">
+            <div class="thought-header-badge">
+                <span>// BITÁCORA DE PROCESO · ${item.date}</span>
+                <span style="color:var(--accent-crimson);">[ ${item.romanSlot} ]</span>
+            </div>
+
+            <div class="thought-content-box">
+                <p style="margin:0;">${item.text}</p>
+            </div>
+        </div>
+    </article>
+    `;
+            }
+        </script>
+        <script>/**
+* LIGHTBOX / RETRO INSPECTOR (DARKROOM)
+* Visor a pantalla completa de alta resolución, zoom interactivo, carrusel de proceso y ficha técnica monoespaciada.
+*/
+
+            window.currentArtworkIndex = 0;
+            window.currentGalleryIndex = 0;
+
+            function setupLightbox() {
+                const modal = document.getElementById('darkroom-lightbox');
+                if (!modal) return;
+
+                // Botón de cierre
+                const closeBtn = modal.querySelector('.darkroom-close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeLightbox);
+                }
+
+                // Clic fuera para cerrar
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeLightbox();
+                });
+
+                // Teclado
+                document.addEventListener('keydown', (e) => {
+                    if (!modal.classList.contains('active')) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') prevArtwork();
+                    if (e.key === 'ArrowRight') nextArtwork();
+                });
+
+                // Zoom al clic en imagen
+                const mainImg = document.getElementById('darkroom-main-img');
+                if (mainImg) {
+                    mainImg.addEventListener('click', () => {
+                        mainImg.classList.toggle('zoomed');
+                    });
+                }
+
+                // Botones de navegación
+                const prevBtn = document.getElementById('darkroom-prev-btn');
+                const nextBtn = document.getElementById('darkroom-next-btn');
+                if (prevBtn) prevBtn.addEventListener('click', prevArtwork);
+                if (nextBtn) nextBtn.addEventListener('click', nextArtwork);
+            }
+
+            window.openLightbox = function (id) {
+                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+                const index = artworks.findIndex(w => w.id === id);
+                if (index === -1) return;
+
+                window.currentArtworkIndex = index;
+                window.currentGalleryIndex = 0;
+                renderLightboxContent();
+
+                const modal = document.getElementById('darkroom-lightbox');
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                // Actualizar URL hash
+                window.history.replaceState(null, '', `#proyecto=${id}`);
+            };
+
+            function closeLightbox() {
+                const modal = document.getElementById('darkroom-lightbox');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                const mainImg = document.getElementById('darkroom-main-img');
+                if (mainImg) mainImg.classList.remove('zoomed');
+
+                // Limpiar hash si era de proyecto
+                if (window.location.hash.startsWith('#proyecto=')) {
+                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+            }
+
+            function prevArtwork() {
+                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+                window.currentArtworkIndex = (window.currentArtworkIndex - 1 + artworks.length) % artworks.length;
+                window.currentGalleryIndex = 0;
+                renderLightboxContent();
+            }
+
+            function nextArtwork() {
+                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+                window.currentArtworkIndex = (window.currentArtworkIndex + 1) % artworks.length;
+                window.currentGalleryIndex = 0;
+                renderLightboxContent();
+            }
+
+            function renderLightboxContent() {
+                const artworks = (window.WorksData || []).filter(w => w.type !== 'thought' && w.type !== 'config');
+                const item = artworks[window.currentArtworkIndex];
+                if (!item) return;
+
+                const modal = document.getElementById('darkroom-lightbox');
+                const mainImg = document.getElementById('darkroom-main-img');
+                const titleEl = document.getElementById('darkroom-title');
+                const sysIdEl = document.getElementById('darkroom-sys-id');
+                const yearEl = document.getElementById('darkroom-year');
+                const mediumEl = document.getElementById('darkroom-medium');
+                const formatEl = document.getElementById('darkroom-format');
+                const summaryEl = document.getElementById('darkroom-summary');
+                const thumbsEl = document.getElementById('darkroom-thumbs');
+
+                const gallery = item.gallery && item.gallery.length > 0 ? item.gallery : [{ src: item.cover, caption: item.title }];
+                const currentImg = gallery[window.currentGalleryIndex] || gallery[0];
+
+                if (mainImg) {
+                    mainImg.classList.remove('zoomed');
+                    mainImg.src = currentImg.src;
+                    mainImg.alt = currentImg.caption || item.title;
+                }
+
+                if (sysIdEl) sysIdEl.textContent = `ARCHIVO // ${item.id.toUpperCase()}`;
+                if (titleEl) titleEl.textContent = item.title;
+                if (yearEl) yearEl.textContent = item.date;
+                if (mediumEl) mediumEl.textContent = item.medium;
+                if (formatEl) formatEl.textContent = (item.aspect || 'Variable').toUpperCase();
+                if (summaryEl) summaryEl.textContent = currentImg.caption ? `[ ${currentImg.caption} ] ${item.summary || ''}` : (item.summary || 'Sin nota de autor.');
+
+                // Renderizar paleta cromática dinámica desde works.json
+                const palette = item.palette && item.palette.length > 0
+                    ? item.palette
+                    : ['#0D0D0F', '#8E1F24', '#7CE8EB'];
+
+                // Sincronizar acentos y brillos dinámicos del visor con la paleta de la obra
+                if (modal) {
+                    modal.style.setProperty('--darkroom-p1', palette[0] || '#0D0D0F');
+                    modal.style.setProperty('--darkroom-accent', palette[1] || '#8E1F24');
+                    modal.style.setProperty('--darkroom-glow', palette[2] || '#7CE8EB');
+                }
+
+                const paletteEl = document.getElementById('darkroom-palette') || document.querySelector('.color-swatches');
+                if (paletteEl) {
+                    paletteEl.innerHTML = palette.map(color => `
+                    <span class="swatch" style="background:${color};" title="${color} (Clic para copiar HEX)" data-color="${color}" onclick="window.copySwatchColor('${color}', this)">
+                        <span class="swatch-copied-hint">¡COPIADO!</span>
+                    </span>
+                `).join('') + `<span class="palette-hex-list">${palette.join(' · ')}</span>`;
+                }
+
+                // Miniaturas de proceso si hay más de 1 imagen
+                if (thumbsEl) {
+                    if (gallery.length > 1) {
+                        thumbsEl.innerHTML = gallery.map((g, idx) => `
+                <img src="${g.src}" class="darkroom-thumb ${idx === window.currentGalleryIndex ? 'active' : ''}" onclick="window.selectGalleryImage(${idx})">
+            `).join('');
+                        thumbsEl.style.display = 'flex';
+                    } else {
+                        thumbsEl.innerHTML = '';
+                        thumbsEl.style.display = 'none';
+                    }
+                }
+            }
+
+            window.selectGalleryImage = function (idx) {
+                window.currentGalleryIndex = idx;
+                renderLightboxContent();
+            };
+
+            window.copySwatchColor = function (color, el) {
+                navigator.clipboard.writeText(color).then(() => {
+                    if (el) {
+                        el.classList.add('copied');
+                        setTimeout(() => { el.classList.remove('copied'); }, 1400);
+                    }
+                });
+            };
+        </script>
+        <script>/**
+* ATMOSPHERE & EFFECTS - Sparkles del Cursor con Toggle FX: ON/OFF
+*/
+
+            let fxEnabled = localStorage.getItem('fx_sparkles') !== 'off';
+
+            function setupCursorSparkles() {
+                const toggleBtn = document.getElementById('fx-toggle-btn');
+                if (toggleBtn) {
+                    updateFxButton(toggleBtn);
+                    toggleBtn.addEventListener('click', () => {
+                        fxEnabled = !fxEnabled;
+                        localStorage.setItem('fx_sparkles', fxEnabled ? 'on' : 'off');
+                        updateFxButton(toggleBtn);
+                    });
+                }
+
+                let lastSparkleTime = 0;
+                const sparkleColors = ['#252525', '#8E1F24', '#7CE8EB', '#EFECE4'];
+
+                document.addEventListener('mousemove', (e) => {
+                    if (!fxEnabled) return;
+                    const now = Date.now();
+                    if (now - lastSparkleTime < 45) return; // Throttle para rendimiento impecable
+                    lastSparkleTime = now;
+
+                    createSparkle(e.clientX, e.clientY, sparkleColors[Math.floor(Math.random() * sparkleColors.length)]);
+                });
+            }
+
+            function updateFxButton(btn) {
+                if (!btn) return;
+                btn.textContent = `FX: ${fxEnabled ? 'ON' : 'OFF'}`;
+                btn.classList.toggle('active', fxEnabled);
+            }
+
+            function createSparkle(x, y, color) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'cursor-sparkle-dot';
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                sparkle.style.backgroundColor = color;
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 600);
+            }
+        </script>
+        <script>/**
+* APP MAIN - Orquestación de Estado, Navegación I-IV, Buscador y Modos
+*/
+
+            window.currentCategory = 'all';
+            window.currentSearchTerm = '';
+            window.isGridMode = false;
+
+            document.addEventListener('DOMContentLoaded', async () => {
+                // 1. Iniciar render de datos y UI
+                await initRender();
+
+                // 2. Iniciar módulos
+                setupLightbox();
+                setupCursorSparkles();
+
+                // 3. Conectar navegación por categorías I-IV
+                setupCategoryNavigation();
+
+                // 4. Conectar buscador en vivo
+                setupLiveSearch();
+
+                // 5. Conectar botones de acción del sidebar derecho
+                setupActionButtons();
+
+                // 6. Conectar modal de contacto
+                setupContactModal();
+
+                // 7. Manejar rutas por URL
+                handleUrlRouting();
+            });
+
+            /**
+             * Conecta los botones romanos I - IV para desplazamiento fluido a cada categoría
+             */
+            function setupCategoryNavigation() {
+                const romanButtons = document.querySelectorAll('.custom-links a[data-cat]');
+                romanButtons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const cat = btn.getAttribute('data-cat');
+
+                        // Si hay búsqueda activa, resetearla para mostrar todas las secciones
+                        if (window.currentSearchTerm) {
+                            window.currentSearchTerm = '';
+                            const searchInput = document.getElementById('search-input');
+                            if (searchInput) searchInput.value = '';
+                            renderFeed(window.WorksData, window.CategoriesData);
+                        }
+
+                        // Marcar botón activo
+                        romanButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        // Scroll suave hacia la sección correspondiente
+                        const targetSec = document.getElementById(`sec-${cat}`);
+                        if (targetSec) {
+                            const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
+                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                            window.history.replaceState(null, '', `#sec-${cat}`);
+                        }
+                    });
+                });
+            }
+
+            function setupLiveSearch() {
+                const searchInput = document.getElementById('search-input');
+                if (!searchInput) return;
+
+                let debounceTimer = null;
+                searchInput.addEventListener('input', (e) => {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => {
+                        window.currentSearchTerm = e.target.value.trim().toLowerCase();
+                        applyFilters();
+                    }, 180);
+                });
+            }
+
+            function applyFilters() {
+                let filtered = (window.WorksData || []).filter(it => it.type !== 'config');
+
+                // Filtro por búsqueda
+                if (window.currentSearchTerm) {
+                    filtered = filtered.filter(item => {
+                        const title = (item.title || '').toLowerCase();
+                        const medium = (item.medium || '').toLowerCase();
+                        const summary = (item.summary || '').toLowerCase();
+                        const tags = (item.tags || []).join(' ').toLowerCase();
+                        const text = (item.text || '').toLowerCase();
+                        const date = (item.date || '').toLowerCase();
+                        const category = (item.category || '').toLowerCase();
+
+                        return title.includes(window.currentSearchTerm) ||
+                            medium.includes(window.currentSearchTerm) ||
+                            summary.includes(window.currentSearchTerm) ||
+                            tags.includes(window.currentSearchTerm) ||
+                            text.includes(window.currentSearchTerm) ||
+                            category.includes(window.currentSearchTerm) ||
+                            date.includes(window.currentSearchTerm);
+                    });
+                }
+
+                renderFeed(filtered, window.CategoriesData);
+            }
+
+            window.filterByTag = function (tag) {
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) {
+                    searchInput.value = tag;
+                    window.currentSearchTerm = tag.toLowerCase();
+                    applyFilters();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            };
+
+            window.resetFilters = function () {
+                window.currentCategory = 'all';
+                window.currentSearchTerm = '';
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) searchInput.value = '';
+
+                document.querySelectorAll('.custom-links a[data-cat]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                renderFeed(window.WorksData, window.CategoriesData);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.history.replaceState(null, '', window.location.pathname);
+            };
+
+            function setupActionButtons() {
+                // Botón Inicio (resetea filtros y sube arriba)
+                const homeBtn = document.getElementById('nav-home-btn');
+                if (homeBtn) {
+                    homeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        window.resetFilters();
+                    });
+                }
+
+                // Botón Contacto / Comisiones
+                const contactBtn = document.getElementById('nav-contact-btn');
+                if (contactBtn) {
+                    contactBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openContactModal();
+                    });
+                }
+
+                // Botón Alternar Vista Compacta
+                const gridToggleBtn = document.getElementById('nav-grid-btn');
+                if (gridToggleBtn) {
+                    gridToggleBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        window.isGridMode = !window.isGridMode;
+                        const container = document.getElementById('posts-container');
+                        if (container) {
+                            container.classList.toggle('compact-grid-mode', window.isGridMode);
+                        }
+                        gridToggleBtn.classList.toggle('active', window.isGridMode);
+                    });
+                }
+            }
+
+            function setupContactModal() {
+                const modal = document.getElementById('contact-modal');
+                if (!modal) return;
+
+                const closeBtn = document.getElementById('contact-close-btn');
+                if (closeBtn) closeBtn.addEventListener('click', closeContactModal);
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeContactModal();
+                });
+
+                const copyBtn = document.getElementById('copy-email-btn');
+                const emailField = document.getElementById('email-text');
+                if (copyBtn && emailField) {
+                    copyBtn.addEventListener('click', () => {
+                        navigator.clipboard.writeText(emailField.textContent.trim()).then(() => {
+                            const prev = copyBtn.textContent;
+                            copyBtn.textContent = '¡COPIADO!';
+                            copyBtn.style.background = 'var(--accent-cyan)';
+                            setTimeout(() => {
+                                copyBtn.textContent = prev;
+                                copyBtn.style.background = '';
+                            }, 2000);
+                        });
+                    });
+                }
+            }
+
+            function openContactModal() {
+                const modal = document.getElementById('contact-modal');
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeContactModal() {
+                const modal = document.getElementById('contact-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            function handleUrlRouting() {
+                // 1. Verificar si hay #proyecto=...
+                const hash = window.location.hash;
+                if (hash.startsWith('#proyecto=')) {
+                    const id = hash.replace('#proyecto=', '');
+                    setTimeout(() => {
+                        if (window.openLightbox) window.openLightbox(id);
+                    }, 300);
+                } else if (hash.startsWith('#sec-')) {
+                    const secId = hash.replace('#', '');
+                    setTimeout(() => {
+                        const el = document.getElementById(secId);
+                        if (el) {
+                            const targetY = el.getBoundingClientRect().top + window.pageYOffset - 96;
+                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                        }
+                    }, 300);
+                }
+
+                // 2. Verificar si hay ?cat=...
+                const params = new URLSearchParams(window.location.search);
+                const cat = params.get('cat');
+                if (cat) {
+                    setTimeout(() => {
+                        const targetSec = document.getElementById(`sec-${cat}`);
+                        if (targetSec) {
+                            const targetY = targetSec.getBoundingClientRect().top + window.pageYOffset - 96;
+                            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                        }
+                    }, 300);
+                }
+            }
+        </script>
+</body>
+
+</html>

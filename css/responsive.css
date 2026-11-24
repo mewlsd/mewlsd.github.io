@@ -1,0 +1,267 @@
+/* ==========================================================================
+   PORTAFOLIO RESPONSIVE - ADAPTACIÓN CRUDA SIN ROMPER LA VIBRA (2 COLUMNAS)
+   ========================================================================== */
+
+/* ----- ESCRITORIO (> 1100px) ----- */
+@media screen and (min-width: 1101px) {
+    main {
+        margin: 0 auto !important;
+        padding-top: calc(var(--Top-Bar-Total-Height, 72px) + 24px) !important;
+        width: 100% !important;
+        max-width: 1280px !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-hug-2 {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        gap: 32px !important;
+        width: 100% !important;
+    }
+
+    .all-posts {
+        width: 840px !important;
+        max-width: 840px !important;
+        margin-top: 0 !important;
+        flex: 1 1 840px !important;
+    }
+
+    .sb-right {
+        width: 360px !important;
+        max-width: 360px !important;
+        margin-top: 0 !important;
+        position: sticky !important;
+        top: calc(var(--Top-Bar-Total-Height, 72px) + 24px) !important;
+        flex-shrink: 0 !important;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}
+
+/* ----- TABLET (768px - 1100px) ----- */
+@media screen and (max-width: 1100px) and (min-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: calc(var(--Top-Bar-Total-Height, 72px) + 20px) 16px 40px 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-hug-1, .main-hug-2 {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+        gap: 24px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .all-posts {
+        flex: 1 1 auto !important;
+        width: calc(100% - 330px) !important;
+        max-width: 100% !important;
+    }
+
+    .sb-right {
+        width: 300px !important;
+        max-width: 300px !important;
+        flex-shrink: 0 !important;
+        position: sticky !important;
+        top: calc(var(--Top-Bar-Total-Height, 72px) + 20px) !important;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+    }
+
+    /* Modal Darkroom adaptado a tablet */
+    .darkroom-frame {
+        width: 96vw;
+        height: 94vh;
+    }
+
+    .darkroom-body {
+        flex-direction: column;
+    }
+
+    .darkroom-stage {
+        flex: 1.2;
+    }
+
+    .darkroom-sidebar {
+        flex: 1;
+        max-width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--graphite-gray);
+        padding: 16px;
+    }
+}
+
+/* Reducción a 1 columna en tablet angosta */
+@media screen and (max-width: 880px) and (min-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ----- MÓVIL (< 768px) ----- */
+@media screen and (max-width: 767px) {
+    html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Top bar simplificada */
+    .ceiling {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 100 !important;
+    }
+
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: calc(var(--Top-Bar-Total-Height, 72px) + 14px) 12px 40px 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-hug-1, .main-hug-2 {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    .main-hug-2 > * {
+        flex-shrink: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Sidebar se reposiciona como cabecera compacta superior */
+    .sb-right {
+        order: -1 !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto 10px auto !important;
+        position: static !important;
+        top: 0 !important;
+    }
+
+    .sb-inner-1, .sb-inner-2 {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .sb-img-wrap-outer-1 {
+        margin: 0 auto 16px auto !important;
+        transform: scale(0.92);
+    }
+
+    .sb-info-area {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 380px !important;
+        margin: 0 auto !important;
+    }
+
+    .custom-links ul {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+    }
+
+    .sb-info-right.navlinks ul {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin-top: 10px !important;
+    }
+
+    /* Feed central al 100% */
+    .all-posts {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+    }
+
+    .category-section {
+        margin-bottom: 36px !important;
+    }
+
+    .category-header-top {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .category-divider {
+        width: 100% !important;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .artwork-img {
+        height: 200px !important;
+    }
+
+    /* Modal Darkroom adaptado a pantalla completa vertical */
+    .darkroom-frame {
+        width: 100vw !important;
+        height: 100vh !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .darkroom-body {
+        flex-direction: column !important;
+        overflow-y: auto !important;
+    }
+
+    .darkroom-stage {
+        min-height: 45vh !important;
+        padding: 10px !important;
+    }
+
+    .darkroom-sidebar {
+        max-width: 100% !important;
+        border-left: none !important;
+        border-top: 1px solid var(--graphite-gray) !important;
+        padding: 16px !important;
+    }
+
+    /* Corner image oculto en pantallas pequeñas */
+    .corner-img-wrap {
+        display: none !important;
+    }
+}

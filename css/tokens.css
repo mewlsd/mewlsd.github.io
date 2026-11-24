@@ -1,0 +1,85 @@
+:root,
+:host {
+
+    /*----- GENERAL -----*/
+    --Background: #252525;
+
+    /* ==========================================================================
+       DIRECCIÓN DE ARTE & PALETA EDITORIAL
+       ========================================================================== */
+    --ink-dark: #0D0D0F;
+    --paper-bone: #EFECE4;
+    --graphite-gray: #6E6D6A;
+    --accent-crimson: #8E1F24;
+    --accent-cyan: #7CE8EB;
+
+    --font-display: "New Rocker", cursive, sans-serif;
+    --font-heading: "Space Grotesk", sans-serif;
+    --font-body: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "Geist Mono", "Courier Prime", monospace;
+
+    --Background-Pattern: url("../assets/ui/dot-grid.png");
+    --Sidebar-Tape: url("../assets/ui/sidebar-tape.png");
+    --Sidebar-Splatter: url("../assets/ui/sidebar-splatter.gif");
+    --Corner-Image: url("../assets/ui/corner-image.png");
+
+    /* Sidebar Avatar Spray Splatters & Tape */
+    --Sidebar-Image-Top-Spray-Mask: url("../assets/ui/spray-top-mask.png");
+    --Sidebar-Image-Bot-Spray-Mask: url("../assets/ui/spray-bot-mask.png");
+    --Sidebar-Image-Tape-Mask: url("../assets/ui/tape-mask.png");
+    --Sidebar-Image-Tape-Visible-Image: url("../assets/ui/sidebar-tape.png");
+    --Sidebar-Image-Top-Spray-Width: 320px;
+    --Sidebar-Image-Top-Spray-Height: calc(320px / 498 * 300);
+    --Sidebar-Image-Bot-Spray-Width: 340px;
+    --Sidebar-Image-Bot-Spray-Height: calc(340px / 500 * 258);
+    --Sidebar-Image-Top-Spray-Color: #000000;
+    --Sidebar-Image-Bot-Spray-Color: #000000;
+    --Sidebar-Image-Tape-Width: 155px;
+    --Sidebar-Image-Tape-Height: calc(155px / 572 * 85);
+    --Sidebar-Image-Tape-Tilt: -25deg;
+    --Sidebar-Image-Tape-Move-X: 0px;
+    --Sidebar-Image-Tape-Move-Y: 0px;
+    --Corner-Image-Size: 140px;
+
+    /* Bordes y conectores stampie */
+    --Secondary-Border-Spacing: 2px;
+    --Borders-Spacing: 2px;
+    --Primary-Content-Edge-Pos: 0px;
+    --Primary-Border-2-Dots-Spacing: 4px;
+    --Secondary-Border-1-Dots-Spacing: 3px;
+    --Secondary-Border-2-Dots-Spacing: 3px;
+
+    --CL-Padding: 7px;
+    --CL-Square-Size: 34px;
+    --Custom-Links-Icon-Size: 0.85rem;
+    --Custom-Links-Icon-Padding: 7px;
+    --Custom-Links-Icon-Spacing: 5px;
+    --Custom-Links-Font: var(--font-heading);
+    --Custom-Links-Alignment: center;
+    --Custom-Links-Top-Gap: 8px;
+
+    --Sidebar-Navlinks-Icon-Size: 0.95rem;
+    --Sidebar-Navlinks-Icon-Padding: 7px;
+    --Sidebar-Navlinks-Icon-Spacing: 6px;
+    --Sidebar-Navlinks-Top-Gap: 6px;
+    --Sidebar-Title-Top-Gap: 8px;
+    --NL-Square-Size: 34px;
+
+    --Post-Width: 840px;
+    --Post-Width-Total: min(840px, 92vw);
+    --Post-Padding: 16px;
+    --Post-Spacing: 36px;
+    --Screen-Gaps: 36px;
+    --Post-Side-Gaps: 32px;
+    --Sidebar-Image-Width: 280px;
+    --Sidebar-Width-Total: 360px;
+    --Blinkies-Wall-Width-Total: 0px;
+    --Blinkies-Max-Width: 0px;
+
+    /* Mascaras SVG nativas para bordes en zigzag dentados y punteados */
+    --Primary-Border-1-Mask-Image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Cpath d='M2 0h1v1H2zM7 0h1v1H7zM12 0h1v1h-1zM1 1h1v1H1zM3 1h1v1H3zM6 1h1v1H6zM8 1h1v1H8zM11 1h1v1h-1zM13 1h1v1h-1zM0 2h1v1H0zM4 2h1v1H4zM5 2h1v1H5zM9 2h1v1H9zM10 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1H1zM13 3h1v1h-1zM2 4h1v1H2zM12 4h1v1h-1zM2 5h1v1H2zM12 5h1v1h-1zM1 6h1v1H1zM13 6h1v1h-1zM0 7h1v1H0zM14 7h1v1h-1zM1 8h1v1H1zM13 8h1v1h-1zM2 9h1v1H2zM12 9h1v1h-1zM2 10h1v1H2zM12 10h1v1h-1zM1 11h1v1H1zM13 11h1v1h-1zM0 12h1v1H0zM4 12h1v1H4zM5 12h1v1H5zM9 12h1v1H9zM10 12h1v1h-1zM14 12h1v1h-1zM1 13h1v1H1zM3 13h1v1H3zM6 13h1v1H6zM8 13h1v1H8zM11 13h1v1h-1zM13 13h1v1h-1zM2 14h1v1H2zM7 14h1v1H7zM12 14h1v1h-1z' shape-rendering='crispEdges' fill='%23252525'/%3E%3C/svg%3E");
+    --Primary-Border-2-Mask-Image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none' stroke='%23000' stroke-dasharray='2, 4' stroke-width='4'/%3E%3C/svg%3E");
+    --Secondary-Border-1-Mask-Image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none' stroke='%23000' stroke-dasharray='1, 2' stroke-width='2'/%3E%3C/svg%3E");
+    --Secondary-Border-2-Mask-Image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='none' stroke='%23000' stroke-dasharray='1, 2' stroke-width='2'/%3E%3C/svg%3E");
+
+}

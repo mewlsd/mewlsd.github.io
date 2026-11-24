@@ -1,0 +1,217 @@
+[
+  {
+    "id": "theme-config",
+    "type": "config",
+    "title": "PALETA DE COLOR GLOBAL DEL SITIO",
+    "description": "Edita estos valores HEX para personalizar los colores del tema en todo el sitio",
+    "palette": {
+      "accentCyan": "#7CE8EB",
+      "accentCrimson": "#8E1F24",
+      "inkDark": "#0D0D0F",
+      "paperBone": "#EFECE4",
+      "graphiteGray": "#6E6D6A",
+      "background": "#252525"
+    }
+  },
+  {
+    "id": "manifiesto-editorial",
+    "type": "thought",
+    "style": "manifesto",
+    "category": "grafito",
+    "romanSlot": "I",
+    "title": "hola abcdefg",
+    "date": "2026",
+    "text": "Una pieza no tiene que verse complaciente ni limpia para estar terminada; a veces el grano, la tensión muscular y el entintado crudo son el punto exacto. Este espacio funciona como una monografía viva entre el fanzine underground y el archivo técnico de taller: ilustración tradicional con pastel y tiza sobre papel negro, claroscuro visceral y narrativa gráfica de personajes."
+  },
+  {
+    "id": "caballo-encadenado",
+    "type": "artwork",
+    "category": "grafito",
+    "categoryLabel": "GRAFITO",
+    "romanSlot": "I",
+    "title": "Caballo encadenado",
+    "date": "2026",
+    "medium": "Grafito / Lápiz blanco y pastel sobre papel negro",
+    "dimensions": "50 x 70 cm",
+    "palette": [
+      "#0D0D0F",
+      "#FFFFFF",
+      "#6E6D6A",
+      "#2E2D2B"
+    ],
+    "tags": [
+      "grafito",
+      "anatomía",
+      "claroscuro",
+      "tiza",
+      "tensión"
+    ],
+    "cover": "assets/works/caballo-full.webp",
+    "gallery": [
+      {
+        "src": "assets/works/caballo-full.webp",
+        "caption": "Estudio principal de musculatura y tensión sobre papel negro."
+      },
+      {
+        "src": "assets/works/caballo-detalle-grillete.webp",
+        "caption": "Detalle de textura en la pezuña y el grillete."
+      }
+    ],
+    "summary": "Estudio de tensión corporal y volumen muscular construido enteramente desde la luz sobre soporte negro puro."
+  },
+  {
+    "id": "caballo-estudio-anatomia",
+    "type": "artwork",
+    "category": "grafito",
+    "categoryLabel": "GRAFITO",
+    "romanSlot": "I",
+    "title": "Detalle anatómico & grillete",
+    "date": "2026",
+    "medium": "Grafito & tiza sobre cartulina oscura",
+    "dimensions": "Detalle macro",
+    "palette": [
+      "#141416",
+      "#8A8985",
+      "#D8D6CE",
+      "#3F3E3C"
+    ],
+    "tags": [
+      "grafito",
+      "detalle",
+      "textura",
+      "metal"
+    ],
+    "cover": "assets/works/caballo-detalle-grillete.webp",
+    "gallery": [
+      {
+        "src": "assets/works/caballo-detalle-grillete.webp",
+        "caption": "Registro de grano y trazo de grafito en frío."
+      }
+    ],
+    "summary": "Acercamiento a la textura rugosa del metal y la dispersión del polvo de grafito sobre la fibra del papel."
+  },
+  {
+    "id": "good-night",
+    "type": "artwork",
+    "category": "ilustracion-mano",
+    "categoryLabel": "ILUSTRACIÓN A MANO",
+    "romanSlot": "II",
+    "title": "GOOD NIGHT",
+    "date": "2026",
+    "medium": "Tinta china, rotulador y plumilla sobre papel",
+    "dimensions": "A3 (29.7 x 42 cm)",
+    "palette": [
+      "#000000",
+      "#FFFFFF",
+      "#8E1F24",
+      "#1F1F24"
+    ],
+    "tags": [
+      "tinta",
+      "personaje",
+      "lineart",
+      "expresionismo"
+    ],
+    "cover": "assets/works/good-night.webp",
+    "gallery": [
+      {
+        "src": "assets/works/good-night.webp",
+        "caption": "Entintado manual con atmósfera de alto contraste."
+      }
+    ],
+    "summary": "Composición diagonal con énfasis en la gestualidad facial, trazo cortante de plumilla y tipografía diegética."
+  },
+  {
+    "id": "aiden-escena",
+    "type": "artwork",
+    "category": "ilustracion-mano",
+    "categoryLabel": "ILUSTRACIÓN A MANO",
+    "romanSlot": "II",
+    "title": "AIDEN & acompañante",
+    "date": "2026",
+    "medium": "Tinta, estilógrafo y rotulador sobre papel bristol",
+    "dimensions": "A4 (21 x 29.7 cm)",
+    "palette": [
+      "#111113",
+      "#F2EFE9",
+      "#5A5955",
+      "#8C8982"
+    ],
+    "tags": [
+      "narrativa",
+      "personajes",
+      "estilógrafo",
+      "secuencia"
+    ],
+    "cover": "assets/works/aiden-escena.webp",
+    "gallery": [
+      {
+        "src": "assets/works/aiden-escena.webp",
+        "caption": "Encuadre cinematográfico de interacción entre personajes."
+      }
+    ],
+    "summary": "Diseño de personajes y escena narrativa urbana con entintado detallado y tramado manual de sombras."
+  },
+  {
+    "id": "retrato-sepia",
+    "type": "artwork",
+    "category": "ilustracion-mano",
+    "categoryLabel": "ILUSTRACIÓN A MANO",
+    "romanSlot": "II",
+    "title": "Retrato en sepia",
+    "date": "2026",
+    "medium": "Tinta sepia, aguada y plumilla fina",
+    "dimensions": "20 x 25 cm",
+    "palette": [
+      "#3D2314",
+      "#7B4B28",
+      "#C49A6C",
+      "#EAD8C3"
+    ],
+    "tags": [
+      "sepia",
+      "retrato",
+      "aguada",
+      "fanzine"
+    ],
+    "cover": "assets/works/retrato-sepia.webp",
+    "gallery": [
+      {
+        "src": "assets/works/retrato-sepia.webp",
+        "caption": "Estudio facial con gama tonal en ocres y sepias."
+      }
+    ],
+    "summary": "Exploración psicológica mediante aguadas cálidas y texturizado analógico en primer plano."
+  },
+  {
+    "id": "shadow-estudio",
+    "type": "artwork",
+    "category": "pintura-acrilica",
+    "categoryLabel": "PINTURA ACRÍLICA",
+    "romanSlot": "III",
+    "title": "Retrato de Shadow",
+    "date": "2026",
+    "medium": "Pintura acrílica sobre lienzo texturizado",
+    "dimensions": "40 x 50 cm",
+    "palette": [
+      "#0F0D12",
+      "#8E1F24",
+      "#D4CFC7",
+      "#3B1822"
+    ],
+    "tags": [
+      "acrílico",
+      "lienzo",
+      "color",
+      "pincelada"
+    ],
+    "cover": "assets/works/shadow-estudio.webp",
+    "gallery": [
+      {
+        "src": "assets/works/shadow-estudio.webp",
+        "caption": "Obra en acrílico con empastes y contraste directo."
+      }
+    ],
+    "summary": "Estudio pictórico con pincelada densa de acrílico explorando iluminación dramática y síntesis formal."
+  },
+]
