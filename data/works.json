@@ -213,5 +213,1014 @@
       }
     ],
     "summary": "Estudio pictórico con pincelada densa de acrílico explorando iluminación dramática y síntesis formal."
+  },
+  {
+    "id": "good-night-bat",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "GOOD NIGHT (Bate de béisbol)",
+    "date": "2026",
+    "medium": "Ilustración digital & entintado de alto contraste",
+    "dimensions": "1108 x 1430 px",
+    "palette": [
+      "#FFFFFF",
+      "#D6FDF8",
+      "#594033",
+      "#1B030A"
+    ],
+    "tags": [
+      "digital",
+      "personaje",
+      "bate",
+      "good night",
+      "underground"
+    ],
+    "cover": "assets/works/good-night-bat.webp",
+    "gallery": [
+      {
+        "src": "assets/works/good-night-bat.webp",
+        "caption": "Retrato frontal con bate de béisbol diegético, atmósfera cian sobreexpuesta y expresión desencajada."
+      }
+    ],
+    "summary": "Retrato frontal con bate de béisbol diegético, atmósfera cian sobreexpuesta y expresión desencajada."
+  },
+  {
+    "id": "mew-halo-cat",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Gato Espectral // Halo",
+    "date": "2026",
+    "medium": "Tinta, estilógrafo y entintado estilizado",
+    "dimensions": "1220 x 1225 px",
+    "palette": [
+      "#EFF4D8",
+      "#CEEACB",
+      "#B7CCB8",
+      "#817B72"
+    ],
+    "tags": [
+      "personaje",
+      "gato",
+      "halo",
+      "mew",
+      "tinta"
+    ],
+    "cover": "assets/works/mew-halo-cat.webp",
+    "gallery": [
+      {
+        "src": "assets/works/mew-halo-cat.webp",
+        "caption": "Mascota espectral con halo y extremidades flotantes, explorando la dualidad entre ternura y desasosiego."
+      }
+    ],
+    "summary": "Mascota espectral con halo y extremidades flotantes, explorando la dualidad entre ternura y desasosiego."
+  },
+  {
+    "id": "cigarrillo-compartido",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Fricción & Humo // Dos Figuras",
+    "date": "2026",
+    "medium": "Ilustración digital con grano y textura de grafito",
+    "dimensions": "1220 x 1178 px",
+    "palette": [
+      "#FFFFFF",
+      "#ABA6A9",
+      "#6A666A",
+      "#4E4C51"
+    ],
+    "tags": [
+      "claroscuro",
+      "personajes",
+      "grano",
+      "humo",
+      "tensión"
+    ],
+    "cover": "assets/works/cigarrillo-compartido.webp",
+    "gallery": [
+      {
+        "src": "assets/works/cigarrillo-compartido.webp",
+        "caption": "Estudio de siluetas enfrentadas en atmósfera granulada con iluminación puntual en el punto de contacto."
+      }
+    ],
+    "summary": "Estudio de siluetas enfrentadas en atmósfera granulada con iluminación puntual en el punto de contacto."
+  },
+  {
+    "id": "aiden-i-eet-color",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "AIDEN & Colega // Color",
+    "date": "2026",
+    "medium": "Ilustración digital & diseño de personajes",
+    "dimensions": "1220 x 742 px",
+    "palette": [
+      "#E4EBD0",
+      "#AEA69D",
+      "#584B54",
+      "#25162E"
+    ],
+    "tags": [
+      "personajes",
+      "aiden",
+      "narrativa",
+      "color"
+    ],
+    "cover": "assets/works/aiden-i-eet-color.webp",
+    "gallery": [
+      {
+        "src": "assets/works/aiden-i-eet-color.webp",
+        "caption": "Plano medio de interacción casual entre personajes con paleta desaturada y caracterización suburbana."
+      }
+    ],
+    "summary": "Plano medio de interacción casual entre personajes con paleta desaturada y caracterización suburbana."
+  },
+  {
+    "id": "abrazo-intimo-sombra",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Vínculo en Penumbra",
+    "date": "2026",
+    "medium": "Entintado manual y sombreado digital con trama",
+    "dimensions": "1220 x 1174 px",
+    "palette": [
+      "#F4FCD7",
+      "#B6B2A3",
+      "#3E2A47",
+      "#1E0D2A"
+    ],
+    "tags": [
+      "personajes",
+      "abrazo",
+      "entintado",
+      "expresionismo",
+      "trama"
+    ],
+    "cover": "assets/works/abrazo-intimo-sombra.webp",
+    "gallery": [
+      {
+        "src": "assets/works/abrazo-intimo-sombra.webp",
+        "caption": "Composición de tensión corporal en escorzo con tramado denso y líneas anatómicas cargadas."
+      }
+    ],
+    "summary": "Composición de tensión corporal en escorzo con tramado denso y líneas anatómicas cargadas."
+  },
+  {
+    "id": "espadachines-lineart",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Duelo de Espadas // Lineart",
+    "date": "2026",
+    "medium": "Lineart digital limpio & plumilla gráfica",
+    "dimensions": "1220 x 1051 px",
+    "palette": [
+      "#FFFFFF",
+      "#F5F5F5",
+      "#D6D6D6",
+      "#999999"
+    ],
+    "tags": [
+      "lineart",
+      "espadas",
+      "combate",
+      "personajes",
+      "proceso"
+    ],
+    "cover": "assets/works/espadachines-lineart.webp",
+    "gallery": [
+      {
+        "src": "assets/works/espadachines-lineart.webp",
+        "caption": "Fase de entintado lineal para escena de combate con poses dinámicas y angulares."
+      }
+    ],
+    "summary": "Fase de entintado lineal para escena de combate con poses dinámicas y angulares."
+  },
+  {
+    "id": "espadachines-color",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Duelo de Espadas // Final",
+    "date": "2026",
+    "medium": "Ilustración digital con efecto dither y aura cromática",
+    "dimensions": "1220 x 1235 px",
+    "palette": [
+      "#FFFFFF",
+      "#D8DBC7",
+      "#5F645C",
+      "#131420"
+    ],
+    "tags": [
+      "digital",
+      "espadas",
+      "dither",
+      "combate",
+      "color"
+    ],
+    "cover": "assets/works/espadachines-color.webp",
+    "gallery": [
+      {
+        "src": "assets/works/espadachines-color.webp",
+        "caption": "Versión final de la escena de espadas con aura granulada y contraste nocturno."
+      },
+      {
+        "src": "assets/works/espadachines-lineart.webp",
+        "caption": "Fase de entintado lineal para escena de combate con poses dinámicas y angulares."
+      }
+    ],
+    "summary": "Versión final de la escena de espadas con aura granulada y contraste nocturno."
+  },
+  {
+    "id": "caballo-blanco-campo",
+    "type": "artwork",
+    "category": "fotografia",
+    "categoryLabel": "FOTOGRAFÍA",
+    "romanSlot": "IV",
+    "title": "Caballo Blanco en Pastizal",
+    "date": "2026",
+    "medium": "Fotografía digital de exteriores",
+    "dimensions": "841 x 1233 px",
+    "palette": [
+      "#9DAABC",
+      "#8698B0",
+      "#7F8FA1",
+      "#454C33"
+    ],
+    "tags": [
+      "fotografía",
+      "caballo",
+      "naturaleza",
+      "campo",
+      "cielo"
+    ],
+    "cover": "assets/works/caballo-blanco-campo.webp",
+    "gallery": [
+      {
+        "src": "assets/works/caballo-blanco-campo.webp",
+        "caption": "Toma en ángulo bajo de caballo blanco recortado contra cielo cubierto y textura vegetal."
+      }
+    ],
+    "summary": "Toma en ángulo bajo de caballo blanco recortado contra cielo cubierto y textura vegetal."
+  },
+  {
+    "id": "criaturas-lapiz-color",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Criaturas & Afecto",
+    "date": "2026",
+    "medium": "Lápices de color y tinta sobre papel",
+    "dimensions": "931 x 1096 px",
+    "palette": [
+      "#716B5F",
+      "#6B675B",
+      "#676057",
+      "#3C3833"
+    ],
+    "tags": [
+      "tradicional",
+      "lápices de color",
+      "criaturas",
+      "ternura"
+    ],
+    "cover": "assets/works/criaturas-lapiz-color.webp",
+    "gallery": [
+      {
+        "src": "assets/works/criaturas-lapiz-color.webp",
+        "caption": "Ilustración análoga con línea suave y sombreado en lápices de madera sobre soporte claro."
+      }
+    ],
+    "summary": "Ilustración análoga con línea suave y sombreado en lápices de madera sobre soporte claro."
+  },
+  {
+    "id": "planta-pirana-proceso",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Planta Piraña // Proceso de Taller",
+    "date": "2026",
+    "medium": "Modelado, papel maché y pintura acrílica",
+    "dimensions": "1220 x 1345 px",
+    "palette": [
+      "#CAC8C8",
+      "#8F8986",
+      "#5F564E",
+      "#2C1B1C"
+    ],
+    "tags": [
+      "taller",
+      "proceso",
+      "acrílico",
+      "escultura",
+      "prop"
+    ],
+    "cover": "assets/works/planta-pirana-proceso.webp",
+    "gallery": [
+      {
+        "src": "assets/works/planta-pirana-proceso.webp",
+        "caption": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
+      }
+    ],
+    "summary": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
+  },
+  {
+    "id": "planta-pirana-escultura",
+    "type": "artwork",
+    "category": "fotografia",
+    "categoryLabel": "FOTOGRAFÍA",
+    "romanSlot": "IV",
+    "title": "Planta Piraña // Escultura Terminada",
+    "date": "2026",
+    "medium": "Fotografía de escultura / prop en exterior",
+    "dimensions": "1220 x 1599 px",
+    "palette": [
+      "#737963",
+      "#4D5743",
+      "#373A2E",
+      "#0D0F0D"
+    ],
+    "tags": [
+      "fotografía",
+      "escultura",
+      "mario",
+      "prop",
+      "exterior"
+    ],
+    "cover": "assets/works/planta-pirana-escultura.webp",
+    "gallery": [
+      {
+        "src": "assets/works/planta-pirana-escultura.webp",
+        "caption": "Fotografía exterior de pieza escultórica instalada en maceta con follaje modelado."
+      },
+      {
+        "src": "assets/works/planta-pirana-proceso.webp",
+        "caption": "Registro de taller durante la aplicación de capas de empaste y pigmento sobre volumen tridimensional."
+      }
+    ],
+    "summary": "Fotografía exterior de pieza escultórica instalada en maceta con follaje modelado."
+  },
+  {
+    "id": "caballo-tiza-original",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Caballo Encadenado // Soporte Completo",
+    "date": "2026",
+    "medium": "Lápiz blanco y pastel sobre papel negro",
+    "dimensions": "1175 x 874 px",
+    "palette": [
+      "#8D948E",
+      "#414138",
+      "#20221D",
+      "#101410"
+    ],
+    "tags": [
+      "tradicional",
+      "grafito",
+      "tiza",
+      "anatomía",
+      "soporte negro"
+    ],
+    "cover": "assets/works/caballo-tiza-original.webp",
+    "gallery": [
+      {
+        "src": "assets/works/caballo-tiza-original.webp",
+        "caption": "Registro fotográfico integral del dibujo original revelando la fibra y textura del papel negro puro."
+      }
+    ],
+    "summary": "Registro fotográfico integral del dibujo original revelando la fibra y textura del papel negro puro."
+  },
+  {
+    "id": "minecraft-suit-render",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Avatar en Traje // Grilla & Vector",
+    "date": "2026",
+    "medium": "Modelado 3D / Render y composición retro",
+    "dimensions": "1119 x 894 px",
+    "palette": [
+      "#8BAB62",
+      "#2A5931",
+      "#15271B",
+      "#08231A"
+    ],
+    "tags": [
+      "digital",
+      "render",
+      "minecraft",
+      "avatar",
+      "vector"
+    ],
+    "cover": "assets/works/minecraft-suit-render.webp",
+    "gallery": [
+      {
+        "src": "assets/works/minecraft-suit-render.webp",
+        "caption": "Composición gráfica con render volumétrico de skin sobre fondo de semitono y círculos concéntricos."
+      }
+    ],
+    "summary": "Composición gráfica con render volumétrico de skin sobre fondo de semitono y círculos concéntricos."
+  },
+  {
+    "id": "retrato-estudio-hoodie",
+    "type": "artwork",
+    "category": "fotografia",
+    "categoryLabel": "FOTOGRAFÍA",
+    "romanSlot": "IV",
+    "title": "Retrato en Claroscuro // Hoodie",
+    "date": "2026",
+    "medium": "Fotografía de estudio en blanco y negro",
+    "dimensions": "1220 x 1528 px",
+    "palette": [
+      "#585A57",
+      "#2F312E",
+      "#111310",
+      "#030503"
+    ],
+    "tags": [
+      "fotografía",
+      "retrato",
+      "blanco y negro",
+      "claroscuro",
+      "estudio"
+    ],
+    "cover": "assets/works/retrato-estudio-hoodie.webp",
+    "gallery": [
+      {
+        "src": "assets/works/retrato-estudio-hoodie.webp",
+        "caption": "Retrato de pose reflexiva con iluminación lateral marcada y fondo oscuro continuo."
+      }
+    ],
+    "summary": "Retrato de pose reflexiva con iluminación lateral marcada y fondo oscuro continuo."
+  },
+  {
+    "id": "shadow-hedgehog-estudio",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Shadow // Estudio de Furia",
+    "date": "2026",
+    "medium": "Pintura sobre textura & acrílico denso",
+    "dimensions": "1220 x 1326 px",
+    "palette": [
+      "#F1BD4B",
+      "#DE9F2D",
+      "#421E0A",
+      "#040406"
+    ],
+    "tags": [
+      "pintura",
+      "shadow",
+      "acrílico",
+      "contraste",
+      "color"
+    ],
+    "cover": "assets/works/shadow-hedgehog-estudio.webp",
+    "gallery": [
+      {
+        "src": "assets/works/shadow-hedgehog-estudio.webp",
+        "caption": "Estudio expresivo en gama cálida con pinceladas enérgicas y síntesis de personaje."
+      }
+    ],
+    "summary": "Estudio expresivo en gama cálida con pinceladas enérgicas y síntesis de personaje."
+  },
+  {
+    "id": "tiburon-fauces-oscuras",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Fauces // Abismo",
+    "date": "2026",
+    "medium": "Pintura acrílica y empaste sobre soporte oscuro",
+    "dimensions": "1220 x 1325 px",
+    "palette": [
+      "#4E5054",
+      "#1D1E20",
+      "#18181A",
+      "#141416"
+    ],
+    "tags": [
+      "pintura",
+      "tiburón",
+      "abismo",
+      "empaste",
+      "claroscuro"
+    ],
+    "cover": "assets/works/tiburon-fauces-oscuras.webp",
+    "gallery": [
+      {
+        "src": "assets/works/tiburon-fauces-oscuras.webp",
+        "caption": "Aparición de tiburón emergiendo de la oscuridad con dentadura afilada en alto contraste."
+      }
+    ],
+    "summary": "Aparición de tiburón emergiendo de la oscuridad con dentadura afilada en alto contraste."
+  },
+  {
+    "id": "maceta-perico-acrilico",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Maceta Ilustrada // Perico",
+    "date": "2026",
+    "medium": "Pintura acrílica sobre maceta de barro",
+    "dimensions": "1600 x 1200 px",
+    "palette": [
+      "#7F8857",
+      "#6E4B4C",
+      "#4C2F2D",
+      "#12100D"
+    ],
+    "tags": [
+      "pintura",
+      "acrílico",
+      "cerámica",
+      "perico",
+      "objeto"
+    ],
+    "cover": "assets/works/maceta-perico-acrilico.webp",
+    "gallery": [
+      {
+        "src": "assets/works/maceta-perico-acrilico.webp",
+        "caption": "Intervención pictórica sobre cerámica terracota con rostro de perico y borde verde manzana."
+      }
+    ],
+    "summary": "Intervención pictórica sobre cerámica terracota con rostro de perico y borde verde manzana."
+  },
+  {
+    "id": "pulpo-textil-acrilico",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Pulpo Bioluminiscente // Textil",
+    "date": "2026",
+    "medium": "Pintura textil sobre tela azul oscuro",
+    "dimensions": "1600 x 1366 px",
+    "palette": [
+      "#436FB5",
+      "#183E80",
+      "#0D275D",
+      "#091536"
+    ],
+    "tags": [
+      "pintura",
+      "textil",
+      "pulpo",
+      "bioluminiscencia",
+      "ropa"
+    ],
+    "cover": "assets/works/pulpo-textil-acrilico.webp",
+    "gallery": [
+      {
+        "src": "assets/works/pulpo-textil-acrilico.webp",
+        "caption": "Pintura manual sobre prenda textil con efecto translúcido de tentáculos y burbujas."
+      }
+    ],
+    "summary": "Pintura manual sobre prenda textil con efecto translúcido de tentáculos y burbujas."
+  },
+  {
+    "id": "oceano-fanzine-tiburon",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Libreta Editorial // OCÉANO",
+    "date": "2026",
+    "medium": "Acrílico sobre cubierta encuadernada",
+    "dimensions": "1200 x 1600 px",
+    "palette": [
+      "#78B3CA",
+      "#79798C",
+      "#785053",
+      "#46272A"
+    ],
+    "tags": [
+      "pintura",
+      "editorial",
+      "libreta",
+      "tiburón",
+      "océano"
+    ],
+    "cover": "assets/works/oceano-fanzine-tiburon.webp",
+    "gallery": [
+      {
+        "src": "assets/works/oceano-fanzine-tiburon.webp",
+        "caption": "Diseño de portada pintada a mano con aguas turquesas, nado de tiburón y tipografía diegética."
+      }
+    ],
+    "summary": "Diseño de portada pintada a mano con aguas turquesas, nado de tiburón y tipografía diegética."
+  },
+  {
+    "id": "personaje-chaqueta-sepia",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Retrato de Figura // Chaqueta Oscura",
+    "date": "2026",
+    "medium": "Ilustración digital & entintado tonal en sepia",
+    "dimensions": "1220 x 1429 px",
+    "palette": [
+      "#BD9D75",
+      "#A7845E",
+      "#4E382A",
+      "#0E0A09"
+    ],
+    "tags": [
+      "digital",
+      "personaje",
+      "sepia",
+      "estilógrafo",
+      "diseño"
+    ],
+    "cover": "assets/works/personaje-chaqueta-sepia.webp",
+    "gallery": [
+      {
+        "src": "assets/works/personaje-chaqueta-sepia.webp",
+        "caption": "Diseño de personaje estilizado con melena oscura, postura segura y paleta de ocres."
+      }
+    ],
+    "summary": "Diseño de personaje estilizado con melena oscura, postura segura y paleta de ocres."
+  },
+  {
+    "id": "manzana-pastel-oleo",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Bodegón de Manzana",
+    "date": "2026",
+    "medium": "Pastel al óleo sobre papel texturizado",
+    "dimensions": "1600 x 1200 px",
+    "palette": [
+      "#A3AD9A",
+      "#54A3BB",
+      "#AF827B",
+      "#C63A47"
+    ],
+    "tags": [
+      "pintura",
+      "pastel al óleo",
+      "bodegón",
+      "manzana",
+      "color"
+    ],
+    "cover": "assets/works/manzana-pastel-oleo.webp",
+    "gallery": [
+      {
+        "src": "assets/works/manzana-pastel-oleo.webp",
+        "caption": "Estudio de color directo con pigmentos densos de rojo bermellón y fondo cian turquesa."
+      }
+    ],
+    "summary": "Estudio de color directo con pigmentos densos de rojo bermellón y fondo cian turquesa."
+  },
+  {
+    "id": "pez-dorado-pastel",
+    "type": "artwork",
+    "category": "pintura",
+    "categoryLabel": "PINTURA",
+    "romanSlot": "III",
+    "title": "Pez Dorado // Aguada & Color",
+    "date": "2026",
+    "medium": "Pastel y pigmento sobre papel aguamarina",
+    "dimensions": "1600 x 1200 px",
+    "palette": [
+      "#0AA5C6",
+      "#00A4C8",
+      "#4F8683",
+      "#904F2E"
+    ],
+    "tags": [
+      "pintura",
+      "pastel",
+      "pez",
+      "agua",
+      "color"
+    ],
+    "cover": "assets/works/pez-dorado-pastel.webp",
+    "gallery": [
+      {
+        "src": "assets/works/pez-dorado-pastel.webp",
+        "caption": "Composición marina de carpa dorada con aletas translúcidas y burbujas de oxígeno."
+      }
+    ],
+    "summary": "Composición marina de carpa dorada con aletas translúcidas y burbujas de oxígeno."
+  },
+  {
+    "id": "calavera-corona-memento-mori",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Vanitas // Corona & Calavera",
+    "date": "2026",
+    "medium": "Carboncillo y grafito sobre papel blanco",
+    "dimensions": "1309 x 1600 px",
+    "palette": [
+      "#C3BFBD",
+      "#9A9491",
+      "#635D59",
+      "#3B3835"
+    ],
+    "tags": [
+      "tradicional",
+      "grafito",
+      "carboncillo",
+      "calavera",
+      "vanitas",
+      "claroscuro"
+    ],
+    "cover": "assets/works/calavera-corona-memento-mori.webp",
+    "gallery": [
+      {
+        "src": "assets/works/calavera-corona-memento-mori.webp",
+        "caption": "Composición clásica de vanitas con cráneo coronado y vela encendida sobre pedestal."
+      }
+    ],
+    "summary": "Composición clásica de vanitas con cráneo coronado y vela encendida sobre pedestal."
+  },
+  {
+    "id": "perfil-elfo-trama",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Retrato Élfico // Trama Textil",
+    "date": "2026",
+    "medium": "Tinta, grafito y plumilla sobre papel",
+    "dimensions": "1200 x 1600 px",
+    "palette": [
+      "#C2BCB8",
+      "#AFA8A7",
+      "#908988",
+      "#5B5657"
+    ],
+    "tags": [
+      "tradicional",
+      "tinta",
+      "elfo",
+      "trama",
+      "perfil",
+      "detalle"
+    ],
+    "cover": "assets/works/perfil-elfo-trama.webp",
+    "gallery": [
+      {
+        "src": "assets/works/perfil-elfo-trama.webp",
+        "caption": "Retrato en perfil con sombreado de tramado fino y textura geométrica en la indumentaria."
+      }
+    ],
+    "summary": "Retrato en perfil con sombreado de tramado fino y textura geométrica en la indumentaria."
+  },
+  {
+    "id": "some-people-may-die",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Some People May Die",
+    "date": "2026",
+    "medium": "Entintado manual y rotulador crudo sobre soporte texturizado",
+    "dimensions": "1600 x 1267 px",
+    "palette": [
+      "#445253",
+      "#353E3E",
+      "#1F1F22",
+      "#121214"
+    ],
+    "tags": [
+      "fanzine",
+      "entintado",
+      "texto",
+      "underground",
+      "expresionismo"
+    ],
+    "cover": "assets/works/some-people-may-die.webp",
+    "gallery": [
+      {
+        "src": "assets/works/some-people-may-die.webp",
+        "caption": "Ilustración fanzinera underground de trazo agresivo con tipografía manuscrita y mirada frontal."
+      }
+    ],
+    "summary": "Ilustración fanzinera underground de trazo agresivo con tipografía manuscrita y mirada frontal."
+  },
+  {
+    "id": "vibora-escamas-color",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Víbora Cornuda // Escamas",
+    "date": "2026",
+    "medium": "Lápices de color y rotulador sobre papel",
+    "dimensions": "1200 x 1600 px",
+    "palette": [
+      "#B5C6DD",
+      "#B2937F",
+      "#985657",
+      "#5A3843"
+    ],
+    "tags": [
+      "tradicional",
+      "lápices de color",
+      "reptil",
+      "víbora",
+      "escamas"
+    ],
+    "cover": "assets/works/vibora-escamas-color.webp",
+    "gallery": [
+      {
+        "src": "assets/works/vibora-escamas-color.webp",
+        "caption": "Render anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
+      }
+    ],
+    "summary": "Render anatómico minucioso de textura de escamas reptilianas en gradiente cálido."
+  },
+  {
+    "id": "aguila-tiza-papel-negro",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Águila // Tensión en Blanco",
+    "date": "2026",
+    "medium": "Lápiz blanco y pastel sobre papel negro",
+    "dimensions": "1600 x 1456 px",
+    "palette": [
+      "#878380",
+      "#595753",
+      "#42403D",
+      "#322E2B"
+    ],
+    "tags": [
+      "tradicional",
+      "tiza",
+      "lápiz blanco",
+      "águila",
+      "soporte negro"
+    ],
+    "cover": "assets/works/aguila-tiza-papel-negro.webp",
+    "gallery": [
+      {
+        "src": "assets/works/aguila-tiza-papel-negro.webp",
+        "caption": "Cabeza de rapaz en pleno grito construida con trazos de tiza blanca desde la sombra pura."
+      }
+    ],
+    "summary": "Cabeza de rapaz en pleno grito construida con trazos de tiza blanca desde la sombra pura."
+  },
+  {
+    "id": "kiwis-identidad-logo",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Kiwi's // Identidad & Logo",
+    "date": "2026",
+    "medium": "Diseño de logotipo & ilustración de mascota",
+    "dimensions": "1200 x 1600 px",
+    "palette": [
+      "#C0B8BA",
+      "#AEA6AC",
+      "#A7A0A7",
+      "#5E6E54"
+    ],
+    "tags": [
+      "diseño",
+      "branding",
+      "logo",
+      "kiwi",
+      "mascota"
+    ],
+    "cover": "assets/works/kiwis-identidad-logo.webp",
+    "gallery": [
+      {
+        "src": "assets/works/kiwis-identidad-logo.webp",
+        "caption": "Isotipo circular y tipografía para identidad de marca con mascota de periquito."
+      },
+      {
+        "src": "assets/works/kiwis-mascota-color.webp",
+        "caption": "Estudio a color de la figura del periquito con plumaje verde, rojo y azul brillante."
+      },
+      {
+        "src": "assets/works/kiwis-bocetos-proceso.webp",
+        "caption": "Lámina técnica con tres etapas de exploración formal: boceto suelto, línea depurada y color."
+      }
+    ],
+    "summary": "Isotipo circular y tipografía para identidad de marca con mascota de periquito."
+  },
+  {
+    "id": "kiwis-mascota-color",
+    "type": "artwork",
+    "category": "digital",
+    "categoryLabel": "ILUSTRACIÓN DIGITAL/A MANO",
+    "romanSlot": "II",
+    "title": "Kiwi's // Mascota Perico",
+    "date": "2026",
+    "medium": "Ilustración de mascota en tintas planas",
+    "dimensions": "1286 x 1069 px",
+    "palette": [
+      "#BAB4B1",
+      "#AFA9A8",
+      "#A5A19B",
+      "#646B26"
+    ],
+    "tags": [
+      "mascota",
+      "perico",
+      "vector",
+      "color",
+      "branding"
+    ],
+    "cover": "assets/works/kiwis-mascota-color.webp",
+    "gallery": [
+      {
+        "src": "assets/works/kiwis-mascota-color.webp",
+        "caption": "Estudio a color de la figura del periquito con plumaje verde, rojo y azul brillante."
+      }
+    ],
+    "summary": "Estudio a color de la figura del periquito con plumaje verde, rojo y azul brillante."
+  },
+  {
+    "id": "kiwis-bocetos-proceso",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Kiwi's // Bocetos & Exploración",
+    "date": "2026",
+    "medium": "Secuencia de bocetos a grafito y tinta",
+    "dimensions": "1508 x 769 px",
+    "palette": [
+      "#9F9A96",
+      "#928D8A",
+      "#858080",
+      "#716C6A"
+    ],
+    "tags": [
+      "bocetos",
+      "proceso",
+      "lápiz",
+      "diseño",
+      "secuencia"
+    ],
+    "cover": "assets/works/kiwis-bocetos-proceso.webp",
+    "gallery": [
+      {
+        "src": "assets/works/kiwis-bocetos-proceso.webp",
+        "caption": "Lámina técnica con tres etapas de exploración formal: boceto suelto, línea depurada y color."
+      }
+    ],
+    "summary": "Lámina técnica con tres etapas de exploración formal: boceto suelto, línea depurada y color."
+  },
+  {
+    "id": "ciervo-sangrado-astas",
+    "type": "artwork",
+    "category": "tradicional",
+    "categoryLabel": "TRADICIONAL",
+    "romanSlot": "I",
+    "title": "Ciervo // Cornamenta Sangrante",
+    "date": "2026",
+    "medium": "Tinta, plumilla y aguada roja sobre papel",
+    "dimensions": "1600 x 983 px",
+    "palette": [
+      "#BBB8B3",
+      "#A49F9B",
+      "#8D8784",
+      "#544E4E"
+    ],
+    "tags": [
+      "tradicional",
+      "tinta",
+      "ciervo",
+      "plumilla",
+      "tensión",
+      "visceral"
+    ],
+    "cover": "assets/works/ciervo-sangrado-astas.webp",
+    "gallery": [
+      {
+        "src": "assets/works/ciervo-sangrado-astas.webp",
+        "caption": "Figura anatómica de ciervo demacrado con cornamenta sangrante y firma de autor 'mew'."
+      }
+    ],
+    "summary": "Figura anatómica de ciervo demacrado con cornamenta sangrante y firma de autor 'mew'."
   }
 ]
