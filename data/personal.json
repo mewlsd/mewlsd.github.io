@@ -1,0 +1,19 @@
+{
+  "moniker": "WEB ZERO",
+  "headline": "ARCHIVO & BITÁCORA EDITORIAL",
+  "subheadline": "ILUSTRACIÓN // GRANO & TENSIÓN",
+  "statement": "Práctica visual enfocada en la tensión anatómica, la fricción del trazo tradicional sobre soporte oscuro y la síntesis pictórica no comercial.",
+  "avatar": "assets/ui/sidebar-avatar.webp",
+  "curriculum": {
+    "enabled": true,
+    "url": "assets/docs/curriculum.pdf",
+    "label": "CURRÍCULUM // CV ↗"
+  },
+  "contact": {
+    "email": "gogomc1208@gmail.com",
+    "status": "● COMISIONES: ABIERTAS (EDITORIAL / ILUSTRACIÓN / ARTE CONCEPTUAL)",
+    "description": "Disponible para portadas musicales, colaboraciones underground o encargos privados.",
+    "disciplines": "ILUSTRACIÓN TRADICIONAL & DIGITAL",
+    "location": "COSTA RICA"
+  }
+}

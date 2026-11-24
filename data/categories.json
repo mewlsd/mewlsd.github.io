@@ -1,26 +1,26 @@
 [
   {
-    "id": "grafito",
+    "id": "tradicional",
     "roman": "I",
-    "name": "Grafito",
-    "description": "Investigación visual construida enteramente desde el trazo seco: contraste de valores lumínicos, anatomía tensa y fricción de tiza/grafito sobre fibra de papel."
+    "name": "tradicional",
+    "description": "Piezas centradas en la gestualidad, la caracterización psicológica y el filo cortante de la plumilla tradicional, el rotulador y las aguadas tonales."
   },
   {
-    "id": "ilustracion-mano",
+    "id": "digital",
     "roman": "II",
     "name": "Ilustración digital/a mano",
     "description": "Piezas centradas en la gestualidad, la caracterización psicológica y el filo cortante de la plumilla tradicional, el rotulador y las aguadas tonales."
   },
   {
-    "id": "pintura-acrilica",
+    "id": "pintura",
     "roman": "III",
-    "name": "Pintura acrílica",
+    "name": "Pintura",
     "description": "Trabajo de empastes matéricos, solidez del pigmento opaco y construcción de planos de luz directa en soporte de tela montada."
   },
   {
-    "id": "digital",
+    "id": "fotografia",
     "roman": "IV",
-    "name": "Diseño Digital",
+    "name": "Fotografía",
     "description": "Diseño de logos, folletos, tarjetas de presentación y otros materiales de marketing."
   }
 ]
